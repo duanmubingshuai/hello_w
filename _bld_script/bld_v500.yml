@@ -4,10 +4,10 @@ rf:
 - lib\generate_lib\ck802_proj\rf.cdkws
 - [Obj\rf.a, ..\..\rf.a]
 
-smart_rf:
-- example\PhyPlusPhy\smart_rf\ck802_proj\smart_rf.cdkws
+adc:
+- cc\peripheral\adc\ck802_proj\adc.cdkws
 
 sbp:
-- example\ble_peripheral\simple_ble_peripheral\ck802_proj\simple_ble_peripheral.cdkws
+- cc\ble_peripheral\simple_ble_peripheral\ck802_proj\simple_ble_peripheral.cdkws
 - {'_BUILD_FOR_DTM_':'0'}
 #- [Obj\sbp.ihex, ..\sbp.ihex]

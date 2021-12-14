@@ -250,8 +250,8 @@ class build:
 		log_list = []
 		flog = open('_bld.txt', 'r')
 		
-		errlog = self.find_str('Error', ': error:')
-		warnlog = self.find_str('Warning', ': warning:')
+		errlog = self.find_str('Total Error', ': error:')
+		warnlog = self.find_str('Total Warning', ': warning:')
 		
 		errnum = self.read_log(': error:')
 		warnum = self.read_log(': warning:')
@@ -263,12 +263,21 @@ class build:
 			if(len(logstr) == 0):
 				break #read conpleted
 			log_list.append(logstr)
-			
 			if(errnum > 0):
 				compile_flg = False			
 			else:
 				return True
-			
+				
+			'''
+			if(errnum>0):
+				compile_flg = True
+				#if(errnum + warnum):
+				errnum1 = int(errnum)
+				warnum1 = int(warnum)
+				print('Error %d, Warning %d'%(errnum, warnum))
+				self.log(errnum, warnum, log_list)
+					#if(errnum1):
+						#return False
 				#errnum = int(logstr[logstr.find('-')+1:logstr.find('modified')])
 				#errnum = int(logstr[logstr.find('-')+1:logstr.find('Cleaning')])
 				#warnum = int(logstr[logstr.find('errors')+9: logstr.find('warning')])
@@ -281,7 +290,7 @@ class build:
 					#self.log(errnum, log_list)
 					#if(errnum):
 						#return False
-						
+						'''
 		if(compile_flg is False):
 			print('Compile Failed')
 			#self.log('Compile Failed', log_list)
@@ -323,7 +332,7 @@ class build:
 		#os.system(' copy nul '+ self.m_fold + '_bld.txt')
 		#op = self.build_txt()
         
-		cmd = self.m_keil_path + ' -w ' + self.m_path +  ' -d rebuild ' + ' -c BuildSet ' + ' 1>_bld.txt 2>&1 '
+		cmd = self.m_keil_path + ' -w ' + self.m_path +  ' -d rebuild ' + ' -c BuildSet ' + ' 1>>_bld.txt 2>&1 '
 		#print(cmd)
         
 		os.system(cmd)
@@ -458,6 +467,12 @@ def get_param(param):
 			phase_opt = 'help'
 			phase_param = []
 			continue
+			
+		if(s == '-del' or s == '-d'): #del
+			dict_param['del'] = None
+			phase_opt = 'del'
+			phase_param = []
+			continue
 
 		if (s == '-lcfg' or s == '-l'):  # list config
 			dict_param['listconfig'] = None
@@ -501,8 +516,9 @@ def get_param(param):
 
 def help(prj = None):
 	print('sdk_build.py: Build PhyPlus BLE SDK')
+	print('Please [-del] the operation first ')
 	print('useage:')
-	print('	sdk_build.py [-help [projectname]] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [-b [projectname]|[all]]') 
+	print('	sdk_build.py [-help [projectname]] [-del] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [-b [projectname]|[all]]') 
 	
 def files(curr_dir, ext):
 	for i in glob.glob(os.path.join(curr_dir, ext)):
@@ -515,6 +531,10 @@ def remove_files(rootdir, ext, show = False):
 		os.remove(i)	
 def clear_log():
 	remove_files('.', 'buildlog_*.txt', True)
+
+def delete_bld():
+	#os.system('del /f /q  '+ self.m_fold + '_bld.txt')
+	remove_files('.', '_bld.txt', True)
 
 def list_config(param):
 
@@ -569,21 +589,28 @@ def build_single(path, blditm, logfile= None):
 	return ret
 
 
+def read_l(keyword):
+	with open('_bld.txt', 'r') as file:
+		counts = 0
+		for line in file.readlines():
+			keywords = line.count(keyword)
+			counts += keywords
+		return counts
 
 def log_err_check(flog):
 	flog.seek(0,0)
-	errnum,warnum,failnum=0,0,0
+	errnum,warnum=0,0
 	while(True):
 		logstr = flog.readline()
 		if(len(logstr) == 0):
 			break #read completed
-		if(logstr.find(': error:')>0 and logstr.find(': warning:')>0 ):
-			errnum = errnum+ line.count(': error:')
-			warnum = warnum+ line.count(': warning:')
+		#if(logstr.find(': error:')>0 and logstr.find(': warning:')>0 ):
+		errnum = read_l(': error:')
+		warnum = read_l(': warning:')
 		if(logstr.find('prj build fail check _bld.txt')>0):
 			failnum = failnum+1
 
-	return errnum,warnum,failnum
+	return errnum,warnum
 
 
 '''
@@ -641,9 +668,9 @@ def build_prj(param, path):
 			ret=build_single(path, prjitm, logfile)
 			if(ret==False):
 				logfile.write('\n\n*****prj build fail check _bld.txt****\n\n')
-		[e,w,f]=log_err_check(logfile)
-		logfile.write('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d Fail %d\n'%(e,w,f))
-		print('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d Fail %d\n'%(e,w,f))
+		[e,w]=log_err_check(logfile)
+		logfile.write('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d\n'%(e,w))
+		print('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d\n'%(e,w))
 		
 	else:
 		logfile = open('buildlog_'+datetime.strftime(datetime.now(),'%Y%m%d%H%M%S')+'.txt', 'w')
@@ -656,13 +683,9 @@ def build_prj(param, path):
 	checkTimeCost('All Build Finished',bldT0,1,logfile)
 	
 	#-------Error or Warning---------#
-	
-	with open('_bld.txt', 'r') as file:
-		errnum,warnum=0,0
-		#warnum=0
-		for line in file.readlines():
-			errnum += line.count(': error:')
-			warnum += line.count(': warning:')
+	errnum,warnum=0,0
+	errnum = read_l(': error:')
+	warnum = read_l(': warning:')
 	#print('%d, %d\n' %(errnum,warnum))
 		
 	logfile.write('-'*88+'\n'+'Error %d , Warning %d: \n' %(errnum,warnum))
@@ -696,7 +719,11 @@ def main(argv):
 	if('clear' in dict_param):
 		clear_log()
 		return
-
+	
+	if('del' in dict_param):
+		delete_bld()
+		return
+	
 	if('listconfig' in dict_param):
 		if(dict_param['listconfig'] is None):
 			dict_param['listconfig'] = ['sdk_build.yml']
