@@ -1,11 +1,11 @@
 ---
 #release tag name @ current repo
 ReleaseTagName: 
-- tag_v314
+- tag_v316
 
 ReleaseBranchName:
 #- PHY62XX_SDK_3.0.6
-- test4
+- branch_2
 
 #build config
 # - yaml file
@@ -26,12 +26,12 @@ ProtectFile:
   # - '*.py'
   # - '*.txt'
 - remove_folder:
-  - lib\generate_lib\
+  #- lib\generate_lib\
   # - lib\generate_ble_host_lib\
   # - lib\generate_sec_lib\
   # - lib\generate_aoxEst_lib\
   # - lib\generate_multiConn_lib\
-  # - components\libraries\dfl\
+  - components\libraries\dfl\
   # - components\libraries\dwc\
   # - components\libraries\libc\
   # - components\aoxEst\

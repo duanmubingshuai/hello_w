@@ -330,7 +330,7 @@ def protectfile(cfg):
     print(bld)
     cur=get_dir_path(os.path.join(locallocation,'example'),2)
     remove_example=find_del_fold(bld,cur)
-    
+    '''
     for del_path in remove_example:
         # print(del_path)
         f_path = 'aliGenie_bleMesh'
@@ -340,7 +340,7 @@ def protectfile(cfg):
             cmd = 'rd /s /q ' + del_path
             print(cmd)
             validcmd(cmd)
-
+    '''
     for del_path in cfg[2]['remove_folder']:
         #libsrcpath = 'clonefile'+ '\\' + del_path[1]  #clone file cannot have a space inside
         libsrcpath = locallocation.split('/')[-1] + '\\' + del_path  # clone file cannot have a space inside
