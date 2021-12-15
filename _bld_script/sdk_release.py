@@ -327,7 +327,7 @@ def protectfile(cfg):
     print('protect code')
     print(cfg)
     bld = get_bld_path(rls_config(cfg[0]['rls_example'][0]))
-    print(bld)
+    #print(bld)
     cur=get_dir_path(os.path.join(locallocation,'example'),2)
     remove_example=find_del_fold(bld,cur)
     '''
