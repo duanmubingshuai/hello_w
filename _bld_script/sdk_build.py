@@ -331,7 +331,7 @@ class build:
 		
 		#os.system(' copy nul '+ self.m_fold + '_bld.txt')
 		#op = self.build_txt()
-        
+
 		cmd = self.m_keil_path + ' -w ' + self.m_path +  ' -d rebuild ' + ' -c BuildSet ' + ' 1>>_bld.txt 2>&1 '
 		#print(cmd)
         
@@ -764,7 +764,9 @@ def main(argv):
 			print('-version parameter is not correct, please check:',  dict_param['version'])
 			return
 	if('build' in dict_param):
+		delete_bld()
 		build_prj(dict_param['build'], path)
+		
 		return
 	#bld = build(argv[1])
 	#bld.build_check()
