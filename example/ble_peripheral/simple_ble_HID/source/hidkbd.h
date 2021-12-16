@@ -30,18 +30,12 @@
 
 **************************************************************************************************/
 
-/**************************************************************************************************
-    Filename:      
-    Revised:
-    Revision:
+/******************************************************************************
 
-    Description:    This file contains the Simple GATT profile definitions and
-                  prototypes.
+ *****************************************************************************/
 
- **************************************************************************************************/
-
-#ifndef SIMPLE_GATT_PROFILE_H
-#define SIMPLE_GATT_PROFILE_H
+#ifndef HIDEMUKBD_H
+#define HIDEMUKBD_H
 
 #ifdef __cplusplus
 extern "C"
@@ -56,35 +50,36 @@ extern "C"
     CONSTANTS
 */
 
-/*********************************************************************
-    TYPEDEFS
-*/
+// Task Events
+#define START_DEVICE_EVT                              0x0001
+#define HID_TEST_EVT                                  0x0100
 
 /*********************************************************************
     MACROS
 */
 
 /*********************************************************************
-    Profile Callbacks
+    FUNCTIONS
 */
-
 
 /*********************************************************************
-    API FUNCTIONS
+    GLOBAL VARIABLES
 */
 
+extern uint8 application_TaskID;
+extern uint8 g_instant_cnt;
 
 /*
-    SimpleProfile_AddService- Initializes the Simple GATT Profile service by registering
-            GATT attributes with the GATT server.
-
-    @param   services - services to add. This is a bit map and can
-                       contain more than one service.
+    Task Initialization for the BLE Application
 */
+extern void HidKbd_Init( uint8 task_id );
 
-extern bStatus_t simpleGATTProfile_AddService();
-
-extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
+/*
+    Task Event Processor for the BLE Application
+*/
+extern uint16 HidKbd_ProcessEvent( uint8 task_id, uint16 events );
+extern uint8 hidKbdSendVoiceCMDtReport( uint8 keycode );
+extern void hidCCSendReportKey( uint8 cmd, bool keyPressed);
 
 /*********************************************************************
 *********************************************************************/
@@ -93,4 +88,4 @@ extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
 }
 #endif
 
-#endif /* SIMPLEGATTPROFILE_H */
+#endif /*HIDEMUKBD_H */

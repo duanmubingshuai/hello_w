@@ -425,8 +425,8 @@ void init_config(void)
 	extern pTaskEventHandlerFn tasksArr[];
 	extern uint16 tasksCnt;
 	extern uint16 *tasksEvents;
-	JUMP_FUNCTION_SET(OSAL_INIT_TASKS,(uint32_t*)osalInitTasks);
-	JUMP_FUNCTION_SET(TASKS_ARRAY,(uint32_t*)tasksArr);
+	JUMP_FUNCTION_SET(OSAL_INIT_TASKS,(uint32_t)&osalInitTasks);
+	JUMP_FUNCTION_SET(TASKS_ARRAY,(uint32_t)&tasksArr);
 	JUMP_FUNCTION_SET(TASK_COUNT ,(uint32_t)&tasksCnt);
 	JUMP_FUNCTION_SET(TASK_EVENTS,(uint32_t)&tasksEvents);
 

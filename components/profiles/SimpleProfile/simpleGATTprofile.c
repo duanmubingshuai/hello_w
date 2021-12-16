@@ -159,7 +159,7 @@ static gattAttribute_t simpleGATTProfileAttrTbl[] =
     LOCAL FUNCTIONS
 */
 static bStatus_t simpleGATTProfile_WriteAttrCB( uint16 connHandle, gattAttribute_t* pAttr,
-                                           uint8* pValue, uint16 len, uint16 offset );
+                                           uint8* pValue, uint8 len, uint16 offset );
 //static void simpleGATTProfile_HandleConnStatusCB( uint16 connHandle, uint8 changeType );
 
 
@@ -189,14 +189,9 @@ CONST gattServiceCBs_t simpleGATTProfileCBs =
 
     @return  Success or Failure
 */
-bStatus_t simpleGATTProfile_AddService( uint32 services )
+bStatus_t simpleGATTProfile_AddService()
 {
-    uint8 status = SUCCESS;
-    // Initialize Client Characteristic Configuration attributes
-//    GATTServApp_InitCharCfg( INVALID_CONNHANDLE, simpleGATTProfileChar2Config );
-    // Register with Link DB to receive link status change callback
-//    linkDB_Register( simpleGATTProfile_HandleConnStatusCB );
-    // Register GATT attribute list and CBs with GATT Server App
+    bStatus_t status = SUCCESS;
     status = GATTServApp_RegisterService( simpleGATTProfileAttrTbl,
                                           GATT_NUM_ATTRS( simpleGATTProfileAttrTbl ),
                                           &simpleGATTProfileCBs );
@@ -218,7 +213,7 @@ bStatus_t simpleGATTProfile_AddService( uint32 services )
     @return  Success or Failure
 */
 static bStatus_t simpleGATTProfile_WriteAttrCB( uint16 connHandle, gattAttribute_t* pAttr,
-                                           uint8* pValue, uint16 len, uint16 offset )
+                                           uint8* pValue, uint8 len, uint16 offset )
 {
 	bStatus_t status = SUCCESS;
 
@@ -296,11 +291,6 @@ static bStatus_t simpleGATTProfile_WriteAttrCB( uint16 connHandle, gattAttribute
 
 void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value )
 {
-    bStatus_t ret = SUCCESS;
-//    uint16 notfEnable = FALSE;
-
-//	notfEnable = GATTServApp_ReadCharCfg( connHandle, &simpleGATTProfileChar2Config[ connHandle ] );
-
 	#ifdef _PHY_DEBUG 
 		LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
 		LOG("	Check notify enable %d\n",simpleGATTProfileChar2Config);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project Name="sbp" Version="v1.6" Language="C">
+<Project Name="HID" Version="v1.6" Language="C">
   <Description>CPU: ck802
 Chip: smartl
 Board: smartl_802_evb
@@ -55,16 +55,22 @@ BareMetal: Without RTOS</Description>
     <File Name="../../../../components/profiles/Roles/gapgattserver.c">
       <FileOption/>
     </File>
-    <File Name="../../../../components/profiles/Roles/peripheral.c">
-      <FileOption/>
-    </File>
     <File Name="../../../../components/profiles/GATT/gattservapp.c">
       <FileOption/>
     </File>
     <File Name="../../../../components/profiles/DevInfo/devinfoservice.c">
       <FileOption/>
     </File>
-    <File Name="../../../../components/profiles/SimpleProfile/simpleGATTprofile.c">
+    <File Name="../../../../components/profiles/HID/hiddev.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/profiles/HID/hidkbdservice.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/profiles/Batt/battservice.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/profiles/Roles/peripheral.c">
       <FileOption/>
     </File>
   </VirtualDirectory>
@@ -87,17 +93,20 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
   </VirtualDirectory>
-  <VirtualDirectory Name="simpleBlePeripheral">
+  <VirtualDirectory Name="simpleBleHID">
     <File Name="../source/main.c">
       <FileOption/>
     </File>
-    <File Name="../source/OSAL_SimpleBLEPeripheral.c">
+    <File Name="../source/HIDkbd.c">
       <FileOption/>
     </File>
-    <File Name="../source/simpleBLEPeripheral.c">
+    <File Name="../source/OSAL_HIDkbd.c">
       <FileOption/>
     </File>
-    <File Name="../source/SimpleBLEPeripheral_Main.c">
+    <File Name="../source/HIDkbd_Main.c">
+      <FileOption/>
+    </File>
+    <File Name="../source/touch_key.c" ExcludeProjConfig="BuildSet">
       <FileOption/>
     </File>
   </VirtualDirectory>
@@ -206,11 +215,11 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>x_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=0 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>_PHY_DEBUG SERV_GGS=1 SERV_GATT_SERV=1 SERV_DEV_INFO=1 SERV_BATT_SERV=1 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>
-        <IncludePath>$(ProjectPath);$(ProjectPath)/../../../../components/arch/ck802;$(ProjectPath)/../../../../components/ble/controller;$(ProjectPath)/../../../../components/ble/hci;$(ProjectPath)/../../../../components/ble/host;$(ProjectPath)/../../../../components/ble/include;$(ProjectPath)/../../../../components/driver/include;$(ProjectPath)/../../../../components/inc;$(ProjectPath)/../../../../components/libraries/crc16;$(ProjectPath)/../../../../components/libraries/dfl;$(ProjectPath)/../../../../components/libraries/dwc;$(ProjectPath)/../../../../components/libraries/secure;$(ProjectPath)/../../../../components/osal/include;$(ProjectPath)/../../../../components/profiles/DevInfo;$(ProjectPath)/../../../../components/profiles/Roles;$(ProjectPath)/../../../../components/profiles/SimpleProfile;$(ProjectPath)/../../../../misc;$(ProjectPath)/../source;$(ProjectPath)/ck802/include;$(ProjectPath)/driver/include;$(ProjectPath)/include</IncludePath>
+        <IncludePath>$(ProjectPath);$(ProjectPath)/../../../../components/arch/ck802;$(ProjectPath)/../../../../components/ble/controller;$(ProjectPath)/../../../../components/ble/hci;$(ProjectPath)/../../../../components/ble/host;$(ProjectPath)/../../../../components/ble/include;$(ProjectPath)/../../../../components/driver/include;$(ProjectPath)/../../../../components/inc;$(ProjectPath)/../../../../components/libraries/crc16;$(ProjectPath)/../../../../components/libraries/dfl;$(ProjectPath)/../../../../components/libraries/dwc;$(ProjectPath)/../../../../components/libraries/secure;$(ProjectPath)/../../../../components/osal/include;$(ProjectPath)/../../../../components/profiles/DevInfo;$(ProjectPath)/../../../../components/profiles/Roles;$(ProjectPath)/../../../../components/profiles/HID;$(ProjectPath)/../../../../components/profiles/Batt;$(ProjectPath)/../../../../misc;$(ProjectPath)/../source;$(ProjectPath)/ck802/include;$(ProjectPath)/driver/include;$(ProjectPath)/include</IncludePath>
         <OtherFlags>-ffunction-sections -fdata-sections -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 </OtherFlags>
         <Verbose>no</Verbose>
         <Ansi>no</Ansi>

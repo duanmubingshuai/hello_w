@@ -467,13 +467,7 @@ def get_param(param):
 			phase_opt = 'help'
 			phase_param = []
 			continue
-			
-		if(s == '-del' or s == '-d'): #del
-			dict_param['del'] = None
-			phase_opt = 'del'
-			phase_param = []
-			continue
-
+		
 		if (s == '-lcfg' or s == '-l'):  # list config
 			dict_param['listconfig'] = None
 			phase_opt = 'listconfig'
@@ -516,9 +510,8 @@ def get_param(param):
 
 def help(prj = None):
 	print('sdk_build.py: Build PhyPlus BLE SDK')
-	print('Please [-del] the operation first ')
 	print('useage:')
-	print('	sdk_build.py [-help [projectname]] [-del] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [-b [projectname]|[all]]') 
+	print('	sdk_build.py [-help [projectname]] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [-b [projectname]|[all]]') 
 	
 def files(curr_dir, ext):
 	for i in glob.glob(os.path.join(curr_dir, ext)):
@@ -599,7 +592,7 @@ def read_l(keyword):
 
 def log_err_check(flog):
 	flog.seek(0,0)
-	errnum,warnum=0,0
+	errnum,warnum,failnum=0,0,0
 	while(True):
 		logstr = flog.readline()
 		if(len(logstr) == 0):
@@ -610,7 +603,7 @@ def log_err_check(flog):
 		if(logstr.find('prj build fail check _bld.txt')>0):
 			failnum = failnum+1
 
-	return errnum,warnum
+	return errnum,warnum,failnum
 
 
 '''
@@ -668,9 +661,9 @@ def build_prj(param, path):
 			ret=build_single(path, prjitm, logfile)
 			if(ret==False):
 				logfile.write('\n\n*****prj build fail check _bld.txt****\n\n')
-		[e,w]=log_err_check(logfile)
-		logfile.write('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d\n'%(e,w))
-		print('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d\n'%(e,w))
+		[e,w,f]=log_err_check(logfile)
+		logfile.write('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d Fail %d\n'%(e,w,f))
+		print('\n\n'+'-'*88+'\n'+'Total Err %d Warning %d Fail %d\n'%(e,w,f))
 		
 	else:
 		logfile = open('buildlog_'+datetime.strftime(datetime.now(),'%Y%m%d%H%M%S')+'.txt', 'w')
@@ -718,10 +711,6 @@ def main(argv):
 	
 	if('clear' in dict_param):
 		clear_log()
-		return
-	
-	if('del' in dict_param):
-		delete_bld()
 		return
 	
 	if('listconfig' in dict_param):

@@ -126,6 +126,22 @@ void rf_phy_change_cfg1(uint8_t pktFmt)
 
 }
 
+void rf_phy_bb_cfg1(uint8_t pktFmt)
+{
+    rf_phy_bb_cfg(pktFmt);
+    PHY_REG_WT(0x400300d8,0x04890000);  // i_pll_ctrl3 vco/tp varactor
+    if(pktFmt==PKT_FMT_BLE1M)
+    {
+        subWriteReg( 0x400300d8,20,18,0x01);   // tpm dac var
+    }
+    else
+    {
+        subWriteReg( 0x400300d8,20,18,0x02);   // tpm dac var
+    
+    }
+
+}
+
 void rf_phy_ini1(void)
 {
     rf_phy_ini();

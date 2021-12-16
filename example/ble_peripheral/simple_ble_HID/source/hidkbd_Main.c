@@ -30,67 +30,46 @@
 
 **************************************************************************************************/
 
+/******************************************************************************
+
+
+ *****************************************************************************/
 /**************************************************************************************************
-    Filename:      
-    Revised:
-    Revision:
-
-    Description:    This file contains the Simple GATT profile definitions and
-                  prototypes.
-
+                                             Includes
  **************************************************************************************************/
+/* Hal Drivers */
+#include "rom_sym_def.h"
+/* OSAL */
+#include "OSAL.h"
+#include "OSAL_Tasks.h"
+#include "OSAL_PwrMgr.h"
+#include "osal_snv.h"
 
-#ifndef SIMPLE_GATT_PROFILE_H
-#define SIMPLE_GATT_PROFILE_H
 
-#ifdef __cplusplus
-extern "C"
+/**************************************************************************************************
+    @fn          main
+
+    @brief       Start of application.
+
+    @param       none
+
+    @return      none
+ **************************************************************************************************
+*/
+int app_main(void)
 {
-#endif
-
-/*********************************************************************
-    INCLUDES
-*/
-
-/*********************************************************************
-    CONSTANTS
-*/
-
-/*********************************************************************
-    TYPEDEFS
-*/
-
-/*********************************************************************
-    MACROS
-*/
-
-/*********************************************************************
-    Profile Callbacks
-*/
-
-
-/*********************************************************************
-    API FUNCTIONS
-*/
-
-
-/*
-    SimpleProfile_AddService- Initializes the Simple GATT Profile service by registering
-            GATT attributes with the GATT server.
-
-    @param   services - services to add. This is a bit map and can
-                       contain more than one service.
-*/
-
-extern bStatus_t simpleGATTProfile_AddService();
-
-extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
-
-/*********************************************************************
-*********************************************************************/
-
-#ifdef __cplusplus
+    /* Initialize the operating system */
+    osal_init_system();
+    osal_pwrmgr_device( PWRMGR_BATTERY );
+    /* Start OSAL */
+    osal_start_system(); // No Return from here
+    return 0;
 }
-#endif
 
-#endif /* SIMPLEGATTPROFILE_H */
+/**************************************************************************************************
+                                           CALL-BACKS
+**************************************************************************************************/
+
+
+/*************************************************************************************************
+**************************************************************************************************/

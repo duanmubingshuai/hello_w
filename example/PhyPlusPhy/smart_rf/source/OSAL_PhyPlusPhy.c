@@ -31,66 +31,61 @@
 **************************************************************************************************/
 
 /**************************************************************************************************
-    Filename:      
+    Filename:       OSAL_PhyPlusPhy.c
     Revised:
     Revision:
 
-    Description:    This file contains the Simple GATT profile definitions and
-                  prototypes.
+    Description:    This file contains function that allows user setup tasks
 
+
+
+**************************************************************************************************/
+
+/**************************************************************************************************
+                                              INCLUDES
  **************************************************************************************************/
+#include "rom_sym_def.h"
+#include "types.h"
+#include "OSAL.h"
+#include "OSAL_Tasks.h"
 
-#ifndef SIMPLE_GATT_PROFILE_H
-#define SIMPLE_GATT_PROFILE_H
+/* Application */
+#include "phy_plus_phy.h"
 
-#ifdef __cplusplus
-extern "C"
+/*********************************************************************
+    GLOBAL VARIABLES
+*/
+
+// The order in this table must be identical to the task initialization calls below in osalInitTask.
+pTaskEventHandlerFn tasksArr[] =
 {
-#endif
+    PhyPlusPhy_ProcessEvent,                                  // task
+};
+
+uint16 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+uint16* tasksEvents;
 
 /*********************************************************************
-    INCLUDES
-*/
+    FUNCTIONS
+ *********************************************************************/
 
 /*********************************************************************
-    CONSTANTS
+    @fn      osalInitTasks
+
+    @brief   This function invokes the initialization function for each task.
+
+    @param   void
+
+    @return  none
 */
-
-/*********************************************************************
-    TYPEDEFS
-*/
-
-/*********************************************************************
-    MACROS
-*/
-
-/*********************************************************************
-    Profile Callbacks
-*/
-
-
-/*********************************************************************
-    API FUNCTIONS
-*/
-
-
-/*
-    SimpleProfile_AddService- Initializes the Simple GATT Profile service by registering
-            GATT attributes with the GATT server.
-
-    @param   services - services to add. This is a bit map and can
-                       contain more than one service.
-*/
-
-extern bStatus_t simpleGATTProfile_AddService();
-
-extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
+void osalInitTasks( void )
+{
+    uint8 taskID = 0;
+    tasksEvents = (uint16*)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+    osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+    /* Application */
+    PhyPlusPhy_Init( taskID++ );
+}
 
 /*********************************************************************
 *********************************************************************/
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* SIMPLEGATTPROFILE_H */

@@ -31,17 +31,18 @@
 **************************************************************************************************/
 
 /**************************************************************************************************
-    Filename:      
+    Filename:       phy_plus_phy.h
     Revised:
     Revision:
 
-    Description:    This file contains the Simple GATT profile definitions and
-                  prototypes.
+    Description:    This file contains the phyplus phy sample application
+                  definitions and prototypes.
 
- **************************************************************************************************/
 
-#ifndef SIMPLE_GATT_PROFILE_H
-#define SIMPLE_GATT_PROFILE_H
+**************************************************************************************************/
+
+#ifndef PHYPLUSPHY_H
+#define PHYPLUSPHY_H
 
 #ifdef __cplusplus
 extern "C"
@@ -56,35 +57,33 @@ extern "C"
     CONSTANTS
 */
 
-/*********************************************************************
-    TYPEDEFS
-*/
+
+// PHY PLUS PHY Task Events
+#define PPP_PERIODIC_TX_EVT         0x0001
+#define PPP_PERIODIC_RX_EVT         0x0002
+#define PPP_TX_DONE_EVT             0x0004
+#define PPP_RX_DONE_EVT             0x0008
+#define PPP_TRX_DONE_EVT            0x0010
+#define PPP_RX_DATA_PROCESS_EVT     0x0020
+
 
 /*********************************************************************
     MACROS
 */
 
 /*********************************************************************
-    Profile Callbacks
+    FUNCTIONS
 */
-
-
-/*********************************************************************
-    API FUNCTIONS
-*/
-
 
 /*
-    SimpleProfile_AddService- Initializes the Simple GATT Profile service by registering
-            GATT attributes with the GATT server.
-
-    @param   services - services to add. This is a bit map and can
-                       contain more than one service.
+    Task Initialization for the PHYPLUS PHY Application
 */
+extern void PhyPlusPhy_Init( uint8 task_id );
 
-extern bStatus_t simpleGATTProfile_AddService();
-
-extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
+/*
+    Task Event Processor for the PHYPLUS PHY Application
+*/
+extern uint16 PhyPlusPhy_ProcessEvent( uint8 task_id, uint16 events );
 
 /*********************************************************************
 *********************************************************************/
@@ -93,4 +92,4 @@ extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
 }
 #endif
 
-#endif /* SIMPLEGATTPROFILE_H */
+#endif /* PHYPLUSPHY_H */

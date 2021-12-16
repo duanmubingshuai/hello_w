@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project Name="sbp" Version="v1.6" Language="C">
+<Project Name="smart_rf" Version="v1.6" Language="C">
   <Description>CPU: ck802
 Chip: smartl
 Board: smartl_802_evb
@@ -45,29 +45,6 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
   </VirtualDirectory>
-  <VirtualDirectory Name="profile">
-    <File Name="../../../../components/profiles/Roles/gap.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/Roles/gapbondmgr.c" ExcludeProjConfig="">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/Roles/gapgattserver.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/Roles/peripheral.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/GATT/gattservapp.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/DevInfo/devinfoservice.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/profiles/SimpleProfile/simpleGATTprofile.c">
-      <FileOption/>
-    </File>
-  </VirtualDirectory>
   <VirtualDirectory Name="lib" ExcludeProjConfig="">
     <File Name="../../../../lib/librf.a">
       <FileOption/>
@@ -87,22 +64,22 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
   </VirtualDirectory>
-  <VirtualDirectory Name="simpleBlePeripheral">
+  <VirtualDirectory Name="smart_rf">
     <File Name="../source/main.c">
       <FileOption/>
     </File>
-    <File Name="../source/OSAL_SimpleBLEPeripheral.c">
+    <File Name="../source/OSAL_PhyPlusPhy.c">
       <FileOption/>
     </File>
-    <File Name="../source/simpleBLEPeripheral.c">
+    <File Name="../source/phy_plus_phy.c">
       <FileOption/>
     </File>
-    <File Name="../source/SimpleBLEPeripheral_Main.c">
+    <File Name="../source/phy_plus_phy.h">
       <FileOption/>
     </File>
   </VirtualDirectory>
   <DebugSessions>
-    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
+    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1;tasksArr:1;tasksEvents:1</watchExpressions>
     <memoryExpressions>0x40030000;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
     <statistics>;;MHZ;</statistics>
     <peripheralTabs/>
@@ -206,7 +183,7 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>x_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=0 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>
@@ -221,7 +198,6 @@ BareMetal: Without RTOS</Description>
         <AllWarn>yes</AllWarn>
         <WarnErr>no</WarnErr>
         <OneElfS>yes</OneElfS>
-        <OneElfSPerData>no</OneElfSPerData>
         <Fstrict>no</Fstrict>
       </Compiler>
       <Asm>
@@ -252,7 +228,6 @@ BareMetal: Without RTOS</Description>
         <ResetType>Hard Reset</ResetType>
         <SoftResetVal>0</SoftResetVal>
         <ResetAfterLoad>no</ResetAfterLoad>
-        <AfterResetFile/>
         <Dumpcore>no</Dumpcore>
         <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
         <ConfigICE>
@@ -289,7 +264,6 @@ BareMetal: Without RTOS</Description>
           <OpenOCDTclPortEnable>no</OpenOCDTclPortEnable>
           <OpenOCDTclPort>6666</OpenOCDTclPort>
           <OpenOCDConfigOptions/>
-          <OpenOCDTimeout>5000</OpenOCDTimeout>
         </ConfigOpenOCD>
       </Debug>
       <Flash>

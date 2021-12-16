@@ -5,7 +5,7 @@ ReleaseTagName:
 
 ReleaseBranchName:
 #- PHY62XX_SDK_3.0.6
-- branch_1
+- branch_2
 
 #build config
 # - yaml file
@@ -32,6 +32,7 @@ ProtectFile:
   # - lib\generate_aoxEst_lib\
   # - lib\generate_multiConn_lib\
   - components\libraries\dfl\
+  - cc\
   # - components\libraries\dwc\
   # - components\libraries\libc\
   # - components\aoxEst\

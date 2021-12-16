@@ -190,7 +190,7 @@ CONST gattServiceCBs_t gapServiceCBs =
  *          FAILURE: Not enough attribute handles available.
  *          bleMemAllocError: Memory allocation error occurred.
  */
-bStatus_t GGS_AddService(  )
+bStatus_t GGS_AddService(    )
 {
 	uint8 status = SUCCESS;
 	// Register GAP attribute list and CBs with GATT Server Server App
@@ -255,17 +255,11 @@ static uint8 ggs_ReadAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
     {
       case DEVICE_NAME_UUID:
         {
-          uint8 len = osal_strlen( (char *)(pAttr->pValue) );
-
-          // If the attribute value is longer than maxLen then maxLen
-          // octets shall be included in this response.
-          if ( len > maxLen )
-          {
-            len = maxLen;
-          }
+		  uint8 attDeviceName[] = "PHY JACK V0.0.1";
+		  uint8 len = sizeof(attDeviceName);		  
 
           *pLen = len;
-          VOID osal_memcpy( pValue, pAttr->pValue, len );
+          VOID osal_memcpy( pValue, attDeviceName, len );
         }
         break;
 

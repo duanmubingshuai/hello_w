@@ -1,21 +1,37 @@
 ---
-rf:
+rf: 
 - lib\generate_lib\ck802_proj\rf.cdkws
-- [Obj\rf.a, ..\..\rf.a]
+- [Obj\rf.a, ..\..\librf.a]
+
+smart_rf:
+- example\PhyPlusPhy\smart_rf\ck802_proj\smart_rf.cdkws
 
 adc:
 - example\peripheral\adc\ck802_proj\adc.cdkws
 
 sbp:
-- example\peripheral\peripheral_test\ck802_proj\simple_ble_peripheral.cdkws
-- {'_BUILD_FOR_DTM_':'0'}
-#- [Obj\sbp.ihex, ..\sbp.ihex]
+- example\ble_peripheral\simple_ble_peripheral\ck802_proj\simple_ble_peripheral.cdkws
 
-pwm:
-- example\peripheral\pwm_test\ck802_proj\peripheral_test.cdkws
+gpio:
+- example\gpio\gpio.uvprojx
 
-spi:
-- example\peripheral\spi\ck802_proj\spi.cdkws
+usb_hs_msc:
+- usb_hs_msc\usb_hs_msc\usb_hs_msc.cdkws
 
-timer:
-- example\peripheral\timer\ck802_proj\timer.cdkws
+hid:
+- example\ble_peripheral\simple_ble_HID\ck802_proj\simple_ble_HID.cdkws
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

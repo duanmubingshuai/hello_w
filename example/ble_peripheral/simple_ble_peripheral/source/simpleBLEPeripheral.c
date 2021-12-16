@@ -54,13 +54,10 @@ o abide by the terms of these agreements.
 #include "gapgattserver.h"
 #include "gattservapp.h"
 #include "devinfoservice.h"
-
 #include "peripheral.h"
 #include "gapbondmgr.h"
-
 #include "simpleBLEPeripheral.h"
-#include "ll.h"
-#include "ll_def.h"
+#include "simpleGATTprofile.h"
 #include "hci_tl.h"
 /*********************************************************************
  * MACROS
@@ -290,7 +287,6 @@ uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
  */
 static void simpleBLEPeripheral_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 {
-    hciEvt_CmdComplete_t *pHciMsg;
     #ifdef _PHY_DEBUG 
 		LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
 	#endif
@@ -312,7 +308,7 @@ static void simpleBLEPeripheral_ProcessOSALMsg( osal_event_hdr_t *pMsg )
             switch( pMsg->status )
             {
                 case HCI_COMMAND_COMPLETE_EVENT_CODE:
-                    pHciMsg = (hciEvt_CmdComplete_t *)pMsg;
+//                    pHciMsg = (hciEvt_CmdComplete_t *)pMsg;
                 
 //                    LOG("==> HCI_COMMAND_COMPLETE_EVENT_CODE: %x\n", pHciMsg->cmdOpcode);
                     //safeToDealloc = gapProcessHCICmdCompleteEvt( (hciEvt_CmdComplete_t *)pMsg );

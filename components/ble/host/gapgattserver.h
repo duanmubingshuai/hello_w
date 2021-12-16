@@ -58,7 +58,7 @@ extern "C"
  * CONSTANTS
  */
 
-#define GAP_DEVICE_NAME_LEN                     (20+1)
+#define GAP_DEVICE_NAME_LEN                     (5+1)
 
 // Privacy Flag States
 #define GAP_PRIVACY_DISABLED                    0x00
@@ -152,18 +152,7 @@ extern bStatus_t GGS_GetParameter( uint8 param, void *value );
  *          FAILURE: Not enough attribute handles available.<BR>
  *          bleMemAllocError: Memory allocation error occurred.<BR>
  */
-extern bStatus_t GGS_AddService( uint32 services );
-
-/**
- * @brief   Delete function for the GAP GATT Service.
- *
- * @param   services - services to delete. This is a bit map and can
- *                     contain more than one service.
- *
- * @return  SUCCESS: Service deleted successfully.<BR>
- *          FAILURE: Service not found.<BR>
- */
-extern bStatus_t GGS_DelService( uint32 services );
+extern bStatus_t GGS_AddService( );
 
 /**
  * @brief   Registers the application callback function.
