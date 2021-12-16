@@ -565,6 +565,7 @@ def list_prj():
 
 def build_single(path, blditm, logfile= None):
 	bld = build(path+'\\'+blditm[0])
+	print('bld：%s\n' %bld)
 	bld.setlogfile(logfile)
 	#cfg = {'CFG_OTA_BANK_MODE':'OTA_SINGLE_BANK','USE_FCT':'0'}
 	cfg = None
