@@ -319,8 +319,8 @@ class build:
 		#os.system('del '+self.m_fold + '_bld.txt 2>1>nul')
 		#os.system('del /f /q  '+ self.m_fold + '_bld.txt')
 		
-		print('\n\nBuilding...\n'+self.m_path)
-		self.log('\n\nBuilding...\n'+self.m_path)
+		print('\nBuilding...\n'+self.m_path)
+		self.log('\nBuilding...\n'+self.m_path)
 		[lastTick,tCost]=checkTimeCost('T0',lastTick,tcPrtFlg,tcLog)
 		
 		if(build_param is not None):
@@ -640,6 +640,7 @@ def build_prj(param, path):
 		list_prj()
 		print('input id:')
 		id = int(input())
+		
 		if(id < 0 or id >= len(lprj)):
 			print('input out of range, exiting')
 			exit()
@@ -669,32 +670,34 @@ def build_prj(param, path):
 		logfile = open('buildlog_'+datetime.strftime(datetime.now(),'%Y%m%d%H%M%S')+'.txt', 'w')
 		prjname = lprj[id]
 		prjitm = dict_build_list[prjname]
-		logfile.write('-'*88+'\n'+'ProjName: '+prjname)
+		logfile.write('-'*88+'\n'+'ProjName: '+prjname+'\n')
 		#logfile.write('------------------------------------------------\n'+prjname)
 		build_single(path, prjitm, logfile)
 	
 	checkTimeCost('All Build Finished',bldT0,1,logfile)
 	
 	#-------Error or Warning---------#
-	errnum,warnum=0,0
-	errnum = read_l(': error:')
-	warnum = read_l(': warning:')
-	#print('%d, %d\n' %(errnum,warnum))
+	bldfile = os.path.exists('_bld.txt')
+	if(bldfile):
+		errnum,warnum=0,0
+		errnum = read_l(': error:')
+		warnum = read_l(': warning:')
+		#print('%d, %d\n' %(errnum,warnum))
+			
+		logfile.write('-'*88+'\n'+'Error %d , Warning %d: \n' %(errnum,warnum))
 		
-	logfile.write('-'*88+'\n'+'Error %d , Warning %d: \n' %(errnum,warnum))
-	
-	if(errnum > 0):
-		logfile.write('Compile Failed\n\n')
-	
-	logfile.write('\n')
-	with open('_bld.txt', 'r') as file1, logfile as file2:
-		for line in file1.readlines():
-			line = line.strip()
-			if ': error:' in line:
-				file2.write(line + '\n')
-			elif ': warning:' in line:
-				file2.write(line + '\n')
-		file2.close()
+		if(errnum > 0):
+			logfile.write('Compile Failed\n\n')
+		
+		logfile.write('\n')
+		with open('_bld.txt', 'r') as file1, logfile as file2:
+			for line in file1.readlines():
+				line = line.strip()
+				if ': error:' in line:
+					file2.write(line + '\n')
+				elif ': warning:' in line:
+					file2.write(line + '\n')
+			file2.close()
 	
 	return
 		
