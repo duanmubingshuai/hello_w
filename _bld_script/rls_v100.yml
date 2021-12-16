@@ -4,8 +4,7 @@ ReleaseTagName:
 - tag_v001
 
 ReleaseBranchName:
-#- PHY62XX_SDK_3.0.6
-- branch1
+- PHY62XX_SDK_3.0.6
 
 #build config
 # - yaml file
