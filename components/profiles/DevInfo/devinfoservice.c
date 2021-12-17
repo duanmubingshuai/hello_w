@@ -105,7 +105,7 @@ static CONST gattAttrType_t devInfoService = { ATT_BT_UUID_SIZE, devInfoServUUID
 static uint8 devInfoPnpIdProps = GATT_PROP_READ;
 static uint8 devInfoPnpId[DEVINFO_PNP_ID_LEN] =
 {
-  1,                                      // Vendor ID source (1=Bluetooth SIG)
+  2,                                      // Vendor ID source (1=Bluetooth SIG)
   LO_UINT16(0x0504), HI_UINT16(0x0504),   // Vendor ID (Phyplus)
   LO_UINT16(0x0000), HI_UINT16(0x0000),   // Product ID (vendor-specific)
   LO_UINT16(0x0110), HI_UINT16(0x0110)    // Product version (JJ.M.N)
@@ -136,7 +136,7 @@ static gattAttribute_t devInfoAttrTbl[] =
 	// PnP ID Value
 	{
 		{ ATT_BT_UUID_SIZE, devInfoPnpIdUUID },
-		GATT_PERMIT_READ,
+		GATT_PERMIT_ENCRYPT_READ,
 		0,
 		(uint8 *) devInfoPnpId
 	}
@@ -201,8 +201,11 @@ bStatus_t DevInfo_AddService( void )
 static uint8 devInfo_ReadAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
                             uint8 *pValue, uint8 *pLen, uint16 offset, uint8 maxLen )
 {
-  bStatus_t status = SUCCESS;
-  uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1]);
+	bStatus_t status = SUCCESS;
+	uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1]);
+	#ifdef _PHY_DEBUG 
+		  LOG("%s,%s,Line %d,uuid 0x%X\n",__FILE__,__func__,__LINE__,uuid);
+	#endif
 
   switch (uuid)
   {

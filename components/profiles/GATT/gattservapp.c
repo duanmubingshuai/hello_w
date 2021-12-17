@@ -57,7 +57,8 @@
  */
 #define GATT_DEFAULT_PERMISSION_CHECK_ENABLE 		FALSE
 #define GATT_DEFAULT_USER_DESCRIPTON_ENABLE			FALSE
-#define GATT_DEFAULT_FIND_BY_TYPE_ENABLE			FALSE
+#define GATT_DEFAULT_FIND_BY_TYPE_ENABLE			TRUE
+#define GATT_DEFAULT_USE_BLOB_REQ_ENABLE			TRUE
 /*********************************************************************
  * CONSTANTS
  */
@@ -113,6 +114,7 @@ static uint8 attrLen;
 static uint8 attrValue[ATT_MTU_SIZE-1];
 static attMsg_t rsp;
 
+#if( defined( SERV_GATT_SERV ) && SERV_GATT_SERV )
 /*** Defined GATT Attributes ***/
 
 // GATT Service attribute
@@ -132,7 +134,6 @@ static uint16 serviceChange_indCharCfg = GATT_CFG_NO_OPERATION;
  */
 
 // GATT Attribute Table
-
 static gattAttribute_t gattAttrTbl[] = {
 	// Generic Attribute Profile
 	{
@@ -165,6 +166,7 @@ static gattAttribute_t gattAttrTbl[] = {
 		(uint8 *)(&serviceChange_indCharCfg)
 	}
 };
+#endif
 
 /*********************************************************************
  * LOCAL FUNCTIONS
@@ -176,6 +178,9 @@ static gattAttribute_t gattAttrTbl[] = {
  #endif
  bStatus_t gattServApp_ProcessReadByTypeReq( gattMsgEvent_t *pMsg, uint16 *pErrHandle );
  bStatus_t gattServApp_ProcessReadReq( gattMsgEvent_t *pMsg, uint16 *pErrHandle );
+ #if( defined(GATT_DEFAULT_USE_BLOB_REQ_ENABLE) && GATT_DEFAULT_USE_BLOB_REQ_ENABLE)
+ bStatus_t gattServApp_ProcessReadBlobReq( gattMsgEvent_t* pMsg, uint16* pErrHandle );
+ #endif
  bStatus_t gattServApp_ProcessReadByGrpTypeReq( gattMsgEvent_t *pMsg, uint16 *pErrHandle );
  bStatus_t gattServApp_ProcessWriteReq( gattMsgEvent_t *pMsg, uint16 *pErrHandle );
  bStatus_t gattServApp_RegisterServiceCBs( uint16 handle, CONST gattServiceCBs_t *pServiceCBs );
@@ -451,11 +456,11 @@ void gattServApp_ProcessMsg( gattMsgEvent_t *pMsg )
 	uint8 status;
   
 	#ifdef _PHY_DEBUG 
-	LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
+		LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
 	#endif
-
+	
 	#ifdef _PHY_DEBUG 
-	LOG("	Msg Opcode 0x%X\n",pMsg->method );
+		LOG("	Msg Opcode 0x%X\n",pMsg->method );
 	#endif
 	// Process the GATT server message
 	switch ( pMsg->method )
@@ -478,6 +483,10 @@ void gattServApp_ProcessMsg( gattMsgEvent_t *pMsg )
 			status = gattServApp_ProcessReadReq( pMsg, &errHandle );
 		break;
 
+		case ATT_READ_BLOB_REQ:
+        	status = gattServApp_ProcessReadBlobReq( pMsg, &errHandle );
+        break;
+		
 		case ATT_READ_BY_GRP_TYPE_REQ:
 			status = gattServApp_ProcessReadByGrpTypeReq( pMsg, &errHandle );
 		break;
@@ -795,6 +804,54 @@ bStatus_t gattServApp_ProcessReadReq( gattMsgEvent_t *pMsg, uint16 *pErrHandle )
 
   return ( status );
 }
+
+/*********************************************************************
+    @fn          gattServApp_ProcessReadBlobReq
+
+    @brief       Process Read Blob Request.
+
+    @param       pMsg - pointer to received message
+    @param       pErrHandle - attribute handle that generates an error
+
+    @return      Success or Failure
+*/
+#if( defined(GATT_DEFAULT_USE_BLOB_REQ_ENABLE) && GATT_DEFAULT_USE_BLOB_REQ_ENABLE)
+bStatus_t gattServApp_ProcessReadBlobReq( gattMsgEvent_t* pMsg, uint16* pErrHandle )
+{
+    attReadBlobReq_t* pReq = &pMsg->msg.readBlobReq;
+    gattAttribute_t* pAttr;
+    uint16 service;
+    uint8 status;
+    pAttr = GATT_FindHandle( pReq->handle, &service );
+
+    if ( pAttr != NULL )
+    {
+        attReadBlobRsp_t* pRsp = &rsp.readBlobRsp;
+        // Read part attribute value. If the attribute value is longer than
+        // (Value Offset + ATT_MTU - 1) then (ATT_MTU - 1) octets from Value
+        // Offset shall be included in this response.
+        status = GATTServApp_ReadAttr( pMsg->connHandle, pAttr, service, pRsp->value,
+                                       &pRsp->len, pReq->offset, (ATT_GetCurrentMTUSize(pMsg->connHandle)-1) );
+
+        if ( status == SUCCESS )
+        {
+            // Send a response back
+            ATT_ReadBlobRsp( pMsg->connHandle, pRsp );
+        }
+    }
+    else
+    {
+        status = ATT_ERR_INVALID_HANDLE;
+    }
+
+    if ( status != SUCCESS )
+    {
+        *pErrHandle = pReq->handle;
+    }
+
+    return ( status );
+}
+#endif
 
 /*********************************************************************
  * @fn          gattServApp_ProcessReadByGrpTypeReq

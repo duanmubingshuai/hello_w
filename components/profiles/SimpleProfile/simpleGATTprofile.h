@@ -82,7 +82,7 @@ extern "C"
                        contain more than one service.
 */
 
-extern bStatus_t SimpleGATTProfile_AddService( uint32 services );
+extern bStatus_t simpleGATTProfile_AddService();
 
 extern void SimpleGATTProfile_Notify(uint16 connHandle,uint8 len, void* value );
 

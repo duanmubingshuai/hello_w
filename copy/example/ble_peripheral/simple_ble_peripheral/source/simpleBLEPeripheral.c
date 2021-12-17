@@ -54,17 +54,58 @@ o abide by the terms of these agreements.
 #include "gapgattserver.h"
 #include "gattservapp.h"
 #include "devinfoservice.h"
+
 #include "peripheral.h"
 #include "gapbondmgr.h"
+
 #include "simpleBLEPeripheral.h"
-#include "simpleGATTprofile.h"
+#include "ll.h"
+#include "ll_def.h"
 #include "hci_tl.h"
 /*********************************************************************
  * MACROS
  */
+//#define LOG(...)  
 /*********************************************************************
  * CONSTANTS
  */
+
+// How often to perform periodic event
+//#define SBP_PERIODIC_EVT_PERIOD                   5000
+
+//#define DEVINFO_SYSTEM_ID_LEN             8
+//#define DEVINFO_SYSTEM_ID                 0
+ 
+
+// Minimum connection interval (units of 1.25ms, 80=100ms) if automatic parameter update request is enabled
+#define DEFAULT_DESIRED_MIN_CONN_INTERVAL     24//32//80
+
+// Maximum connection interval (units of 1.25ms, 800=1000ms) if automatic parameter update request is enabled
+#define DEFAULT_DESIRED_MAX_CONN_INTERVAL     800//48//800
+
+// Slave latency to use if automatic parameter update request is enabled
+#define DEFAULT_DESIRED_SLAVE_LATENCY         0
+
+// Supervision timeout value (units of 10ms, 1000=10s) if automatic parameter update request is enabled
+#define DEFAULT_DESIRED_CONN_TIMEOUT          500//1000
+
+// Whether to enable automatic parameter update request when a connection is formed
+#define DEFAULT_ENABLE_UPDATE_REQUEST         TRUE
+
+// Connection Pause Peripheral time value (in seconds)
+#define DEFAULT_CONN_PAUSE_PERIPHERAL         6
+
+#define INVALID_CONNHANDLE                    0xFFFF
+
+// Default passcode
+#define DEFAULT_PASSCODE                      0
+
+// Length of bd addr as a string
+#define B_ADDR_STR_LEN                        15
+
+//#define RESOLVING_LIST_ENTRY_NUM              10
+
+//#define gpio_toggle
 
 /*********************************************************************
  * TYPEDEFS
@@ -77,7 +118,12 @@ o abide by the terms of these agreements.
 /*********************************************************************
  * EXTERNAL VARIABLES
  */
+//volatile uint8_t g_current_advType = LL_ADV_CONNECTABLE_UNDIRECTED_EVT;
 
+//extern wtnrTest_t wtnrTest;
+//extern l2capSARDbugCnt_t g_sarDbgCnt;
+//extern uint32 g_osal_mem_allo_cnt;
+//extern uint32 g_osal_mem_free_cnt;
 /*********************************************************************
  * EXTERNAL FUNCTIONS
  */
@@ -88,14 +134,63 @@ o abide by the terms of these agreements.
  */
 uint8 application_TaskID;   // Task ID for internal task/event processing
 
+//static gaprole_States_t gapProfileState = GAPROLE_INIT;
+//static  uint8_t notifyBuf[256];
+//static uint16 notifyInterval = 0;
+//static uint8 notifyPktNum = 0;
+//static uint8 connEvtEndNotify =0;
+//static uint16 notifyCnt = 0;
+
+//static uint16 disLatInterval = 0;
+//static uint8 disLatTxNum = 0;
+//static uint16 disLatCnt = 0;
+
+
+// GAP - SCAN RSP data (max size = 31 bytes)
+
+
+// GAP GATT Attributes
+//static uint8 attDeviceName[GAP_DEVICE_NAME_LEN] = "JACK-T- -FFFFFF ";
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
 static void simpleBLEPeripheral_ProcessOSALMsg( osal_event_hdr_t *pMsg );
+//static void peripheralStateNotificationCB( gaprole_States_t newState );
+//static void simpleProfileChangeCB( uint8 paramID );
+//static void updateAdvData(void);
+//static void peripheralStateReadRssiCB( int8 rssi  );
 
+//static void initResolvingList(void);
+
+
+//void check_PerStatsProcess(void);
+
+//char *bdAddr2Str( uint8 *pAddr );
+//static uint8_t simpleBLEPeripheral_ScanRequestFilterCBack(void);
 /*********************************************************************
  * PROFILE CALLBACKS
  */
+
+// GAP Role Callbacks
+//static gapRolesCBs_t simpleBLEPeripheral_PeripheralCBs =
+//{
+//    peripheralStateNotificationCB,  // Profile State Change Callbacks
+//    peripheralStateReadRssiCB       // When a valid RSSI is read from controller (not used by application)
+//};
+
+// GAP Bond Manager Callbacks, add 2017-11-15
+//static gapBondCBs_t simpleBLEPeripheral_BondMgrCBs =
+//{
+//  NULL,                     // Passcode callback (not used by application)
+//  NULL                      // Pairing / Bonding state Callback (not used by application)
+//};
+
+// Simple GATT Profile Callbacks
+//static simpleProfileCBs_t simpleBLEPeripheral_SimpleProfileCBs =
+//{
+//    simpleProfileChangeCB    // Charactersitic value change callback
+//};
 
 /*********************************************************************
  * PUBLIC FUNCTIONS
@@ -131,6 +226,8 @@ void SimpleBLEPeripheral_Init( uint8 task_id )
 
     // Setup a delayed profile startup
     osal_set_event( application_TaskID, SBP_START_DEVICE_EVT );
+    // for receive HCI complete message
+    GAP_RegisterForHCIMsgs(application_TaskID);
 }
 
 /*********************************************************************
@@ -146,7 +243,6 @@ void SimpleBLEPeripheral_Init( uint8 task_id )
  *
  * @return  events not processed
  */
-//static int s_tmp_cnt;
 uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
 {
     VOID task_id; // OSAL required parameter that isn't used in this function
@@ -174,8 +270,10 @@ uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
     {
         // Start the Device
         GAPRole_StartDevice( );
-        // Start Bond Manager
+
+        // Start Bond Manager, 2017-11-15
         GAPBondMgr_Register( NULL );
+		
         return ( events ^ SBP_START_DEVICE_EVT );
     }
     return 0;
@@ -192,6 +290,7 @@ uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
  */
 static void simpleBLEPeripheral_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 {
+    hciEvt_CmdComplete_t *pHciMsg;
     #ifdef _PHY_DEBUG 
 		LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
 	#endif
@@ -208,9 +307,264 @@ static void simpleBLEPeripheral_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 				}
 			break;
 		#endif
+        case HCI_GAP_EVENT_EVENT:
+        {
+            switch( pMsg->status )
+            {
+                case HCI_COMMAND_COMPLETE_EVENT_CODE:
+                    pHciMsg = (hciEvt_CmdComplete_t *)pMsg;
+                
+//                    LOG("==> HCI_COMMAND_COMPLETE_EVENT_CODE: %x\n", pHciMsg->cmdOpcode);
+                    //safeToDealloc = gapProcessHCICmdCompleteEvt( (hciEvt_CmdComplete_t *)pMsg );
+                break;
 
+
+                default:
+                    //safeToDealloc = FALSE;  // Send to app
+                break;
+            }
+        }
       }
+
 }
+/*********************************************************************
+ * @fn      peripheralStateReadRssiCB
+ *
+ * @brief   Notification from the profile of a state change.
+ *
+ * @param   newState - new state
+ *
+ * @return  none
+ */
+//static void peripheralStateReadRssiCB( int8  rssi )
+//{
+////    notifyBuf[15]++;
+////    notifyBuf[16]=rssi;
+////    notifyBuf[17]=HI_UINT16(g_conn_param_foff);
+////    notifyBuf[18]=LO_UINT16(g_conn_param_foff);;
+////    notifyBuf[19]=g_conn_param_carrSens;
+//}
+
+/*********************************************************************
+ * @fn      peripheralStateNotificationCB
+ *
+ * @brief   Notification from the profile of a state change.
+ *
+ * @param   newState - new state
+ *
+ * @return  none
+ */
+//static void peripheralStateNotificationCB( gaprole_States_t newState )
+//{
+//    switch ( newState )
+//    {
+//        case GAPROLE_STARTED:
+//        {
+//            uint8 ownAddress[B_ADDR_LEN];
+//            uint8 str_addr[14]={0}; 
+//            uint8 systemId[DEVINFO_SYSTEM_ID_LEN];
+//            uint8 initial_advertising_enable = FALSE;//true
+//        
+//            GAPRole_GetParameter(GAPROLE_BD_ADDR, ownAddress);
+//        
+//            // use 6 bytes of device address for 8 bytes of system ID value
+//            systemId[0] = ownAddress[0];
+//            systemId[1] = ownAddress[1];
+//            systemId[2] = ownAddress[2];
+//        
+//            // set middle bytes to zero
+//            systemId[4] = 0x00;
+//            systemId[3] = 0x00;
+//        
+//            // shift three bytes up
+//            systemId[7] = ownAddress[5];
+//            systemId[6] = ownAddress[4];
+//            systemId[5] = ownAddress[3];
+//        
+////            DevInfo_SetParameter(DEVINFO_SYSTEM_ID, DEVINFO_SYSTEM_ID_LEN, systemId);
+//
+//
+//            osal_memcpy(&str_addr[0],bdAddr2Str(ownAddress),14);
+//            osal_memcpy(&scanRspData[11],&str_addr[6],8);
+//            osal_memcpy(&attDeviceName[9],&str_addr[6],8);
+//        
+//
+//            GAPRole_SetParameter( GAPROLE_SCAN_RSP_DATA, sizeof ( scanRspData ), scanRspData );
+//            // Set the GAP Characteristics
+////            GGS_SetParameter( GGS_DEVICE_NAME_ATT, GAP_DEVICE_NAME_LEN, attDeviceName );
+//
+//            GAPRole_SetParameter( GAPROLE_ADVERT_ENABLED, sizeof( uint8 ), &initial_advertising_enable );
+//
+//			//osal_start_timerEx(simpleBLEPeripheral_TaskID, SBP_RESET_ADV_EVT, 500);    
+//			osal_set_event(simpleBLEPeripheral_TaskID, SBP_RESET_ADV_EVT);    
+//                                    
+//        }
+//            break;
+//        
+//        case GAPROLE_ADVERTISING:
+//        {
+//            osal_stop_timerEx(simpleBLEPeripheral_TaskID, SBP_PERIODIC_EVT);
+//            notifyCnt=0;
+//            notifyInterval = 0;
+//
+//            osal_stop_timerEx(simpleBLEPeripheral_TaskID, SBP_DISABLE_LATENCY_TEST_EVT);
+//            disLatInterval = 0;
+//            disLatCnt = 0;
+//            disLatTxNum=0;
+//            
+//         }   
+//            break;
+//        
+//       case GAPROLE_CONNECTED:
+// #if (PHY_MCU_TYPE == MCU_BUMBEE_M0)
+//            HCI_PPLUS_ConnEventDoneNoticeCmd(simpleBLEPeripheral_TaskID, NULL);
+//            
+// #endif /*#if (PHY_MCU_TYPE == MCU_BUMBEE_M0)*/
+//           break;
+//        
+//        case GAPROLE_CONNECTED_ADV:
+//            break;      
+//        case GAPROLE_WAITING:
+//            break;
+//        
+//        case GAPROLE_WAITING_AFTER_TIMEOUT:
+//            break;
+//        
+//        case GAPROLE_ERROR:
+//            break;
+//        
+//        default:
+//            break;        
+//    }  
+//    gapProfileState = newState;
+//
+//    LOG("[GAP ROLE %d]\n",newState);
+//     
+//    VOID gapProfileState;     
+//}
+
+
+/*********************************************************************
+ * @fn      simpleProfileChangeCB
+ *
+ * @brief   Callback from SimpleBLEProfile indicating a value change
+ *
+ * @param   paramID - parameter ID of the value that was changed.
+ *
+ * @return  none
+ */
+//static void simpleProfileChangeCB( uint8 paramID )
+//{
+//  	uint8 newValue[250];
+//    
+////	switch( paramID )
+////	{
+////		case SIMPLEPROFILE_CHAR5:
+////			SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR5, newValue );
+////			LOG("[WRT_ATT] %02x \n",newValue[0]);
+////			if( newValue[0] == 0x01 )
+////				osal_start_reload_timer( simpleBLEPeripheral_TaskID, SBP_PERIODIC_EVT, 1000 );
+////		break;
+////	}
+//}
+
+
+/*********************************************************************
+ * @fn      updateAdvData
+ *
+ * @brief   update adv data and change the adv type
+ *
+ * @param   none
+ *
+ * @return  none
+ */
+//static void updateAdvData(void)
+//{
+//    uint8  new_uuid[IBEACON_UUID_LEN];
+//    uint16  major;
+//    uint16  minor;
+//    uint8   power;
+//    
+//    // 1. get the new setting from GATT attributes
+//    SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR1, new_uuid );
+//    SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR2, &major );
+//    SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR3, &minor );
+//    SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR4, &power );	  
+//    
+//    // 2. update adv data storage
+//    //set UUID
+//    VOID osal_memcpy(&advertData[9], new_uuid, IBEACON_UUID_LEN);
+//    // set major
+//    advertData[25] = LO_UINT16( major );
+//    advertData[26] = HI_UINT16( major );	  
+//    // set minor	  
+//    advertData[27] = LO_UINT16( minor );
+//    advertData[28] = HI_UINT16( minor );	
+//    // set power
+//    advertData[29] = power;
+//	
+//    // 3. disconnect all connection
+//    GAPRole_TerminateConnection();
+//		
+//    // 4. close advert
+//    uint8 initial_advertising_enable = FALSE;		
+//    GAPRole_SetParameter( GAPROLE_ADVERT_ENABLED, sizeof( uint8 ), &initial_advertising_enable );		
+//        
+//    // 5. update adv data
+//    // 5.1 update adv type
+//    uint8 advType = g_current_advType;    
+//    GAPRole_SetParameter( GAPROLE_ADV_EVENT_TYPE, sizeof( uint8 ), &advType );	  
+//
+////    uint16 advInt = otaAdvIntv<<4;
+////    GAP_SetParamValue( TGAP_LIM_DISC_ADV_INT_MIN, advInt );
+////    GAP_SetParamValue( TGAP_LIM_DISC_ADV_INT_MAX, advInt );
+////    GAP_SetParamValue( TGAP_GEN_DISC_ADV_INT_MIN, advInt );
+////    GAP_SetParamValue( TGAP_GEN_DISC_ADV_INT_MAX, advInt );
+//
+//    // 5.2 update advert broadcast
+//    GAPRole_SetParameter( GAPROLE_ADVERT_DATA, sizeof( advertData ), advertData );	
+//
+//    // 5.3 set TxPower
+//    g_rfPhyTxPower = power;
+//    rf_phy_set_txPower(power);
+//
+//    // 6. set reset advertisement event, note that GAP/LL will process close adv event in advance
+//    osal_start_timerEx(simpleBLEPeripheral_TaskID, SBP_RESET_ADV_EVT,5000);    
+//}
+
+/*********************************************************************
+* @fn      bdAddr2Str
+*
+* @brief   Convert Bluetooth address to string. Only needed when
+*          LCD display is used.
+*
+* @return  none
+*/
+//char *bdAddr2Str( uint8 *pAddr )
+//{
+//  uint8       i;
+//  char        hex[] = "0123456789ABCDEF";
+//  static char str[B_ADDR_STR_LEN];
+//  char        *pStr = str;
+//  
+//  *pStr++ = '0';
+//  *pStr++ = 'x';
+//  
+//  // Start from end of addr
+//  pAddr += B_ADDR_LEN;
+//  
+//  for ( i = B_ADDR_LEN; i > 0; i-- )
+//  {
+//    *pStr++ = hex[*--pAddr >> 4];
+//    *pStr++ = hex[*pAddr & 0x0F];
+//  }
+//  
+//  *pStr = 0;
+//  
+//  return str;
+//}
+
+
 
 /*********************************************************************
 *********************************************************************/

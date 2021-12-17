@@ -65,6 +65,10 @@ extern "C"
 #define SBP_RESET_ADV_EVT                              0x0008
 #define SBP_DISABLE_LATENCY_TEST_EVT                   0x0010
 #define SBP_ENABLE_LATENCY_EVT                         0x0020
+//#define SBP_DLE_CHANGE_EVT                             0x0020
+//#define SBP_PHY_UPDATE_EVT                             0x0040
+//#define SBP_CONN_NOTIFY_EVT                            0x0080
+//#define SBP_RTC_TEST_EVT                               0x0100
 
 /*********************************************************************
  * MACROS

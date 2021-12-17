@@ -31,13 +31,14 @@
 **************************************************************************************************/
 
 /*******************************************************************************
-    @file   adc_x.c
+    @file   adc.c
     @brief  Contains all functions support for adc driver
     @version  0.0
     @date   18. Oct. 2017
     @author qing.han
 
 *******************************************************************************/
+#include "rom_sym_def.h"
 #include <string.h>
 #include "error.h"
 #include "gpio.h"
@@ -243,7 +244,7 @@ static void clear_adcc_cfg(void)
 
     @return      None.
  **************************************************************************************/
-void __attribute__((used)) hal_ADC_IRQ_x(void)
+void __attribute__((used)) hal_ADC_IRQ(void)
 {
 	int ch,ch2,status =0,n;
 	uint16_t adc_data[MAX_ADC_SAMPLE_SIZE-2];
@@ -286,7 +287,7 @@ void __attribute__((used)) hal_ADC_IRQ_x(void)
 	//LOG("> %x\n",mAdc_Ctx.all_channel);
 	if((mAdc_Ctx.all_channel == 0) && (mAdc_Ctx.continue_mode == FALSE))//
 	{
-		hal_adc_stop_x();
+		hal_adc_stop();
 	}
 }
 
@@ -313,7 +314,7 @@ static void adc_wakeup_hdl(void)
 
     @return      None.
  **************************************************************************************/
-void hal_adc_init_x(void)
+void hal_adc_init(void)
 {
     pwrmgr_register(MOD_ADCC,NULL,adc_wakeup_hdl);
 	clear_adcc_cfg();
@@ -331,7 +332,7 @@ void hal_adc_init_x(void)
 //    return PPlus_SUCCESS;
 //}
 
-int hal_adc_start_x(void)
+int hal_adc_start(void)
 {
 	uint8_t     all_channel2 = (((mAdc_Ctx.chs_en_shadow&0x80)>>1)|\
 								((mAdc_Ctx.chs_en_shadow&0x40)<<1)|\
@@ -348,7 +349,7 @@ int hal_adc_start_x(void)
 	LOG("all_channel2:0x%x\n",all_channel2);
 	
     _symrom_pwrmgr_lock(MOD_ADCC);
-	JUMP_FUNCTION_SET(ADCC_IRQ_HANDLER,(uint32_t)&hal_ADC_IRQ_x);
+	JUMP_FUNCTION_SET(ADCC_IRQ_HANDLER,(uint32_t)&hal_ADC_IRQ);
 
 	for(int i=MIN_ADC_CH; i<=MAX_ADC_CH; i++)
 	{
@@ -393,11 +394,11 @@ int hal_adc_start_x(void)
     return PPlus_SUCCESS;
 }
 
-int hal_adc_config_channel_x(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
+int hal_adc_config_channel(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
 {
     uint8_t i;
-    uint8_t chn_sel;
-    gpio_pin_e pin,pin_neg;
+    volatile uint8_t chn_sel;
+    volatile gpio_pin_e pin,pin_neg;
 	
 	if(mAdc_Ctx.enable == FALSE)
 	{
@@ -414,7 +415,7 @@ int hal_adc_config_channel_x(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
         return PPlus_ERR_NOT_SUPPORTED;
     }
 
-    if((!cfg.channel & BIT(1))&&(cfg.is_differential_mode && (cfg.channel & BIT(1))))
+    if(((!cfg.channel) & BIT(1))&&(cfg.is_differential_mode && (cfg.channel & BIT(1))))
     {
         return PPlus_ERR_INVALID_PARAM;
     }
@@ -503,7 +504,7 @@ int hal_adc_config_channel_x(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
         }
     }
     else
-    {
+    {		
         switch(cfg.is_differential_mode)
         {
         case 0x80:
@@ -545,13 +546,13 @@ int hal_adc_config_channel_x(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
         gpio_cfg_analog_io(pin_neg,Bit_ENABLE);
         //LOG("%d %d %x\n",pin,pin_neg,*(volatile int*)0x40003800);
         mAdc_Ctx.all_channel = (cfg.is_differential_mode >> 1);
-        mAdc_Ctx.evt_handler = evt_handler;
+        mAdc_Ctx.evt_handler = evt_handler;	
     }
 
     return PPlus_SUCCESS;
 }
 
-int hal_adc_stop_x(void)
+int hal_adc_stop(void)
 {
 	int i;
 	uint8_t     all_channel2 = (((mAdc_Ctx.chs_en_shadow&0x80)>>1)|\
@@ -591,7 +592,7 @@ int hal_adc_stop_x(void)
     clk_gate_disable(MOD_ADCC);
     clear_adcc_cfg();
     //enableSleep();
-    _symrom_pwrmgr_unlock(MOD_ADCC);//todo
+    pwrmgr_unlock(MOD_ADCC);
     return PPlus_SUCCESS;
 }
 
@@ -605,7 +606,7 @@ const unsigned int adc_Lambda[6] =
 	4043344,//P20
 };
 
-float hal_adc_value_cal_x(adc_CH_t ch,uint16_t* buf, uint32_t size, uint8_t high_resol, uint8_t diff_mode)
+float hal_adc_value_cal(adc_CH_t ch,uint16_t* buf, uint32_t size, uint8_t high_resol, uint8_t diff_mode)
 {
     uint32_t i;
     int adc_sum = 0;

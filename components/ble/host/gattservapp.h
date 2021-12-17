@@ -389,18 +389,7 @@ extern gattAttribute_t *GATTServApp_FindAttr( gattAttribute_t *pAttrTbl,
  *          FAILURE: Not enough attribute handles available.<BR>
  *          bleMemAllocError: Memory allocation error occurred.<BR>
  */
-extern bStatus_t GATTServApp_AddService( uint32 services );
-
-/**
- * @brief   Delete function for the GATT Service.
- *
- * @param   services - services to delete. This is a bit map and can
- *                     contain more than one service.
- *
- * @return  SUCCESS: Service deleted successfully.<BR>
- *          FAILURE: Service not found.<BR>
- */
-extern bStatus_t GATTServApp_DelService( uint32 services );
+extern bStatus_t GATTServApp_AddService();
 
 /**
  * @brief   Set a GATT Server parameter.
@@ -462,7 +451,7 @@ extern bStatus_t GATTServApp_UpdateCharCfg( uint16 connHandle, uint16 attrHandle
  *
  * @return  none
  */
-extern void GATTServApp_InitCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl );
+//extern void GATTServApp_InitCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl );
 
 /**
  * @brief   Read the client characteristic configuration for a given
@@ -478,7 +467,7 @@ extern void GATTServApp_InitCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTb
  *
  * @return  attribute value
  */
-extern uint16 GATTServApp_ReadCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl );
+//extern uint16 GATTServApp_ReadCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl );
 
 /**
  * @brief   Write the client characteristic configuration for a given
@@ -495,7 +484,7 @@ extern uint16 GATTServApp_ReadCharCfg( uint16 connHandle, gattCharCfg_t *charCfg
  *
  * @return  Success or Failure
  */
-extern uint8 GATTServApp_WriteCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl, uint16 value );
+//extern uint8 GATTServApp_WriteCharCfg( uint16 connHandle, gattCharCfg_t *charCfgTbl, uint16 value );
 
 /**
  * @brief   Process the client characteristic configuration

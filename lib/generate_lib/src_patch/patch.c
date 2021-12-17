@@ -414,7 +414,7 @@ void init_config(void)
 	pGlobal_config[LL_NOCONN_ADV_EST_TIME] = 1400*3;
 	pGlobal_config[LL_NOCONN_ADV_MARGIN] = 600;
 
-	pGlobal_config[LL_SEC_SCAN_MARGIN] = 1400;
+	pGlobal_config[LL_SEC_SCAN_MARGIN] = 1400*3;
 	pGlobal_config[LL_MIN_SCAN_TIME] = 2000;
 
 	pGlobal_config[TIMER_ISR_ENTRY_TIME] = 30;
@@ -425,8 +425,8 @@ void init_config(void)
 	extern pTaskEventHandlerFn tasksArr[];
 	extern uint16 tasksCnt;
 	extern uint16 *tasksEvents;
-	JUMP_FUNCTION_SET(OSAL_INIT_TASKS,(uint32_t*)osalInitTasks);
-	JUMP_FUNCTION_SET(TASKS_ARRAY,(uint32_t*)tasksArr);
+	JUMP_FUNCTION_SET(OSAL_INIT_TASKS,(uint32_t)&osalInitTasks);
+	JUMP_FUNCTION_SET(TASKS_ARRAY,(uint32_t)&tasksArr);
 	JUMP_FUNCTION_SET(TASK_COUNT ,(uint32_t)&tasksCnt);
 	JUMP_FUNCTION_SET(TASK_EVENTS,(uint32_t)&tasksEvents);
 

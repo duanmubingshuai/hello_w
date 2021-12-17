@@ -104,6 +104,16 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
   </VirtualDirectory>
+  <DebugSessions>
+    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
+    <memoryExpressions>0x1fff00e2;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
+    <statistics>;;MHZ;</statistics>
+    <peripheralTabs/>
+    <WatchDisplayFormat>1</WatchDisplayFormat>
+    <LocalDisplayFormat>0</LocalDisplayFormat>
+    <debugLayout/>
+    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
+  </DebugSessions>
   <BuildConfigs>
     <BuildConfig Name="BuildSet">
       <Target>
@@ -199,7 +209,7 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>x_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=0 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>x_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=0 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>
@@ -214,7 +224,6 @@ BareMetal: Without RTOS</Description>
         <AllWarn>yes</AllWarn>
         <WarnErr>no</WarnErr>
         <OneElfS>yes</OneElfS>
-        <OneElfSPerData>no</OneElfSPerData>
         <Fstrict>no</Fstrict>
       </Compiler>
       <Asm>
@@ -245,7 +254,6 @@ BareMetal: Without RTOS</Description>
         <ResetType>Hard Reset</ResetType>
         <SoftResetVal>0</SoftResetVal>
         <ResetAfterLoad>no</ResetAfterLoad>
-        <AfterResetFile/>
         <Dumpcore>no</Dumpcore>
         <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
         <ConfigICE>
@@ -282,7 +290,6 @@ BareMetal: Without RTOS</Description>
           <OpenOCDTclPortEnable>no</OpenOCDTclPortEnable>
           <OpenOCDTclPort>6666</OpenOCDTclPort>
           <OpenOCDConfigOptions/>
-          <OpenOCDTimeout>5000</OpenOCDTimeout>
         </ConfigOpenOCD>
       </Debug>
       <Flash>
@@ -300,14 +307,4 @@ BareMetal: Without RTOS</Description>
       </Flash>
     </BuildConfig>
   </BuildConfigs>
-  <DebugSessions>
-    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
-    <memoryExpressions>0x1fff00e2;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
-    <statistics>;;MHZ;</statistics>
-    <peripheralTabs/>
-    <WatchDisplayFormat>1</WatchDisplayFormat>
-    <LocalDisplayFormat>0</LocalDisplayFormat>
-    <debugLayout/>
-    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
-  </DebugSessions>
 </Project>

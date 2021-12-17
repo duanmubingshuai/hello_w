@@ -30,7 +30,7 @@
   
 **************************************************************************************************/
 
-
+#if( defined( SERV_BATT_SERV ) && SERV_BATT_SERV )
 
 /*********************************************************************
  * INCLUDES
@@ -46,9 +46,9 @@
 #include "gattservapp.h"
 #include "peripheral.h"
 #include "hiddev.h"
-
 #include "battservice.h"
-
+#include "rom_sym_def.h"
+#include "log.h"
 /*********************************************************************
  * MACROS
  */
@@ -95,17 +95,11 @@ CONST uint8 battLevelUUID[ATT_BT_UUID_SIZE] =
  * LOCAL VARIABLES
  */
 
-// Application callback
-static battServiceCB_t battServiceCB;
-
-
-#ifndef HID_VOICE_SPEC
-//static uint16 battMinLevel = BATT_ADC_LEVEL_2V; // For VDD/3 measurements
-//static uint16 battMaxLevel = BATT_ADC_LEVEL_3V; // For VDD/3 measurements
-#endif
+//// Application callback
+//static battServiceCB_t battServiceCB;
 
 // Critical battery level setting
-static uint8 battCriticalLevel;
+//static uint8 battCriticalLevel;
 
 // ADC channel to be used for reading
 
@@ -118,25 +112,11 @@ static CONST gattAttrType_t battService = { ATT_BT_UUID_SIZE, battServUUID };
 
 // Battery level characteristic
 static uint8 battLevelProps = GATT_PROP_READ | GATT_PROP_NOTIFY;
-static uint8 battLevel = 100;
+static uint8 battLevel = 99;
 
-#ifdef HID_VOICE_SPEC
-
-// Characteristic Presentation Format of the Battery Level Characteristic.
-static gattCharFormat_t battLevelPresentation = {
-  GATT_FORMAT_UINT8,           /* format */
-  0,                           /* exponent */
-  GATT_UNIT_PERCENTAGE_UUID,   /* unit */
-  GATT_NS_BT_SIG,              /* name space */
-  GATT_DESC_LENGTH_UUID        /* desc */
-};
-#endif
-
-static gattCharCfg_t battLevelClientCharCfg[GATT_MAX_NUM_CONN];
-
+static uint16 battLevelClientCharCfg = GATT_CFG_NO_OPERATION;
 // HID Report Reference characteristic descriptor, battery level
-static uint8 hidReportRefBattLevel[HID_REPORT_REF_LEN] =
-             { HID_RPT_ID_BATT_LEVEL_IN, HID_REPORT_TYPE_INPUT };
+static uint8 hidReportRefBattLevel[HID_REPORT_REF_LEN] = { HID_RPT_ID_BATT_LEVEL_IN, HID_REPORT_TYPE_INPUT };
 
 /*********************************************************************
  * Profile Attributes - Table
@@ -183,16 +163,6 @@ static gattAttribute_t battAttrTbl[] =
         0,
         hidReportRefBattLevel
       },
-#ifdef HID_VOICE_SPEC
-      
-	        // Characteristic Presentation format
-      {
-        { ATT_BT_UUID_SIZE, charFormatUUID },
-        GATT_PERMIT_READ,
-        0,
-        (uint8_t *)&battLevelPresentation
-      },
-#endif
 };
 
 
@@ -234,9 +204,6 @@ bStatus_t Batt_AddService( void )
 {
   uint8 status = SUCCESS;
 
-  // Initialize Client Characteristic Configuration attributes
-  GATTServApp_InitCharCfg( INVALID_CONNHANDLE, battLevelClientCharCfg );
-
   // Register GATT attribute list and CBs with GATT Server App
   status = GATTServApp_RegisterService( battAttrTbl,
                                         GATT_NUM_ATTRS( battAttrTbl ),
@@ -245,107 +212,6 @@ bStatus_t Batt_AddService( void )
   return ( status );
 }
 
-/*********************************************************************
- * @fn      Batt_Register
- *
- * @brief   Register a callback function with the Battery Service.
- *
- * @param   pfnServiceCB - Callback function.
- *
- * @return  None.
- */
-extern void Batt_Register( battServiceCB_t pfnServiceCB )
-{
-  battServiceCB = pfnServiceCB;
-}
-
-/*********************************************************************
- * @fn      Batt_SetParameter
- *
- * @brief   Set a Battery Service parameter.
- *
- * @param   param - Profile parameter ID
- * @param   len - length of data to right
- * @param   value - pointer to data to write.  This is dependent on
- *          the parameter ID and WILL be cast to the appropriate
- *          data type (example: data type of uint16 will be cast to
- *          uint16 pointer).
- *
- * @return  bStatus_t
- */
-bStatus_t Batt_SetParameter( uint8 param, uint8 len, void *value )
-{
-  bStatus_t ret = SUCCESS;
-
-  switch ( param )
-  {
-    case BATT_PARAM_CRITICAL_LEVEL:
-      battCriticalLevel = *((uint8*)value);
-
-      // If below the critical level and critical state not set, notify it
-      if ( battLevel < battCriticalLevel )
-      {
-        battNotifyLevel();
-      }
-      break;
-
-    default:
-      ret = INVALIDPARAMETER;
-      break;
-  }
-
-  return ( ret );
-}
-
-/*********************************************************************
- * @fn      Batt_GetParameter
- *
- * @brief   Get a Battery Service parameter.
- *
- * @param   param - Profile parameter ID
- * @param   value - pointer to data to get.  This is dependent on
- *          the parameter ID and WILL be cast to the appropriate
- *          data type (example: data type of uint16 will be cast to
- *          uint16 pointer).
- *
- * @return  bStatus_t
- */
-bStatus_t Batt_GetParameter( uint8 param, void *value )
-{
-  bStatus_t ret = SUCCESS;
-  switch ( param )
-  {
-    case BATT_PARAM_LEVEL:
-      *((uint8*)value) = battLevel;
-      break;
-
-    case BATT_PARAM_CRITICAL_LEVEL:
-      *((uint8*)value) = battCriticalLevel;
-      break;
-
-    case BATT_PARAM_SERVICE_HANDLE:
-      *((uint16*)value) = GATT_SERVICE_HANDLE( battAttrTbl );
-      break;
-
-    case BATT_PARAM_BATT_LEVEL_IN_REPORT:
-      {
-        hidRptMap_t *pRpt = (hidRptMap_t *)value;
-
-        pRpt->id = hidReportRefBattLevel[0];
-        pRpt->type = hidReportRefBattLevel[1];
-        pRpt->handle = battAttrTbl[BATT_LEVEL_VALUE_IDX].handle;
-        pRpt->cccdHandle = battAttrTbl[BATT_LEVEL_VALUE_CCCD_IDX].handle;
-        pRpt->mode = HID_PROTOCOL_MODE_REPORT;
-      }
-      break;
-
-    default:
-      ret = INVALIDPARAMETER;
-      break;
-  }
-
-  return ( ret );
-}
 
 /*********************************************************************
  * @fn          Batt_MeasLevel
@@ -361,21 +227,24 @@ bStatus_t Batt_GetParameter( uint8 param, void *value )
  */
 bStatus_t Batt_MeasLevel( void )
 {
-  uint8 level;
+  	uint8 level;
+	#ifdef _PHY_DEBUG 
+		LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
+	#endif
 
-  level = battMeasure();
+	level = battMeasure();
 
-  // If level has gone down
-  if (level < battLevel)
-  {
-    // Update level
-    battLevel = level;
+	// If level has gone down
+	if (level < battLevel)
+	{
+		// Update level
+		battLevel = level;
 
-    // Send a notification
-    battNotifyLevel();
-  }
+		// Send a notification
+		battNotifyLevel();
+	}
 
-  return SUCCESS;
+	return SUCCESS;
 }
 
 
@@ -397,42 +266,51 @@ bStatus_t Batt_MeasLevel( void )
 static uint8 battReadAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
                              uint8 *pValue, uint8 *pLen, uint16 offset, uint8 maxLen )
 {
-  bStatus_t status = SUCCESS;
+  	bStatus_t status = SUCCESS;
+	#ifdef _PHY_DEBUG 
+		  LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
+	#endif
 
-  // Make sure it's not a blob operation (no attributes in the profile are long)
-  if ( offset > 0 )
-  {
-    return ( ATT_ERR_ATTR_NOT_LONG );
-  }
+	// Make sure it's not a blob operation (no attributes in the profile are long)
+	if ( offset > 0 )
+	{
+		return ( ATT_ERR_ATTR_NOT_LONG );
+	}
 
-  uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1] );
+  	uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1] );
+	#ifdef _PHY_DEBUG 
+		  LOG("uuid 0x%X\n",uuid );
+	#endif
 
-  // Measure battery level if reading level
-  if ( uuid == BATT_LEVEL_UUID )
-  {
-    uint8 level;
+	// Measure battery level if reading level
+	if ( uuid == BATT_LEVEL_UUID )
+	{
+		uint8 level;
 
-    level = battMeasure();
+		level = battMeasure();
 
-    // If level has gone down
-    if (level < battLevel)
-    {
-      // Update level
-      battLevel = level;
-    }
+		// If level has gone down
+		if (level < battLevel)
+		{
+		// Update level
+		battLevel = level;
+		}
 
-    *pLen = 1;
-    pValue[0] = battLevel;
-  }
-  else if ( uuid == GATT_REPORT_REF_UUID )
-  {
-    *pLen = HID_REPORT_REF_LEN;
-    osal_memcpy( pValue, pAttr->pValue, HID_REPORT_REF_LEN );
-  }
-  else
-  {
-    status = ATT_ERR_ATTR_NOT_FOUND;
-  }
+		*pLen = 1;
+		pValue[0] = battLevel;
+	}
+	else if ( uuid == GATT_REPORT_REF_UUID )
+	{
+//		*pLen = HID_RPT_ID_BATT_LEVEL_IN;//HID_REPORT_REF_LEN;
+//		osal_memcpy( pValue, pAttr->pValue, /*HID_REPORT_REF_LEN*/HID_RPT_ID_BATT_LEVEL_IN );
+		*pLen = 1;
+		pValue[0] = battMeasure();
+
+	}
+	else
+	{
+		status = ATT_ERR_ATTR_NOT_FOUND;
+	}
 
   return ( status );
 }
@@ -453,33 +331,31 @@ static uint8 battReadAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
 static bStatus_t battWriteAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
                                   uint8 *pValue, uint8 len, uint16 offset )
 {
-  bStatus_t status = SUCCESS;
+	bStatus_t status = SUCCESS;
 
-  uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1]);
-  switch ( uuid )
-  {
-    case GATT_CLIENT_CHAR_CFG_UUID:
-      status = GATTServApp_ProcessCCCWriteReq( connHandle, pAttr, pValue, len,
-                                               offset, GATT_CLIENT_CFG_NOTIFY );
-      if ( status == SUCCESS )
-      {
-        uint16 charCfg = BUILD_UINT16( pValue[0], pValue[1] );
+	#ifdef _PHY_DEBUG 
+		  LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
+	#endif
+	
+	uint16 uuid = BUILD_UINT16( pAttr->type.uuid[0], pAttr->type.uuid[1]);
+	#ifdef _PHY_DEBUG 
+		LOG("		uuid 0x%X,value:",uuid );
+		for(uint8 i=0;i<len;i++)
+			LOG("0x%02X,",pValue[i]);
+		LOG("\n");
+	#endif
+	switch ( uuid )
+	{
+		case GATT_CLIENT_CHAR_CFG_UUID:
+			battLevelClientCharCfg = BUILD_UINT16( pValue[0], pValue[1] );
+		break;
 
-        if ( battServiceCB )
-        {
-          (*battServiceCB)( (charCfg == GATT_CFG_NO_OPERATION) ?
-                            BATT_LEVEL_NOTI_DISABLED :
-                            BATT_LEVEL_NOTI_ENABLED);
-        }
-      }
-      break;
+		default:
+			status = ATT_ERR_ATTR_NOT_FOUND;
+		break;
+	}
 
-    default:
-      status = ATT_ERR_ATTR_NOT_FOUND;
-      break;
-  }
-
-  return ( status );
+	return ( status );
 }
 
 /*********************************************************************
@@ -493,21 +369,22 @@ static bStatus_t battWriteAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
  */
 static void battNotifyCB( linkDBItem_t *pLinkItem )
 {
-  if ( pLinkItem->stateFlags & LINK_CONNECTED )
-  {
-    uint16 value = GATTServApp_ReadCharCfg( pLinkItem->connectionHandle,
-                                            battLevelClientCharCfg );
-    if ( value & GATT_CLIENT_CFG_NOTIFY )
-    {
-      attHandleValueNoti_t noti;
+	#ifdef _PHY_DEBUG 
+		  LOG("%s,%s,Line %d\n",__FILE__,__func__,__LINE__);
+	#endif
+	if ( pLinkItem->stateFlags & LINK_CONNECTED )
+	{
+		if ( battLevelClientCharCfg & GATT_CLIENT_CFG_NOTIFY )
+		{
+			attHandleValueNoti_t noti;
 
-      noti.handle = battAttrTbl[BATT_LEVEL_VALUE_IDX].handle;
-      noti.len = 1;
-      noti.value[0] = battLevel;
+			noti.handle = battAttrTbl[BATT_LEVEL_VALUE_IDX].handle;
+			noti.len = 1;
+			noti.value[0] = battLevel;
 
-      GATT_Notification( pLinkItem->connectionHandle, &noti, FALSE );
-    }
-  }
+			GATT_Notification( pLinkItem->connectionHandle, &noti, FALSE );
+		}
+	}
 }
 
 /*********************************************************************
@@ -520,12 +397,10 @@ static void battNotifyCB( linkDBItem_t *pLinkItem )
  */
 static uint8 battMeasure( void )
 {
-  uint8 percent;
+	uint8 percent;
+	percent = 95;
 
-
-  percent = 95;
-
-  return percent;
+	return percent;
 }
 
 /*********************************************************************
@@ -542,31 +417,7 @@ static void battNotifyLevel( void )
   linkDB_PerformFunc( battNotifyCB );
 }
 
-/*********************************************************************
- * @fn          Batt_HandleConnStatusCB
- *
- * @brief       Battery Service link status change handler function.
- *
- * @param       connHandle - connection handle
- * @param       changeType - type of change
- *
- * @return      none
- */
-void Batt_HandleConnStatusCB( uint16 connHandle, uint8 changeType )
-{
-  // Make sure this is not loopback connection
-  if ( connHandle != LOOPBACK_CONNHANDLE )
-  {
-    // Reset Client Char Config if connection has dropped
-    if ( ( changeType == LINKDB_STATUS_UPDATE_REMOVED )      ||
-         ( ( changeType == LINKDB_STATUS_UPDATE_STATEFLAGS ) &&
-           ( !linkDB_Up( connHandle ) ) ) )
-    {
-      GATTServApp_InitCharCfg( connHandle, battLevelClientCharCfg );
-    }
-  }
-}
-
+#endif
 
 /*********************************************************************
 *********************************************************************/

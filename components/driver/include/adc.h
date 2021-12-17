@@ -31,15 +31,15 @@
 **************************************************************************************************/
 
 /*******************************************************************************
-    @file     adc_x.h
+    @file     adc.h
     @brief    Contains all functions support for adc driver
     @version  0.0
     @date     18. Oct. 2017
     @author   qing.han
 
 *******************************************************************************/
-#ifndef __ADC_X_H__
-#define __ADC_X_H__
+#ifndef __ADC_H__
+#define __ADC_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -184,19 +184,19 @@ extern gpio_pin_e s_pinmap[ADC_CH_NUM];
 
     @return      None.
  **************************************************************************************/
-void hal_adc_init_x(void);
+void hal_adc_init(void);
 
-int hal_adc_config_channel_x(adc_Cfg_t cfg, adc_Hdl_t evt_handler);
+int hal_adc_config_channel(adc_Cfg_t cfg, adc_Hdl_t evt_handler);
 
 //int hal_adc_clock_config(adc_CLOCK_SEL_t clk);
 
-int hal_adc_start_x(void);
+int hal_adc_start(void);
 
-int hal_adc_stop_x(void);
+int hal_adc_stop(void);
 
-void __attribute__((weak)) hal_ADC_IRQHandler_x(void);
+void __attribute__((weak)) hal_ADC_IRQHandler(void);
 
-float hal_adc_value_cal_x(adc_CH_t ch,uint16_t* buf, uint32_t size, uint8_t high_resol, uint8_t diff_mode);
+float hal_adc_value_cal(adc_CH_t ch,uint16_t* buf, uint32_t size, uint8_t high_resol, uint8_t diff_mode);
 
 #ifdef __cplusplus
 }

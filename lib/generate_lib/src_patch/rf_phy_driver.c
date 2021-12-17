@@ -126,6 +126,41 @@ void rf_phy_change_cfg1(uint8_t pktFmt)
 
 }
 
+void rf_phy_bb_cfg1(uint8_t pktFmt)
+{
+    rf_phy_bb_cfg(pktFmt);
+    PHY_REG_WT(0x400300d8,0x04890000);  // i_pll_ctrl3 vco/tp varactor
+    if(pktFmt==PKT_FMT_BLE1M)
+    {
+        subWriteReg( 0x400300d8,20,18,0x01);   // tpm dac var
+    }
+    else
+    {
+        subWriteReg( 0x400300d8,20,18,0x02);   // tpm dac var
+    
+    }
+
+}
+void rf_phy_set_txPower  (uint8 txPower)
+{
+    if(RF_PHY_TX_POWER_EXTRA_MAX==txPower)
+    {
+        //DCDC_CONFIG_SETTING(0x08);//set dcdc to highest
+        //RF_PHY_LO_LDO_SETTING(0);
+        //RF_PHY_LNA_LDO_SETTING(0);
+        RF_PHY_PA_VTRIM_SETTING(1);
+    }
+    else
+    {
+        
+        //DCDC_CONFIG_SETTING(0x0a);//set dcdc to 2
+        //RF_PHY_LO_LDO_SETTING(0);
+        //RF_PHY_LNA_LDO_SETTING(0);
+        RF_PHY_PA_VTRIM_SETTING(0);
+    }
+
+    PHY_REG_WT(0x400300b8,(PHY_REG_RD(0x400300b8)&0x0fff) | ((txPower&0x1f)<<12));
+}
 void rf_phy_ini1(void)
 {
     rf_phy_ini();
@@ -141,6 +176,9 @@ void rf_phy_ini1(void)
     
     }
     PHY_REG_WT(0x40031074,0x00800080);
+
+    subWriteReg(0x400300dc, 6,3,0);//highest ldo_lna_out_tune_1p2v ldo_ana_bb_out_tune_1p2v
+    subWriteReg(0x400300cc,11,6,0);//highest vout_ctrl_ldo_lo vout_ctrl_ldo_pll vout_ctrl_ldo_vco
 }
 
 #if(RF_PHY_DTM_CTRL_MOD == RF_PHY_DTM_CTRL_UART)
@@ -213,7 +251,7 @@ void rf_phy_direct_test(void)
     uint32_t currTick = 0;
     //enable received data available interrupt
     DTM_LOG_INIT();
-    DTM_LOG("\n===RF_PHY_DTM V1.0.0===\n");
+    DTM_LOG("\n===RF_PHY_DTM V1.0.1===\n");
     //clr UART IRQ, switch to ROM_UART_IRQ
     JUMP_FUNCTION_SET(UART0_IRQ_HANDLER,(uint32_t)&DTM_UART_IRQHandler);
     if(RF_PHY_DTM_BB_SUPPORT_MOD&RF_PHY_DTM_BB_SUPPORT_BLE1M)

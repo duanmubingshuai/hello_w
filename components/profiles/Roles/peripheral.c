@@ -43,6 +43,8 @@
 /*********************************************************************
  * INCLUDES
  */
+#include "rom_sym_def.h"
+#include "ll_common.h"
 #include "bcomdef.h"
 #include "OSAL.h"
 #include "hci_tl.h"
@@ -53,11 +55,13 @@
 #include "gatt.h"
 #include "peripheral.h"
 #include "gapbondmgr.h"
+#include "gatt_profile_uuid.h"
 
 /*********************************************************************
  * MACROS
  */
-//#define GAP_CONFIG_STATIC_ADDR
+#define GAP_CONFIG_HID_ENABLE					BLE_HID
+#define GAP_CONFIG_STATIC_ADDR					FALSE
 
 #define GAP_PROFILE_ROLE						(GAP_PROFILE_PERIPHERAL | GAP_PROFILE_OBSERVER )
 #if ( HOST_CONFIG & OBSERVER_CFG  )
@@ -68,12 +72,21 @@
 #if ( HOST_CONFIG & PERIPHERAL_CFG )
 #define DEFAULT_DISCOVERABLE_MODE             	( GAP_ADTYPE_FLAGS_GENERAL | GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED )
 #define GAP_DEFAULT_ADV_TYPE					GAP_ADTYPE_ADV_IND
-#define GAP_DEFAULT_ADV_ADDR_TYPE				ADDRTYPE_PUBLIC
+#define GAP_DEFAULT_ADV_ADDR_TYPE				ADDRTYPE_STATIC
 #define GAP_DEFAULT_ADV_INIT_ADDR				{0xCC,0x01,0x02,0x03,0x04,0x05}
 #define GAP_DEFAULT_ADV_CHNMAP					( GAP_ADVCHAN_37 | GAP_ADVCHAN_38 | GAP_ADVCHAN_39 )
 #define GAP_DEFAULT_ADV_POLICY					GAP_FILTER_POLICY_ALL
 
 #define GAP_DEFAULT_ENABLE_SMP					FALSE
+
+#define GAP_DEFAULT_ENABLE_PARAM_UPDATE			FALSE
+#define GAP_DEFAULT_PARAM_UPDATE_PAUSE			6			// unit:s
+#define PARAM_UPDATE_EVT						0x0008
+#define GAP_DEFAULT_DESIRED_MIN_CONN_INTERVAL	80			// unit 1.25ms
+#define GAP_DEFAULT_DESIRED_MAX_CONN_INTERVAL	80
+#define GAP_DEFAULT_DESIRED_SLAVE_LATENCY		0
+#define GAP_DEFAULT_DESIRED_CONN_TIMEOUT        500			// unit 10ms
+
 
 #define GAP_DEFAULT_ENABLE_SEC_ADV				FALSE
 #define GAP_DEFAULT_SEC_ADV_TYPE				GAP_ADTYPE_ADV_NONCONN_IND
@@ -119,8 +132,8 @@ extern uint8 application_TaskID;
 /*********************************************************************
  * GLOBAL VARIABLES
  */
-#ifdef GAP_CONFIG_STATIC_ADDR
-static uint8 BD_STATIC_ADDR[B_ADDR_LEN]={0x30,0x31,0x32,0x33,0x34,0xC1};
+#if(defined(GAP_CONFIG_STATIC_ADDR) && GAP_CONFIG_STATIC_ADDR)
+uint8 BD_STATIC_ADDR[B_ADDR_LEN]={0x30,0x31,0x32,0x33,0x34,0xC1};
 #endif
 
 /*********************************************************************
@@ -140,7 +153,7 @@ static uint8 gapRole_TaskID;   // Task ID for internal task/event processing
  * Profile Parameters - reference GAPROLE_PROFILE_PARAMETERS for
  * descriptions
  */
-static uint16 gapRole_ConnectionHandle = INVALID_CONNHANDLE;
+uint16 gapRole_ConnectionHandle = INVALID_CONNHANDLE;
 
 
 /*********************************************************************
@@ -177,6 +190,7 @@ void GAPRole_Init( uint8 task_id )
 	#if( defined(GAP_CONFIG_ENABLE_CHANGE_PHY) && GAP_CONFIG_ENABLE_CHANGE_PHY)
 		llInitFeatureSet2MPHY(TRUE);
 	#endif
+	GAP_RegisterForHCIMsgs(gapRole_TaskID);
 }
 
 /*********************************************************************
@@ -216,6 +230,9 @@ uint16 GAPRole_ProcessEvent( uint8 task_id, uint16 events )
 	#if( defined(GAP_CONFIG_ENABLE_DLE) && GAP_CONFIG_ENABLE_DLE)
 	if ( events & DLE_UPDATE_EVT )
 	{
+		#ifdef _PHY_DEBUG 
+			LOG("DLE_UPDATE_EVT\n");
+		#endif
 		if( gapRole_ConnectionHandle != INVALID_CONNHANDLE )
 			HCI_LE_SetDataLengthCmd(gapRole_ConnectionHandle,GAP_DEFAULT_TX_OCTETS,GAP_DEFAULT_TX_TIME );
 		return (events ^ DLE_UPDATE_EVT);		
@@ -230,6 +247,23 @@ uint16 GAPRole_ProcessEvent( uint8 task_id, uint16 events )
 			HCI_LE_SetPhyMode(gapRole_ConnectionHandle, 0, GAP_DEFAULT_PRE_PHY, GAP_DEFAULT_PRE_PHY, 0);
 		}
 		return (events ^ PHY_UPDATE_EVT);		
+	}
+	#endif
+
+	#if(defined(GAP_DEFAULT_ENABLE_PARAM_UPDATE) && GAP_DEFAULT_ENABLE_PARAM_UPDATE )
+	if ( events & PARAM_UPDATE_EVT )
+	{
+		if( gapRole_ConnectionHandle != INVALID_CONNHANDLE )
+		{
+			l2capParamUpdateReq_t updateReq;
+			uint16 timeout = GAP_GetParamValue( TGAP_CONN_PARAM_TIMEOUT );
+			updateReq.intervalMin = GAP_DEFAULT_DESIRED_MIN_CONN_INTERVAL;
+			updateReq.intervalMax = GAP_DEFAULT_DESIRED_MAX_CONN_INTERVAL;
+			updateReq.slaveLatency = GAP_DEFAULT_DESIRED_SLAVE_LATENCY;
+			updateReq.timeoutMultiplier = GAP_DEFAULT_DESIRED_CONN_TIMEOUT;
+			L2CAP_ConnParamUpdateReq( gapRole_ConnectionHandle, &updateReq, gapRole_TaskID );
+		}
+		return (events ^ PARAM_UPDATE_EVT);
 	}
 	#endif
 #endif
@@ -267,6 +301,7 @@ static void gapRole_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 				{
 					#ifdef _PHY_DEBUG 
 						hciEvt_CmdComplete_t *pPkt = (hciEvt_CmdComplete_t *)pMsg;
+						LOG("	HCI_COMMAND_COMPLETE_EVENT_CODE\n");
 						if ( pPkt->cmdOpcode == HCI_READ_RSSI )
 						{
 							LOG("	Read RSSI %d\n",(int8)pPkt->pReturnParam[3] );
@@ -284,6 +319,7 @@ static void gapRole_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 				{
 					#ifdef _PHY_DEBUG 
 							hciEvt_CommandStatus_t *pPkt = (hciEvt_CommandStatus_t *)pMsg;
+							LOG("	HCI_COMMAND_STATUS_EVENT_CODE\n");
 							if ( pPkt->cmdOpcode == HCI_LE_SET_PHY )
 							{
 								LOG("	Set PHY status 0x%02X\n",pPkt->cmdStatus);
@@ -301,10 +337,10 @@ static void gapRole_ProcessOSALMsg( osal_event_hdr_t *pMsg )
 		            	#ifdef _PHY_DEBUG
 							hciEvt_BLEDataLenChange_t * pkt = (hciEvt_BLEDataLenChange_t *)pMsg;
 							LOG("	Data Length Change Event\n");
-							LOG("	Max Tx Octets : %d\n",pkt->MaxTxOctets);
-							LOG("	Max Rx Octets : %d\n",pkt->MaxRxOctets);
-							LOG("	Max Tx Time   : %d\n",pkt->MaxTxTime);
-							LOG("	Max Rx Time   : %d\n",pkt->MaxRxTime);
+							LOG("	Max Tx Octets : %d Byte\n",pkt->MaxTxOctets);
+							LOG("	Max Rx Octets : %d Byte\n",pkt->MaxRxOctets);
+							LOG("	Max Tx Time   : %d us\n",pkt->MaxTxTime);
+							LOG("	Max Rx Time   : %d us\n",pkt->MaxRxTime);
 						#endif
 		            }
 		            else if(pPkt->BLEEventCode == HCI_BLE_PHY_UPDATE_COMPLETE_EVENT )
@@ -379,21 +415,34 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 		case GAP_DEVICE_INIT_DONE_EVENT:
 		{
 			gapDeviceInitDoneEvent_t *pPkt = (gapDeviceInitDoneEvent_t *)pMsg;
-			//		LOG("%s,GAP_DEVICE_INIT_DONE_EVENT\n",__func__);
-			#ifdef _PHY_DEBUG 
+//			#ifdef _PHY_DEBUG 
 				LOG( "Device Address(LSB to MSB): " );
 				LOG_DUMP_BYTE(pPkt->devAddr,B_ADDR_LEN);
-			#endif
-			LOG( "Device Address(LSB to MSB): " );
-			LOG_DUMP_BYTE(pPkt->devAddr,B_ADDR_LEN);
+//			#endif
 			if ( pPkt->hdr.status == SUCCESS )
 			{
-				#ifdef GAP_CONFIG_STATIC_ADDR
+				
+				#if( defined(GAP_CONFIG_STATIC_ADDR) && GAP_CONFIG_STATIC_ADDR)
 					GAP_ConfigDeviceAddr(ADDRTYPE_STATIC,BD_STATIC_ADDR);
 				#endif
 				#if ( HOST_CONFIG & PERIPHERAL_CFG )
 					{
-						uint8 advertData[3] ={0x02,GAP_ADTYPE_FLAGS,DEFAULT_DISCOVERABLE_MODE};
+						#if(defined(GAP_CONFIG_HID_ENABLE) && GAP_CONFIG_HID_ENABLE)
+							uint8 advertData[] ={0x02,GAP_ADTYPE_FLAGS,DEFAULT_DISCOVERABLE_MODE,
+													// appearance
+													0x03,	// length of this data
+													GAP_ADTYPE_APPEARANCE,
+													LO_UINT16(GAP_APPEARE_HID_GAMEPAD),
+													HI_UINT16(GAP_APPEARE_HID_GAMEPAD),
+							
+													// service UUIDs
+													0x03,	// length of this data
+													GAP_ADTYPE_16BIT_COMPLETE,
+													LO_UINT16(HID_SERV_UUID),
+													HI_UINT16(HID_SERV_UUID)};							
+						#else
+							uint8 advertData[] ={0x02,GAP_ADTYPE_FLAGS,DEFAULT_DISCOVERABLE_MODE};
+						#endif
 						GAP_UpdateAdvertisingData( GAP_DEFAULT_MSG_BYPASS_ID,TRUE, sizeof(advertData), advertData );
 					}
 				#endif
@@ -412,9 +461,44 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 				{
 					if ( pPkt->adType )
 					{
-						uint8 scanRspData[] ={	0x09,   // length of this data
+						#if(defined(GAP_CONFIG_HID_ENABLE) && GAP_CONFIG_HID_ENABLE)
+						uint8 scanRspData[] ={	0x03,   // length of this data
+											    GAP_ADTYPE_APPEARANCE,
+											    LO_UINT16(GAP_APPEARE_HID_GAMEPAD),
+											    HI_UINT16(GAP_APPEARE_HID_GAMEPAD),
+
+											    // service UUIDs
+											    0x03,   // length of this data
+											    GAP_ADTYPE_16BIT_COMPLETE,
+											    LO_UINT16(HID_SERV_UUID),
+											    HI_UINT16(HID_SERV_UUID),
+											    0x09,   // length of this data
 												GAP_ADTYPE_LOCAL_NAME_COMPLETE,
-												'J','A','C','K','-','0','0','1' };
+												'J','A','C','K','-','H','I','D' };
+						#else
+						uint8 scanRspData[] ={	0x12,   // length of this data
+												GAP_ADTYPE_LOCAL_NAME_COMPLETE,
+												'J','A','C','K','-',0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+							uint8 publicAddr[B_ADDR_LEN];
+							uint8 AddrStr[B_ADDR_LEN*2];
+							#if( defined(GAP_CONFIG_STATIC_ADDR) && GAP_CONFIG_STATIC_ADDR)
+								osal_memcpy(publicAddr],BD_STATIC_ADDR,B_ADDR_LEN );
+							#else
+							{
+								LL_ReadBDADDR(publicAddr);
+								osal_memcpy(publicAddr,publicAddr,B_ADDR_LEN );
+							}
+							#endif
+							{
+								char hex[] = "0123456789ABCDEF";
+								for(uint8 i=0,j=0;i<B_ADDR_LEN;i++)
+								{
+									AddrStr[j++] = hex[(publicAddr[i] >> 4) & 0xF ];
+									AddrStr[j++] = hex[publicAddr[i] & 0xF ];
+								}
+							}
+							osal_memcpy(&scanRspData[7],AddrStr,(B_ADDR_LEN<<1) );
+						#endif
 						status = GAP_UpdateAdvertisingData( GAP_DEFAULT_MSG_BYPASS_ID,FALSE, sizeof(scanRspData), scanRspData);
 						if( SUCCESS != status )
 						{
@@ -428,6 +512,7 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 							#ifdef _PHY_DEBUG 
 								LOG("GAP update scan response data success... \n");
 							#endif
+ 
 							gapAdvertisingParams_t advParams={
 												.eventType = GAP_DEFAULT_ADV_TYPE,
 												.initiatorAddrType = GAP_DEFAULT_ADV_ADDR_TYPE ,
@@ -449,8 +534,8 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 			break;			
 			case GAP_MAKE_DISCOVERABLE_DONE_EVENT:
 			{
-				gapMakeDiscoverableRspEvent_t *pPkt = (gapMakeDiscoverableRspEvent_t *)pMsg;
-				#ifdef _PHY_DEBUG 
+//				#ifdef _PHY_DEBUG 
+					gapMakeDiscoverableRspEvent_t *pPkt = (gapMakeDiscoverableRspEvent_t *)pMsg;
 					LOG("%s,pMsg->opcode:0x%04X GAP Make advertising discoverable done,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
 					if( pPkt->hdr.status == SUCCESS )
 					{
@@ -458,19 +543,19 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 					}
 					else
 						LOG("GAP Advertising start failure\n");
-				#endif
+//				#endif
 			}
 			break;
 			case GAP_END_DISCOVERABLE_DONE_EVENT:
 			{
-				gapMakeDiscoverableRspEvent_t *pPkt = (gapMakeDiscoverableRspEvent_t *)pMsg;
-				#ifdef _PHY_DEBUG 
+//				#ifdef _PHY_DEBUG 
+					gapMakeDiscoverableRspEvent_t *pPkt = (gapMakeDiscoverableRspEvent_t *)pMsg;
 					LOG("%s,pMsg->opcode:0x%04X GAP End advertising discoverable done,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
 				if( pPkt->hdr.status == SUCCESS )
 					LOG("GAP Advertising stoped...\n");
 				else
 					LOG("GAP Advertising stop failure\n");
-				#endif
+//				#endif
 			}
 			break;
 			case GAP_LINK_ESTABLISHED_EVENT:
@@ -478,7 +563,7 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 				gapEstLinkReqEvent_t *pPkt = (gapEstLinkReqEvent_t *)pMsg;
 
 				gapRole_ConnectionHandle = pPkt->connectionHandle;
-				#ifdef _PHY_DEBUG 
+//				#ifdef _PHY_DEBUG 
 					LOG("%s,pMsg->opcode:0x%04X GAP Link Established,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
 					LOG("	connection handle 		%d\n",pPkt->connectionHandle);
 					LOG("	connection interval 	%d\n",pPkt->connInterval);
@@ -488,6 +573,9 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 					for(uint8 i=0;i<B_ADDR_LEN;i++)
 						LOG("%02X",pPkt->devAddr[i]);
 					LOG("\n");					
+//				#endif
+				#if(defined(GAP_DEFAULT_ENABLE_PARAM_UPDATE) && GAP_DEFAULT_ENABLE_PARAM_UPDATE )
+					osal_start_timerEx(GAP_DEFAULT_MSG_BYPASS_ID, PARAM_UPDATE_EVT,GAP_DEFAULT_PARAM_UPDATE_PAUSE*1000 );
 				#endif
 				#if (defined( GAP_DEFAULT_ENABLE_SMP ) && GAP_DEFAULT_ENABLE_SMP )
 					GAPBondMgr_LinkEst( pPkt->connectionHandle, GAP_PROFILE_PERIPHERAL );
@@ -530,7 +618,6 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 			break;
 			case GAP_LINK_TERMINATED_EVENT:
 			{
-				gapTerminateLinkEvent_t *pPkt = (gapTerminateLinkEvent_t *)pMsg;
 				gapRole_ConnectionHandle = INVALID_CONNHANDLE;
 				#if( defined(GAP_CONFIG_ENABLE_DLE) && GAP_CONFIG_ENABLE_DLE)
 					osal_stop_timerEx(GAP_DEFAULT_MSG_BYPASS_ID, DLE_UPDATE_EVT );
@@ -538,36 +625,52 @@ static void gapRole_ProcessGAPMsg( gapEventHdr_t *pMsg )
 				#if( defined(GAP_CONFIG_ENABLE_CHANGE_PHY) && GAP_CONFIG_ENABLE_CHANGE_PHY)
 					osal_stop_timerEx(GAP_DEFAULT_MSG_BYPASS_ID, PHY_UPDATE_EVT );
 				#endif
-				#ifdef GAP_CONFIG_PERIODIC_READ_RSSI
+				#if(defined(GAP_CONFIG_PERIODIC_READ_RSSI) && GAP_CONFIG_PERIODIC_READ_RSSI)
 					osal_stop_timerEx(GAP_DEFAULT_MSG_BYPASS_ID, RSSI_READ_EVT);
 				#endif
-				#ifdef _PHY_DEBUG 
+				#if(defined(GAP_DEFAULT_ENABLE_PARAM_UPDATE) && GAP_DEFAULT_ENABLE_PARAM_UPDATE )
+					osal_stop_timerEx(GAP_DEFAULT_MSG_BYPASS_ID, PARAM_UPDATE_EVT);
+				#endif
+//				#ifdef _PHY_DEBUG 
+					gapTerminateLinkEvent_t *pPkt = (gapTerminateLinkEvent_t *)pMsg;
 					LOG("%s,pMsg->opcode:0x%04X GAP Link Terminated,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
-					LOG("	connection handle	%d\n",pPkt->connectionHandle);
-					LOG("	reason		 		%d\n",pPkt->reason);
-				#endif  
+					if( pPkt->hdr.status == SUCCESS )
+					{
+						LOG("	connection handle	%d\n",pPkt->connectionHandle);
+						LOG("	reason				%d\n",pPkt->reason);
+					}
+//				#endif
+				gapAdvertisingParams_t advParams={
+												.eventType = GAP_DEFAULT_ADV_TYPE,
+												.initiatorAddrType = GAP_DEFAULT_ADV_ADDR_TYPE ,
+												.initiatorAddr = GAP_DEFAULT_ADV_INIT_ADDR,
+												.channelMap = GAP_DEFAULT_ADV_CHNMAP,
+												.filterPolicy = GAP_DEFAULT_ADV_POLICY,
+												};
+				GAP_MakeDiscoverable( GAP_DEFAULT_MSG_BYPASS_ID, &advParams );
 			}
 			break;
 			case GAP_LINK_PARAM_UPDATE_EVENT:
 			{
-				gapLinkUpdateEvent_t *pPkt = (gapLinkUpdateEvent_t *)pMsg;
 				#ifdef _PHY_DEBUG 
+					gapLinkUpdateEvent_t *pPkt = (gapLinkUpdateEvent_t *)pMsg;
 					LOG("%s,pMsg->opcode:0x%04X GAP Link Parameter update ,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
-					LOG("	connection handle		%d\n",pPkt->connectionHandle);
-					LOG("	connection connIntv		%d\n",pPkt->connInterval);
-					LOG("	connection latency		%d\n",pPkt->connLatency);
-					LOG("	connection timeout		%d\n",pPkt->connTimeout);
+					if( pPkt->hdr.status == SUCCESS )
+					{
+						LOG("	connection handle		%d\n",pPkt->connectionHandle);
+						LOG("	connection connIntv 	%d\n",pPkt->connInterval);
+						LOG("	connection latency		%d\n",pPkt->connLatency);
+						LOG("	connection timeout		%d\n",pPkt->connTimeout);
+					}
 				#endif
-				//		  // Cancel connection param update timeout timer (if active)
-				//		  osal_stop_timerEx( gapRole_TaskID, CONN_PARAM_TIMEOUT_EVT );
 			}
 			break;
 		#endif
 		#if ( HOST_CONFIG & OBSERVER_CFG  )
 		case GAP_DEVICE_INFO_EVENT:
 		{
-			gapDeviceInfoEvent_t* pPkt = (gapDeviceInfoEvent_t*)pMsg;
 			#ifdef _PHY_DEBUG 
+				gapDeviceInfoEvent_t* pPkt = (gapDeviceInfoEvent_t*)pMsg;
 				LOG("%s,pMsg->opcode:0x%04X GAP Device Info ,status 0x%X\n",__func__,pMsg->opcode,pPkt->hdr.status );
 				LOG("	Device Address : ");
 				for(uint8 i=0;i<B_ADDR_LEN;i++)

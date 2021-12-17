@@ -9,6 +9,9 @@ BareMetal: Without RTOS</Description>
     <File Name="ck802/board_init.c">
       <FileOption/>
     </File>
+    <File Name="ck802/gcc_csky.ld">
+      <FileOption/>
+    </File>
     <VirtualDirectory Name="include"/>
     <File Name="ck802/startup.S">
       <FileOption/>
@@ -20,9 +23,6 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
     <File Name="ck802/vectors.S">
-      <FileOption/>
-    </File>
-    <File Name="ck802/gcc_csky.ld">
       <FileOption/>
     </File>
   </VirtualDirectory>
@@ -69,9 +69,7 @@ BareMetal: Without RTOS</Description>
     </File>
   </VirtualDirectory>
   <VirtualDirectory Name="lib" ExcludeProjConfig="">
-    <File Name="../../../../lib/librf.a">
-      <FileOption/>
-    </File>
+    <File Name="../../../../lib/librf.a"/>
   </VirtualDirectory>
   <VirtualDirectory Name="driver">
     <File Name="../../../../components/driver/source/clock.c">
@@ -84,9 +82,6 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
     <File Name="../../../../components/driver/source/watchdog.c">
-      <FileOption/>
-    </File>
-    <File Name="../../../../components/driver/source/flash.c">
       <FileOption/>
     </File>
   </VirtualDirectory>
@@ -104,6 +99,16 @@ BareMetal: Without RTOS</Description>
       <FileOption/>
     </File>
   </VirtualDirectory>
+  <DebugSessions>
+    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
+    <memoryExpressions>0x40030000;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
+    <statistics>;;MHZ;</statistics>
+    <peripheralTabs/>
+    <WatchDisplayFormat>1</WatchDisplayFormat>
+    <LocalDisplayFormat>0</LocalDisplayFormat>
+    <debugLayout/>
+    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
+  </DebugSessions>
   <BuildConfigs>
     <BuildConfig Name="BuildSet">
       <Target>
@@ -199,7 +204,7 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>x_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=0 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>
@@ -214,7 +219,6 @@ BareMetal: Without RTOS</Description>
         <AllWarn>yes</AllWarn>
         <WarnErr>no</WarnErr>
         <OneElfS>yes</OneElfS>
-        <OneElfSPerData>no</OneElfSPerData>
         <Fstrict>no</Fstrict>
       </Compiler>
       <Asm>
@@ -227,7 +231,7 @@ BareMetal: Without RTOS</Description>
       <Linker>
         <Garbage>yes</Garbage>
         <Garbage2>yes</Garbage2>
-        <LDFile>$(ProjectPath)/ck802/gcc_csky.ld</LDFile>
+        <LDFile>$(ProjectPath)\ck802\gcc_csky.ld</LDFile>
         <LibName>m</LibName>
         <LibPath/>
         <OtherFlags>-u jump_table_base -u global_config -Wl,-zmax-page-size=1024 "$(ProjectPath)/../../../../misc/jack_rom_ck802.elf.ck802sym"</OtherFlags>
@@ -245,7 +249,6 @@ BareMetal: Without RTOS</Description>
         <ResetType>Hard Reset</ResetType>
         <SoftResetVal>0</SoftResetVal>
         <ResetAfterLoad>no</ResetAfterLoad>
-        <AfterResetFile/>
         <Dumpcore>no</Dumpcore>
         <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
         <ConfigICE>
@@ -263,7 +266,7 @@ BareMetal: Without RTOS</Description>
           <SoftResetVal>0</SoftResetVal>
           <RTOSType>Bare Metal</RTOSType>
           <DownloadToFlash>no</DownloadToFlash>
-          <ResetAfterConnect>no</ResetAfterConnect>
+          <ResetAfterConnect>yes</ResetAfterConnect>
           <GDBName/>
           <GDBServerType>Local</GDBServerType>
           <OtherFlags/>
@@ -282,7 +285,6 @@ BareMetal: Without RTOS</Description>
           <OpenOCDTclPortEnable>no</OpenOCDTclPortEnable>
           <OpenOCDTclPort>6666</OpenOCDTclPort>
           <OpenOCDConfigOptions/>
-          <OpenOCDTimeout>5000</OpenOCDTimeout>
         </ConfigOpenOCD>
       </Debug>
       <Flash>
@@ -300,14 +302,4 @@ BareMetal: Without RTOS</Description>
       </Flash>
     </BuildConfig>
   </BuildConfigs>
-  <DebugSessions>
-    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
-    <memoryExpressions>0x1fff00e2;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
-    <statistics>;;MHZ;</statistics>
-    <peripheralTabs/>
-    <WatchDisplayFormat>1</WatchDisplayFormat>
-    <LocalDisplayFormat>0</LocalDisplayFormat>
-    <debugLayout/>
-    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
-  </DebugSessions>
 </Project>

@@ -190,7 +190,7 @@ CONST gattServiceCBs_t gapServiceCBs =
  *          FAILURE: Not enough attribute handles available.
  *          bleMemAllocError: Memory allocation error occurred.
  */
-bStatus_t GGS_AddService(  )
+bStatus_t GGS_AddService(    )
 {
 	uint8 status = SUCCESS;
 	// Register GAP attribute list and CBs with GATT Server Server App
@@ -254,28 +254,43 @@ static uint8 ggs_ReadAttrCB( uint16 connHandle, gattAttribute_t *pAttr,
     switch ( uuid )
     {
       case DEVICE_NAME_UUID:
-        {
-          uint8 len = osal_strlen( (char *)(pAttr->pValue) );
-
-          // If the attribute value is longer than maxLen then maxLen
-          // octets shall be included in this response.
-          if ( len > maxLen )
-          {
-            len = maxLen;
-          }
+        {	
+        	uint8 attDeviceName[] = "JACK V0.1:000000000000";
+			uint8 publicAddr[B_ADDR_LEN];
+			uint8 AddrStr[B_ADDR_LEN*2];
+			#if( defined(GAP_CONFIG_STATIC_ADDR) && GAP_CONFIG_STATIC_ADDR)
+				extern uint8 BD_STATIC_ADDR[B_ADDR_LEN];
+				osal_memcpy(publicAddr],BD_STATIC_ADDR,B_ADDR_LEN );
+			#else
+			{
+				LL_ReadBDADDR(publicAddr);
+				osal_memcpy(publicAddr,publicAddr,B_ADDR_LEN );
+			}
+			#endif
+			{
+				char hex[] = "0123456789ABCDEF";
+				for(uint8 i=0,j=0;i<B_ADDR_LEN;i++)
+				{
+					AddrStr[j++] = hex[(publicAddr[i] >> 4) & 0xF ];
+					AddrStr[j++] = hex[publicAddr[i] & 0xF ];
+				}
+			}
+			osal_memcpy(&attDeviceName[10],AddrStr,(B_ADDR_LEN<<1) );
+			
+		  uint8 len = sizeof(attDeviceName);		  
 
           *pLen = len;
-          VOID osal_memcpy( pValue, pAttr->pValue, len );
+          VOID osal_memcpy( pValue, attDeviceName, len );
         }
         break;
 
       case APPEARANCE_UUID:
         {
-          uint16 value = *((uint16 *)(pAttr->pValue));
+//          uint16 value = *((uint16 *)(pAttr->pValue));
 
           *pLen = 2;
-          pValue[0] = LO_UINT16( value );
-          pValue[1] = HI_UINT16( value );
+          pValue[0] = LO_UINT16( GAP_APPEARE_HID_GAMEPAD );
+          pValue[1] = HI_UINT16( GAP_APPEARE_HID_GAMEPAD );
         }
         break;
 

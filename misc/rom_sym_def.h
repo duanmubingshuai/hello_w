@@ -31,6 +31,13 @@
 #define clientCharCfgUUID _symrom_clientCharCfgUUID
 #define clk_get_pclk _symrom_clk_get_pclk
 #define clk_init _symrom_clk_init
+#define clk_reset       _symrom_clk_reset
+#define clk_gate_enable _symrom_clk_gate_enable
+#define clk_gate_disable _symrom_clk_gate_disable
+#define WaitMs			 _symrom_WaitMs
+#define get_systick			 _symrom_get_systick
+#define get_ms_intv			 _symrom_get_ms_intv
+
 #define deviceNameUUID _symrom_deviceNameUUID
 #define disableSleep _symrom_disableSleep
 #define drv_disable_irq _symrom_drv_disable_irq
@@ -85,6 +92,7 @@
 #define gpio_cfg_analog_io _symrom_gpio_cfg_analog_io
 #define gpio_debug_mux _symrom_gpio_debug_mux
 #define gpio_dir _symrom_gpio_dir
+#define gpio_dir_r _symrom_gpio_dir_r
 #define gpio_ds_control _symrom_gpio_ds_control
 #define gpio_fast_write _symrom_gpio_fast_write
 #define gpio_fmux_control _symrom_gpio_fmux_control
@@ -161,6 +169,7 @@
 #define osal_set_event _symrom_osal_set_event
 #define osal_start_system _symrom_osal_start_system
 #define osal_start_timerEx _symrom_osal_start_timerEx
+#define osal_start_reload_timer _symrom_osal_start_reload_timer
 #define osal_stop_timerEx _symrom_osal_stop_timerEx
 #define osal_strlen _symrom_osal_strlen
 #define osal_sys_tick _symrom_osal_sys_tick
@@ -177,7 +186,7 @@
 #define pwrmgr_clk_gate_config _symrom_pwrmgr_clk_gate_config
 #define read_current_fine_time _symrom_read_current_fine_time
 #define rf_phy_ini _symrom_rf_phy_ini
-#define rf_phy_set_txPower _symrom_rf_phy_set_txPower
+//#define rf_phy_set_txPower _symrom_rf_phy_set_txPower //use rf patch api
 #define rtc_get_counter _symrom_rtc_get_counter
 #define s_gpio_wakeup_src _symrom_s_gpio_wakeup_src
 #define scanInfo _symrom_scanInfo
@@ -286,6 +295,36 @@
 #define reportRefUUID _symrom_reportRefUUID
 #define osal_start_reload_timer _symrom_osal_start_reload_timer
 #define linkDB_PerformFunc _symrom_linkDB_PerformFunc
+#define watchdog_TaskID _symrom_watchdog_TaskID
+#define watchdog_sleep_handler _symrom_watchdog_sleep_handler
+#define wdg_ms_cycle _symrom_wdg_ms_cycle
+#define clk_gate_enable _symrom_clk_gate_enable
+#define hal_UART0_IRQHandler _symrom_hal_UART0_IRQHandler
+#define GAP_ConfigDeviceAddr _symrom_GAP_ConfigDeviceAddr
+#define otp_go_read _symrom_otp_go_read
+#define init_spif _symrom_init_spif
+#define g_bootFlag _symrom_g_bootFlag
+#define LL_ReadBDADDR _symrom_LL_ReadBDADDR
+
+#define pwm_module_init 	_symrom_pwm_module_init
+#define pwm_module_deinit 	_symrom_pwm_module_deinit
+#define pwm_ch_start 		_symrom_pwm_ch_start
+#define pwm_ch_stop 		_symrom_pwm_ch_stop
+#define pwm_ch_enable 		_symrom_pwm_ch_enable
+#define pwm_ch_reg			_symrom_pwm_ch_reg
+
+#define hal_TIMER4_IRQHandler 		_symrom_hal_TIMER4_IRQHandler
+#define hal_timer_wakeup_handler 	_symrom_hal_timer_wakeup_handler
+#define hal_timer_sleep_handler 	_symrom_hal_timer_sleep_handler
+#define hal_timer_mask_int 			_symrom_hal_timer_mask_int
+#define hal_timer_set 				_symrom_hal_timer_set
+#define hal_timer_stop 				_symrom_hal_timer_stop
+#define hal_timer_init 				_symrom_hal_timer_init
+#define hal_timer_deinit 			_symrom_hal_timer_deinit
+
+#define pwrmgr_lock        _symrom_pwrmgr_lock
+#define pwrmgr_unlock      _symrom_pwrmgr_unlock
+
 #endif
 #endif
 

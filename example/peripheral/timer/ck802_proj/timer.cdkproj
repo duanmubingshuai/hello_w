@@ -63,6 +63,7 @@ BareMetal: Without RTOS</Description>
     <File Name="../../../../components/driver/source/watchdog.c">
       <FileOption/>
     </File>
+    <File Name="../../../../components/driver/source/flash.c"/>
   </VirtualDirectory>
   <VirtualDirectory Name="main">
     <File Name="../source/main.c">
@@ -74,7 +75,9 @@ BareMetal: Without RTOS</Description>
     <File Name="../source/timer_demo.c">
       <FileOption/>
     </File>
-    <File Name="../source/timer_Main.c"/>
+    <File Name="../source/timer_Main.c">
+      <FileOption/>
+    </File>
   </VirtualDirectory>
   <BuildConfigs>
     <BuildConfig Name="BuildSet">

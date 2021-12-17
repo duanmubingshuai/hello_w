@@ -63,7 +63,10 @@ BareMetal: Without RTOS</Description>
     <File Name="../../../../components/driver/source/watchdog.c">
       <FileOption/>
     </File>
-    <File Name="../../../../components/driver/source/adc.c"/>
+    <File Name="../../../../components/driver/source/adc.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/driver/source/flash.c"/>
   </VirtualDirectory>
   <VirtualDirectory Name="main">
     <File Name="../source/main.c">
@@ -184,7 +187,7 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_NO_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=0 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>

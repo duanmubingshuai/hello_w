@@ -316,6 +316,8 @@ void gapBondMgrAuthenticate( uint16 connHandle, uint8 addrType,
 	params.secReqs.oobAvailable = GAP_BOND_DEFAULT_OOB_ENABLE;
 	params.secReqs.authReq = GAP_BOND_DEFAULT_SLAVE_SECREQ;
 	params.secReqs.keyDist.sEncKey = TRUE;
+//	params.secReqs.keyDist.sIdKey = TRUE;
+//	params.secReqs.keyDist.mIdKey = TRUE;
 	params.secReqs.maxEncKeySize = KEYLEN;
 
 	#if ( defined( GAP_BOND_DEFAULT_OOB_ENABLE ) && GAP_BOND_DEFAULT_OOB_ENABLE)
