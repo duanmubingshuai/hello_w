@@ -12,7 +12,7 @@ from datetime import datetime
 #giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
 #gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
 #for test
-giturl = 'git@github.com:duanmubingshuai/test.git'
+giturl = 'git@github.com:duanmubingshuai/project.git'
 gitreleaseurl = 'git@github.com:duanmubingshuai/hello_w.git'
 #locallocation = '../git_python/clone3'
 
@@ -169,7 +169,6 @@ def sdk_rls(args):
     print('remove protect file')
     protectfile(cfg['ProtectFile'])
     print('build', cfg['BuildConfig'])
-    
     # choose sdk_build.yaml
     #os.system('python .\sdk_build.py ' + '-l ' + cfg['BuildConfig'][0] + ' -b ' + cfg['BuildConfig'][1])   # with modified sdk_build.yaml
     os.system('python .\sdk_build.py ' + '-l ' + cfg['BuildConfig'][0] + ' -b all')   # with modified sdk_build.yaml
@@ -327,10 +326,10 @@ def protectfile(cfg):
     print('protect code')
     print(cfg)
     bld = get_bld_path(rls_config(cfg[0]['rls_example'][0]))
-    #print(bld)
-    cur=get_dir_path(os.path.join(locallocation,'example'),2)
+    print(bld)
+    cur=get_dir_path(os.path.join(locallocation,'example'),3)
     remove_example=find_del_fold(bld,cur)
-    '''
+    
     for del_path in remove_example:
         # print(del_path)
         f_path = 'aliGenie_bleMesh'
@@ -340,7 +339,7 @@ def protectfile(cfg):
             cmd = 'rd /s /q ' + del_path
             print(cmd)
             validcmd(cmd)
-    '''
+    
     for del_path in cfg[2]['remove_folder']:
         #libsrcpath = 'clonefile'+ '\\' + del_path[1]  #clone file cannot have a space inside
         libsrcpath = locallocation.split('/')[-1] + '\\' + del_path  # clone file cannot have a space inside

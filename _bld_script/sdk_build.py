@@ -357,7 +357,7 @@ class build:
 
 		if(output is not None):
 			if(len(output)>=3):
-#				self.gen_asm(output)
+				self.gen_asm(output)
 				[lastTick,tCost]=checkTimeCost('GEN ASM',lastTick,tcPrtFlg,tcLog)
 		
 
@@ -565,7 +565,7 @@ def list_prj():
 
 def build_single(path, blditm, logfile= None):
 	bld = build(path+'\\'+blditm[0])
-	print('bld：%s\n' %bld)
+	#print('bld：%s\n' %bld)
 	bld.setlogfile(logfile)
 	#cfg = {'CFG_OTA_BANK_MODE':'OTA_SINGLE_BANK','USE_FCT':'0'}
 	cfg = None
