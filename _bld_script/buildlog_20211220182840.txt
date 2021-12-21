@@ -1,0 +1,11 @@
+----------------------------------------------------------------------------------------
+ProjName: adc
+
+Building...
+..\example\peripheral\adc\adc.uvprojx
+Time Cost------                   T0 --------    41.300 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build --------  9733.701 ms
+Time Cost------          Build Check --------  1014.019 ms
+Time Cost------              Restore --------     0.253 ms
+Time Cost------   All Build Finished -------- 10790.503 ms

@@ -1,0 +1,27 @@
+--create .\Objects\ble_host.lib
+.\objects\att_client.o
+.\objects\att_server.o
+.\objects\att_util.o
+.\objects\gap_centdevmgr.o
+.\objects\gap_centlinkmgr.o
+.\objects\gap_configmgr.o
+.\objects\gap_devmgr.o
+.\objects\gap_linkmgr.o
+.\objects\gap_peridevmgr.o
+.\objects\gap_perilinkmgr.o
+.\objects\gap_simpletask.o
+.\objects\gap_task.o
+.\objects\gatt_client.o
+.\objects\gatt_server.o
+.\objects\gatt_task.o
+.\objects\gatt_uuid.o
+.\objects\l2cap_if.o
+.\objects\l2cap_task.o
+.\objects\l2cap_util.o
+.\objects\linkdb.o
+.\objects\sm_intpairing.o
+.\objects\sm_mgr.o
+.\objects\sm_pairing.o
+.\objects\sm_rsppairing.o
+.\objects\sm_task.o
+.\objects\smp.o

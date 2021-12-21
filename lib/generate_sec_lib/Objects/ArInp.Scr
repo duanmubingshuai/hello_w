@@ -1,0 +1,3 @@
+--create .\Objects\sec_boot.lib
+.\objects\aes.o
+.\objects\phy_sec_ext.o

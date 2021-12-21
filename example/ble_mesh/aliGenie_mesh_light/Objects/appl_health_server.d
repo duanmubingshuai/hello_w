@@ -1,0 +1,10 @@
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\appl\model\server\health\appl_health_server.c
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\appl\model\server\health\appl_health_server.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_health_server_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_access_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_trn_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_ltrn_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_net_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_brr_api.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\mesh\export\include\MS_common.h
+.\objects\appl_health_server.o: ..\..\..\components\ethermind\osal\src\phyos\EM_os.h

@@ -1,0 +1,10 @@
+.\objects\core_queu.o: ..\..\..\components\profiles\ppsp\core_queu.c
+.\objects\core_queu.o: ..\..\..\components\profiles\ppsp\core_queu.h
+.\objects\core_queu.o: ..\..\..\components\osal\include\OSAL.h
+.\objects\core_queu.o: ..\..\..\components\osal\include\comdef.h
+.\objects\core_queu.o: ..\..\..\components\inc\types.h
+.\objects\core_queu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\core_queu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\core_queu.o: ..\..\..\components\osal\include\OSAL_Memory.h
+.\objects\core_queu.o: ..\..\..\components\osal\include\OSAL_Timers.h
+.\objects\core_queu.o: ..\..\..\components\profiles\ppsp\list_slst.h

@@ -1,0 +1,20 @@
+--cpu Cortex-M0
+".\objects\main.o"
+".\objects\osal_timer.o"
+".\objects\timer_demo.o"
+".\objects\timer_main.o"
+".\objects\clock.o"
+".\objects\gpio.o"
+".\objects\my_printf.o"
+".\objects\uart.o"
+".\objects\pwrmgr.o"
+".\objects\timer.o"
+".\objects\flash.o"
+".\objects\jump_table.o"
+"..\..\..\lib\rf.lib"
+".\objects\startup_armcm0.o"
+".\objects\system_armcm0.o"
+--library_type=microlib --scatter ".\timer.sct"
+..\..\..\misc\bb_rom_sym_m0.txt --keep=jump_table_base --keep=global_config --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\timer.map" -o .\Objects\timer.axf

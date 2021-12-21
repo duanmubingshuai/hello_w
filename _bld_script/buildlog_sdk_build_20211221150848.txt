@@ -1,0 +1,16 @@
+----------------------------------------------------------------------------------------
+ProjName: ble_host
+
+Building...
+..\lib\generate_ble_host_lib\ble_host.uvprojx
+Time Cost------                   T0 --------    32.149 ms
+Time Cost------          Config Proj --------     1.850 ms
+Time Cost------            CMD Build -------- 10847.939 ms
+Time Cost------          Build Check --------  1012.844 ms
+Time Cost------              Restore --------     0.448 ms
+Time Cost------             Copy Hex --------    30.783 ms
+
+
+----------------------------------------------------------------------------------------
+Total Err 0 Warning 0 Fail 0
+Time Cost------   All Build Finished -------- 11926.709 ms

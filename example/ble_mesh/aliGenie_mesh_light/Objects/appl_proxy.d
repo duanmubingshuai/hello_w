@@ -1,0 +1,9 @@
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\appl\appl_proxy.c
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\appl\appl_main.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_access_api.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_trn_api.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_ltrn_api.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_net_api.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_brr_api.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\mesh\export\include\MS_common.h
+.\objects\appl_proxy.o: ..\..\..\components\ethermind\osal\src\phyos\EM_os.h

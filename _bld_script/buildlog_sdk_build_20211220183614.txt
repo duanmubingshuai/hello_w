@@ -1,0 +1,925 @@
+----------------------------------------------------------------------------------------
+ProjName: sec_boot
+
+Building...
+..\lib\generate_sec_lib\sec_boot.uvprojx
+Time Cost------                   T0 --------    29.873 ms
+Time Cost------          Config Proj --------     0.039 ms
+Time Cost------            CMD Build --------  5163.322 ms
+Time Cost------          Build Check --------  1006.523 ms
+Time Cost------              Restore --------     0.147 ms
+Time Cost------             Copy Hex --------    32.034 ms
+----------------------------------------------------------------------------------------
+ProjName: rf
+
+Building...
+..\lib\generate_lib\rf.uvprojx
+Time Cost------                   T0 --------    29.368 ms
+Time Cost------          Config Proj --------     0.059 ms
+Time Cost------            CMD Build --------  5460.644 ms
+Time Cost------          Build Check --------  1007.815 ms
+Time Cost------              Restore --------     0.171 ms
+Time Cost------             Copy Hex --------    31.128 ms
+----------------------------------------------------------------------------------------
+ProjName: ble_host
+
+Building...
+..\lib\generate_ble_host_lib\ble_host.uvprojx
+Time Cost------                   T0 --------    28.147 ms
+Time Cost------          Config Proj --------     8.013 ms
+Time Cost------            CMD Build --------  7444.328 ms
+Time Cost------          Build Check --------  1006.458 ms
+Time Cost------              Restore --------     0.881 ms
+Time Cost------             Copy Hex --------    29.959 ms
+----------------------------------------------------------------------------------------
+ProjName: ble_host_multi5
+
+Building...
+..\lib\generate_ble_host_lib\ble_host.uvprojx
+Time Cost------                   T0 --------    30.010 ms
+Time Cost------          Config Proj --------     7.353 ms
+Time Cost------            CMD Build --------  7132.882 ms
+Time Cost------          Build Check --------  1007.685 ms
+Time Cost------              Restore --------     0.990 ms
+Time Cost------             Copy Hex --------    32.903 ms
+----------------------------------------------------------------------------------------
+ProjName: aox_lib
+
+Building...
+..\lib\generate_aoxEst_lib\aoxEst.uvprojx
+Time Cost------                   T0 --------    26.706 ms
+Time Cost------          Config Proj --------     0.087 ms
+Time Cost------            CMD Build --------  4903.227 ms
+Time Cost------          Build Check --------  1012.425 ms
+Time Cost------              Restore --------     0.273 ms
+Time Cost------             Copy Hex --------    34.628 ms
+----------------------------------------------------------------------------------------
+ProjName: smart_rf
+
+Building...
+..\example\PhyPlusPhy\smart_rf\smart_rf.uvprojx
+Time Cost------                   T0 --------    27.033 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build --------  7075.610 ms
+Time Cost------          Build Check --------  1008.659 ms
+Time Cost------              Restore --------     0.091 ms
+----------------------------------------------------------------------------------------
+ProjName: phy_tx
+
+Building...
+..\example\PhyPlusPhy\aoa_test\PhyPlusPhy.uvprojx
+Time Cost------                   T0 --------    40.670 ms
+Time Cost------          Config Proj --------     6.429 ms
+Time Cost------            CMD Build --------  6672.777 ms
+Time Cost------          Build Check --------  1000.409 ms
+Time Cost------              Restore --------     0.915 ms
+Time Cost------             Copy Hex --------    34.652 ms
+----------------------------------------------------------------------------------------
+ProjName: phy_rx
+
+Building...
+..\example\PhyPlusPhy\aoa_test\PhyPlusPhy.uvprojx
+Time Cost------                   T0 --------    29.524 ms
+Time Cost------          Config Proj --------     6.127 ms
+Time Cost------            CMD Build --------  6753.483 ms
+Time Cost------          Build Check --------  1006.522 ms
+Time Cost------              Restore --------     0.514 ms
+Time Cost------             Copy Hex --------    29.404 ms
+----------------------------------------------------------------------------------------
+ProjName: dtm
+
+Building...
+..\example\ble_peripheral\simpleBlePeripheral\simpleBlePeripheral.uvprojx
+Time Cost------                   T0 --------    27.707 ms
+Time Cost------          Config Proj --------     7.583 ms
+Time Cost------            CMD Build --------  8635.540 ms
+Time Cost------          Build Check --------  1005.468 ms
+Time Cost------              Restore --------     0.485 ms
+Time Cost------              GEN ASM --------   576.690 ms
+Time Cost------             Copy Hex --------    31.161 ms
+----------------------------------------------------------------------------------------
+ProjName: sbp
+
+Building...
+..\example\ble_peripheral\simpleBlePeripheral\simpleBlePeripheral.uvprojx
+Time Cost------                   T0 --------    28.366 ms
+Time Cost------          Config Proj --------     7.460 ms
+Time Cost------            CMD Build --------  8485.810 ms
+Time Cost------          Build Check --------  1006.140 ms
+Time Cost------              Restore --------     0.552 ms
+Time Cost------              GEN ASM --------   592.604 ms
+Time Cost------             Copy Hex --------    38.635 ms
+----------------------------------------------------------------------------------------
+ProjName: wrist
+
+Building...
+..\example\ble_peripheral\wrist\wrist.uvprojx
+Time Cost------                   T0 --------    34.672 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build -------- 11994.560 ms
+Time Cost------          Build Check --------  1008.475 ms
+Time Cost------              Restore --------     0.183 ms
+----------------------------------------------------------------------------------------
+ProjName: pwmLight
+
+Building...
+..\example\ble_peripheral\pwmLight\pwmLight.uvprojx
+Time Cost------                   T0 --------    44.765 ms
+Time Cost------          Config Proj --------     0.034 ms
+Time Cost------            CMD Build --------  9133.028 ms
+Time Cost------          Build Check --------  1009.525 ms
+Time Cost------              Restore --------     0.125 ms
+----------------------------------------------------------------------------------------
+ProjName: ppsp_demo
+
+Building...
+..\example\ble_peripheral\ppsp_demo\bleSmartPeripheral.uvprojx
+Time Cost------                   T0 --------    31.065 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build -------- 12829.846 ms
+    Error 0, Warning 10
+    *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+    Rebuild target 'Smart BLE Peripheral'
+    compiling list_slst.c...
+    compiling gapgattserver.c...
+    compiling gap.c...
+    compiling main.c...
+    compiling devinfoservice.c...
+    compiling core_queu.c...
+    ..\..\..\components\profiles\ppsp\core_queu.c(339): warning:  #1-D: last line of file ends without a newline
+      // }
+    ..\..\..\components\profiles\ppsp\core_queu.c: 1 warning, 0 errors
+    compiling peripheral.c...
+    compiling gapbondmgr.c...
+    compiling gattservapp.c...
+    compiling jump_table.c...
+    compiling ppsp_serv.c...
+    ..\..\..\components\profiles\ppsp\ppsp_serv.c(115): warning:  #550-D: variable "__ppsp_serv_char_ffd4_para_size"  was set but never used
+      __ppsp_serv_char_ffd4_para_size = 0;
+    ..\..\..\components\profiles\ppsp\ppsp_serv.c: 1 warning, 0 errors
+    compiling bleSmartPeripheral_Main.c...
+    compiling ppsp_impl.c...
+    ..\..\..\components\profiles\ppsp\ppsp_impl.c(434): warning:  #177-D: function "ppsp_impl_cvt_hex2Str"  was declared but never referenced
+      ppsp_impl_cvt_hex2Str(const unsigned char* const srcs, unsigned char* dest, int coun, int revs)
+    ..\..\..\components\profiles\ppsp\ppsp_impl.c(610): warning:  #177-D: function "ppsp_impl_pul_prog_data"  was declared but never referenced
+      ppsp_impl_pul_prog_data(uint32 addr, uint32* valu)
+    ..\..\..\components\profiles\ppsp\ppsp_impl.c: 2 warnings, 0 errors
+    compiling bleSmartPeripheral.c...
+    Source\bleSmartPeripheral.c(312): warning:  #223-D: function "ppsp_impl_ini" declared implicitly
+              ppsp_impl_ini();
+    Source\bleSmartPeripheral.c(388): warning:  #223-D: function "ppsp_impl_appl_timr_hdlr" declared implicitly
+              ppsp_impl_appl_timr_hdlr();
+    Source\bleSmartPeripheral.c(448): warning:  #177-D: function "bleSmartPeripheral_InitGattAttr"  was declared but never referenced
+      static void bleSmartPeripheral_InitGattAttr(void)
+    Source\bleSmartPeripheral.c(471): warning:  #177-D: function "bleSmartPeripheral_UpdateGattAttr"  was declared but never referenced
+      static void bleSmartPeripheral_UpdateGattAttr(void)
+    Source\bleSmartPeripheral.c(605): warning:  #177-D: function "updateAdvData"  was declared but never referenced
+      static void updateAdvData(void)
+    Source\bleSmartPeripheral.c: 5 warnings, 0 errors
+    compiling touch_key.c...
+    compiling battery.c...
+    compiling OSAL_bleSmartPeripheral.c...
+    compiling led.c...
+    compiling pwm_ctrl.c...
+    compiling switch.c...
+    compiling pwrmgr.c...
+    compiling clock.c...
+    compiling my_printf.c...
+    compiling uart.c...
+    compiling gpio.c...
+    compiling aes_decrypt.c...
+    compiling aes_encrypt.c...
+    compiling adc.c...
+    compiling cbc_mode.c...
+    compiling pwm.c...
+    compiling flash.c...
+    compiling osal_snv.c...
+    compiling ccm_mode.c...
+    compiling cmac_mode.c...
+    compiling ecc_platform_specific.c...
+    compiling ctr_mode.c...
+    compiling hmac.c...
+    compiling hmac_prng.c...
+    compiling ctr_prng.c...
+    ..\..\..\components\libraries\tinycrypt-0.2.8\lib\source\ctr_prng.c(238): warning:  #68-D: integer conversion resulted in a change of sign
+                  result = TC_CTR_PRNG_RESEED_REQ;
+    ..\..\..\components\libraries\tinycrypt-0.2.8\lib\source\ctr_prng.c: 1 warning, 0 errors
+    compiling ecc_dh.c...
+    compiling ecc_dsa.c...
+    compiling ecc.c...
+    assembling startup_ARMCM0.s...
+    compiling utils.c...
+    compiling sha256.c...
+    compiling system_ARMCM0.c...
+    linking...
+    Program Size: Code=56272 RO-data=2224 RW-data=2488 ZI-data=14872  
+    After Build - User command #1: fromelf.exe --bin -o  ./bin  ./Objects/bleSmartPeripheral.axf
+    After Build - User command #2: fromelf.exe .\Objects\bleSmartPeripheral.axf --i32combined --output .\bin\bleSmartPeripheral.hex
+    ".\Objects\bleSmartPeripheral.axf" - 0 Error(s), 10 Warning(s).
+Time Cost------          Build Check --------  1010.186 ms
+Time Cost------              Restore --------     0.144 ms
+----------------------------------------------------------------------------------------
+ProjName: hidkb
+
+Building...
+..\example\ble_peripheral\HIDKeyboard\HIDKeyBoard.uvprojx
+Time Cost------                   T0 --------    29.160 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build -------- 11523.505 ms
+Time Cost------          Build Check --------  1012.846 ms
+Time Cost------              Restore --------     0.218 ms
+----------------------------------------------------------------------------------------
+ProjName: hidvr
+
+Building...
+..\example\ble_peripheral\HIDAdvRemote\HIDAdvRemote.uvprojx
+Time Cost------                   T0 --------    47.779 ms
+Time Cost------          Config Proj --------     0.068 ms
+Time Cost------            CMD Build -------- 10770.382 ms
+    Error 0, Warning 2
+    *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+    Rebuild target 'HidAdvRemote'
+    compiling gap.c...
+    compiling devinfoservice.c...
+    compiling battservice.c...
+    compiling gapgattserver.c...
+    compiling main.c...
+    compiling peripheral.c...
+    compiling gattservapp.c...
+    compiling gapbondmgr.c...
+    compiling hidkbd_Main.c...
+    compiling scanparamservice.c...
+    compiling ota_app_service.c...
+    compiling hidkbdservice.c...
+    compiling AudioGATTprofile.c...
+    compiling jump_table.c...
+    compiling hidkbd.c...
+    compiling hiddev.c...
+    compiling adpcm.c...
+    compiling voice_circ_buff.c...
+    compiling voice_data.c...
+    compiling voice_task.c...
+    Source\voice_task.c(230): warning:  #1215-D: #warning directive: "check amic dmic io config"
+      #warning "check amic dmic io config"
+    Source\voice_task.c: 1 warning, 0 errors
+    compiling OSAL_hidkbd.c...
+    compiling Voice_Queue.c...
+    compiling hal_keyboard_matrix.c...
+    Source\hal_keyboard_matrix.c(119): warning:  #1215-D: #warning directive: "amic will use p15p18p20"
+      #warning "amic will use p15p18p20"
+    Source\hal_keyboard_matrix.c: 1 warning, 0 errors
+    compiling hal_drivers.c...
+    compiling my_printf.c...
+    compiling gpio.c...
+    compiling uart.c...
+    compiling pwrmgr.c...
+    compiling clock.c...
+    compiling flash.c...
+    assembling startup_ARMCM0.s...
+    compiling osal_snv.c...
+    compiling kscan.c...
+    compiling voice.c...
+    compiling fs.c...
+    compiling system_ARMCM0.c...
+    linking...
+    Program Size: Code=71060 RO-data=2648 RW-data=8072 ZI-data=22400  
+    After Build - User command #1: fromelf.exe --bin -o  ./bin  ./Objects/HidAdvRemote.axf
+    After Build - User command #2: fromelf.exe .\Objects\HidAdvRemote.axf --i32combined --output .\bin\HidAdvRemote.hex
+    ".\Objects\HidAdvRemote.axf" - 0 Error(s), 2 Warning(s).
+Time Cost------          Build Check --------  1005.847 ms
+Time Cost------              Restore --------     0.036 ms
+Time Cost------              GEN ASM --------   894.509 ms
+Time Cost------             Copy Hex --------    30.703 ms
+----------------------------------------------------------------------------------------
+ProjName: sbc
+
+Building...
+..\example\ble_central\simpleBleCentral\simpleBleCentral.uvprojx
+Time Cost------                   T0 --------    29.968 ms
+Time Cost------          Config Proj --------     0.039 ms
+Time Cost------            CMD Build --------  8818.982 ms
+Time Cost------          Build Check --------  1003.880 ms
+Time Cost------              Restore --------     0.109 ms
+----------------------------------------------------------------------------------------
+ProjName: spiflash
+
+Building...
+..\example\peripheral\spiflash\spiflash.uvprojx
+Time Cost------                   T0 --------    29.656 ms
+Time Cost------          Config Proj --------     0.031 ms
+Time Cost------            CMD Build -------- 12245.981 ms
+Time Cost------          Build Check --------  1000.808 ms
+Time Cost------              Restore --------     0.097 ms
+----------------------------------------------------------------------------------------
+ProjName: adc
+
+Building...
+..\example\peripheral\adc\adc.uvprojx
+Time Cost------                   T0 --------    29.590 ms
+Time Cost------          Config Proj --------     0.049 ms
+Time Cost------            CMD Build --------  8410.204 ms
+Time Cost------          Build Check --------  1003.884 ms
+Time Cost------              Restore --------     0.099 ms
+----------------------------------------------------------------------------------------
+ProjName: dmac
+
+Building...
+..\example\peripheral\dmac\dmac.uvprojx
+Time Cost------                   T0 --------    29.341 ms
+Time Cost------          Config Proj --------     0.031 ms
+Time Cost------            CMD Build --------  7336.949 ms
+Time Cost------          Build Check --------  1000.123 ms
+Time Cost------              Restore --------     0.092 ms
+----------------------------------------------------------------------------------------
+ProjName: fs
+
+Building...
+..\example\peripheral\fs\fs.uvprojx
+Time Cost------                   T0 --------    28.947 ms
+Time Cost------          Config Proj --------     0.050 ms
+Time Cost------            CMD Build --------  7997.710 ms
+Time Cost------          Build Check --------  1006.574 ms
+Time Cost------              Restore --------     0.127 ms
+----------------------------------------------------------------------------------------
+ProjName: gpio
+
+Building...
+..\example\peripheral\gpio\gpio.uvprojx
+Time Cost------                   T0 --------    28.408 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build --------  7749.882 ms
+Time Cost------          Build Check --------  1014.644 ms
+Time Cost------              Restore --------     0.221 ms
+----------------------------------------------------------------------------------------
+ProjName: kscan
+
+Building...
+..\example\peripheral\kscan\kscan.uvprojx
+Time Cost------                   T0 --------    29.646 ms
+Time Cost------          Config Proj --------     0.047 ms
+Time Cost------            CMD Build --------  7763.195 ms
+Time Cost------          Build Check --------  1004.233 ms
+Time Cost------              Restore --------     0.122 ms
+----------------------------------------------------------------------------------------
+ProjName: spim
+
+Building...
+..\example\peripheral\spi_demo\spi_demo.uvprojx
+Time Cost------                   T0 --------    30.307 ms
+Time Cost------          Config Proj --------     0.031 ms
+Time Cost------            CMD Build --------  8096.684 ms
+Time Cost------          Build Check --------  1003.225 ms
+Time Cost------              Restore --------     0.184 ms
+----------------------------------------------------------------------------------------
+ProjName: spis
+
+Building...
+..\example\peripheral\spis_demo\spis_demo.uvprojx
+Time Cost------                   T0 --------    45.554 ms
+Time Cost------          Config Proj --------     0.069 ms
+Time Cost------            CMD Build --------  8609.559 ms
+Time Cost------          Build Check --------  1014.632 ms
+Time Cost------              Restore --------     0.088 ms
+----------------------------------------------------------------------------------------
+ProjName: timer
+
+Building...
+..\example\peripheral\timer\timer.uvprojx
+Time Cost------                   T0 --------    30.658 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build --------  7908.340 ms
+Time Cost------          Build Check --------  1001.614 ms
+Time Cost------              Restore --------     0.147 ms
+----------------------------------------------------------------------------------------
+ProjName: watchdog
+
+Building...
+..\example\peripheral\watchdog\watchdog.uvprojx
+Time Cost------                   T0 --------    29.047 ms
+Time Cost------          Config Proj --------     0.046 ms
+Time Cost------            CMD Build --------  7823.252 ms
+Time Cost------          Build Check --------  1011.467 ms
+Time Cost------              Restore --------     0.172 ms
+----------------------------------------------------------------------------------------
+ProjName: pwm
+
+Building...
+..\example\peripheral\pwm\pwm.uvprojx
+Time Cost------                   T0 --------    29.742 ms
+Time Cost------          Config Proj --------     0.038 ms
+Time Cost------            CMD Build --------  7582.162 ms
+Time Cost------          Build Check --------  1005.351 ms
+Time Cost------              Restore --------     0.243 ms
+----------------------------------------------------------------------------------------
+ProjName: bsp_btn
+
+Building...
+..\example\peripheral\bsp_btn\bsp_btn.uvprojx
+Time Cost------                   T0 --------    32.822 ms
+Time Cost------          Config Proj --------     0.036 ms
+Time Cost------            CMD Build --------  7862.474 ms
+Time Cost------          Build Check --------  1012.063 ms
+Time Cost------              Restore --------     0.121 ms
+----------------------------------------------------------------------------------------
+ProjName: ota_sbk
+
+Building...
+..\example\OTA\OTA_internal_flash\ota_if.uvprojx
+Time Cost------                   T0 --------    44.047 ms
+Time Cost------          Config Proj --------     9.778 ms
+Time Cost------            CMD Build --------  8542.027 ms
+Time Cost------          Build Check --------  1005.457 ms
+Time Cost------              Restore --------     0.377 ms
+Time Cost------              GEN ASM --------   512.774 ms
+Time Cost------             Copy Hex --------    32.106 ms
+----------------------------------------------------------------------------------------
+ProjName: slb
+
+Building...
+..\example\OTA\slboot\slboot.uvprojx
+Time Cost------                   T0 --------    31.813 ms
+Time Cost------          Config Proj --------     0.040 ms
+Time Cost------            CMD Build --------  7242.671 ms
+Time Cost------          Build Check --------  1003.464 ms
+Time Cost------              Restore --------     0.094 ms
+----------------------------------------------------------------------------------------
+ProjName: mesh_ali_light
+
+Building...
+..\example\ble_mesh\aliGenie_mesh_light\aliGenie_mesh_light.uvprojx
+Time Cost------                   T0 --------    28.050 ms
+Time Cost------          Config Proj --------     0.032 ms
+Time Cost------            CMD Build -------- 15140.953 ms
+    Error 65, Warning 0
+    *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+    Rebuild target 'Target 1'
+    compiling main.c...
+    compiling pwm.c...
+    compiling flash.c...
+    compiling uart.c...
+    compiling clock.c...
+    compiling my_printf.c...
+    compiling pwrmgr.c...
+    compiling gpio.c...
+    compiling crc16.c...
+    compiling devinfoservice.c...
+    compiling simpleGATTprofile_ota.c...
+    compiling gap.c...
+    compiling gapgattserver.c...
+    compiling simplekeys.c...
+    compiling peripheral.c...
+    compiling gattservapp.c...
+    compiling observer.c...
+    compiling bleMesh_Main.c...
+    compiling bleMesh.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\bleMesh.c: 0 warnings, 1 error
+    compiling OSAL_bleMesh.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\OSAL_bleMesh.c: 0 warnings, 1 error
+    compiling central.c...
+    compiling osal_snv.c...
+    compiling jump_table.c...
+    compiling blebrr.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\bearer\blebrr.c: 0 warnings, 1 error
+    compiling sha256.c...
+    compiling gapbondmgr.c...
+    compiling EM_platform.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\EM_platform.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\EM_platform.c: 0 warnings, 1 error
+    compiling ali_genie_profile.c...
+    compiling aes.c...
+    ..\..\..\components\ethermind\external\crypto\aes\aes.c(16): error:  #5: cannot open source input file "cry.h": No such file or directory
+      #include "cry.h"
+    ..\..\..\components\ethermind\external\crypto\aes\aes.c: 0 warnings, 1 error
+    compiling aes-ccm.c...
+    compiling led_light.c...
+    compiling EM_debug.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_debug.c: 0 warnings, 1 error
+    compiling EM_os.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.c: 0 warnings, 1 error
+    compiling EM_timer.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_timer.c: 0 warnings, 1 error
+    compiling cry.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\interfaces\crypto\cry.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\interfaces\crypto\cry.c: 0 warnings, 1 error
+    compiling blebrr_pl.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\blebrr_pl.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\blebrr_pl.c: 0 warnings, 1 error
+    compiling MS_common_pl.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\platforms\ext\MS_common_pl.c: 0 warnings, 1 error
+    compiling blebrr_gatt.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\bearer\blebrr_gatt.c: 0 warnings, 1 error
+    compiling prov_pl.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\platforms\ext\prov_pl.c: 0 warnings, 1 error
+    compiling mesh_services.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_services.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_services.c: 0 warnings, 1 error
+    compiling model_state_handler_pl.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\model_state_handler_pl.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\model_state_handler_pl.c: 0 warnings, 1 error
+    compiling appl_prov.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\appl_prov.c: 0 warnings, 1 error
+    compiling appl_generic_battery_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_battery_server\appl_generic_battery_server.c: 0 warnings, 1 error
+    compiling appl_proxy.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\appl_proxy.c: 0 warnings, 1 error
+    compiling appl_generic_default_transition_time_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_default_transition_time_server\appl_generic_default_transition_time_server.c: 0 warnings, 1 error
+    compiling appl_generic_level_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_level_server\appl_generic_level_server.c: 0 warnings, 1 error
+    compiling appl_generic_location_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_location_server\appl_generic_location_server.c: 0 warnings, 1 error
+    compiling appl_generic_onoff_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_onoff_server\appl_generic_onoff_server.c: 0 warnings, 1 error
+    compiling appl_generic_power_level_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_power_level_server\appl_generic_power_level_server.c: 0 warnings, 1 error
+    compiling appl_generic_property_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_property_server\appl_generic_property_server.c: 0 warnings, 1 error
+    compiling appl_generic_power_onoff_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\generics\generic_power_onoff_server\appl_generic_power_onoff_server.c: 0 warnings, 1 error
+    compiling appl_light_ctl_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\lighting\light_ctl_server\appl_light_ctl_server.c: 0 warnings, 1 error
+    compiling appl_light_hsl_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\lighting\light_hsl_server\appl_light_hsl_server.c: 0 warnings, 1 error
+    compiling appl_light_lightness_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\lighting\light_lightness_server\appl_light_lightness_server.c: 0 warnings, 1 error
+    compiling appl_light_lc_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\lighting\light_lc_server\appl_light_lc_server.c: 0 warnings, 1 error
+    compiling appl_main_model_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\appl_main_model_server.c: 0 warnings, 1 error
+    compiling appl_light_xyl_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\lighting\light_xyl_server\appl_light_xyl_server.c: 0 warnings, 1 error
+    compiling appl_model_server_callback.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\appl_model_server_callback.c: 0 warnings, 1 error
+    compiling appl_model_server_state_handler.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\appl_model_server_state_handler.c: 0 warnings, 1 error
+    compiling appl_health_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\health\appl_health_server.c: 0 warnings, 1 error
+    compiling mesh_clients.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_clients.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_clients.c: 0 warnings, 1 error
+    compiling appl_scene_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\model\server\time_and_scenes\scene_server\appl_scene_server.c: 0 warnings, 1 error
+    compiling EXT_cbtimer.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cbtimer\EXT_cbtimer.c: 0 warnings, 1 error
+    compiling cli_core.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_core.c: 0 warnings, 1 error
+    compiling cli_brr.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_brr.c: 0 warnings, 1 error
+    compiling cli_main.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_main.c: 0 warnings, 1 error
+    compiling cli_core_provision.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_core_provision.c: 0 warnings, 1 error
+    compiling cli_core_network.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_core_network.c: 0 warnings, 1 error
+    compiling cli_core_proxy.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_core_proxy.c: 0 warnings, 1 error
+    compiling cli_core_transport.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_core_transport.c: 0 warnings, 1 error
+    compiling cli_model.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_model.c: 0 warnings, 1 error
+    compiling cli_model_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_model_client.c: 0 warnings, 1 error
+    compiling cli_generic_battery_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_battery_client.c: 0 warnings, 1 error
+    compiling cli_model_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_model_server.c: 0 warnings, 1 error
+    compiling cli_ps.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\cli_ps.c: 0 warnings, 1 error
+    compiling cli_config_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_config_client.c: 0 warnings, 1 error
+    compiling cli_generic_default_transition_time_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_default_transition_time_client.c: 0 warnings, 1 error
+    compiling cli_generic_location_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_location_client.c: 0 warnings, 1 error
+    compiling cli_generic_level_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_level_client.c: 0 warnings, 1 error
+    compiling cli_generic_onoff_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_onoff_client.c: 0 warnings, 1 error
+    compiling cli_generic_power_level_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_power_level_client.c: 0 warnings, 1 error
+    compiling cli_health_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_health_client.c: 0 warnings, 1 error
+    compiling cli_generic_property_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_property_client.c: 0 warnings, 1 error
+    compiling cli_generic_power_onoff_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_generic_power_onoff_client.c: 0 warnings, 1 error
+    compiling cli_light_hsl_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_light_hsl_client.c: 0 warnings, 1 error
+    compiling cli_light_ctl_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_light_ctl_client.c: 0 warnings, 1 error
+    compiling cli_light_lc_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_light_lc_client.c: 0 warnings, 1 error
+    assembling startup_ARMCM0.s...
+    compiling cli_light_xyl_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_light_xyl_client.c: 0 warnings, 1 error
+    compiling appl_sample_example_aliGenie_light.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\appl_sample_example_aliGenie_light.c: 0 warnings, 1 error
+    compiling cli_scene_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_scene_client.c: 0 warnings, 1 error
+    compiling cli_light_lightness_client.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cli\model\client\cli_light_lightness_client.c: 0 warnings, 1 error
+    compiling system_ARMCM0.c...
+    ".\Objects\aliGenie_mesh_light.axf" - 65 Error(s), 0 Warning(s).
+Time Cost------          Build Check --------  1003.173 ms
+Time Cost------              Restore --------     0.100 ms
+
+
+*****prj build fail check _bld.txt****
+
+----------------------------------------------------------------------------------------
+ProjName: mesh_ali_multi
+
+Building...
+..\example\ble_mesh\aliGenie_mesh_multi\aliGenie_mesh_multi.uvprojx
+Time Cost------                   T0 --------    33.963 ms
+Time Cost------          Config Proj --------     0.097 ms
+Time Cost------            CMD Build -------- 11215.691 ms
+    Error 22, Warning 0
+    *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+    Rebuild target 'Target 1'
+    compiling pwrmgr.c...
+    compiling pwm.c...
+    compiling clock.c...
+    compiling uart.c...
+    compiling flash.c...
+    compiling my_printf.c...
+    compiling gpio.c...
+    compiling main.c...
+    compiling crc16.c...
+    compiling devinfoservice.c...
+    compiling gap.c...
+    compiling observer.c...
+    compiling central.c...
+    compiling gapgattserver.c...
+    compiling peripheral.c...
+    compiling gattservapp.c...
+    compiling osal_snv.c...
+    compiling jump_table.c...
+    compiling gapbondmgr.c...
+    compiling bleMesh_Main.c...
+    compiling OSAL_bleMesh.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\OSAL_bleMesh.c: 0 warnings, 1 error
+    compiling bleMesh.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\bleMesh.c: 0 warnings, 1 error
+    compiling ali_genie_profile.c...
+    compiling sha256.c...
+    compiling EM_platform.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\EM_platform.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\EM_platform.c: 0 warnings, 1 error
+    compiling cli_model.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\climodel\cli_model.c: 0 warnings, 1 error
+    compiling dongleKey.c...
+    source\bleMesh\dongleKey.c(38): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\dongleKey.c: 0 warnings, 1 error
+    compiling led_light.c...
+    compiling EM_os.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.c: 0 warnings, 1 error
+    compiling EM_debug.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_debug.c: 0 warnings, 1 error
+    compiling aes.c...
+    ..\..\..\components\ethermind\external\crypto\aes\aes.c(16): error:  #5: cannot open source input file "cry.h": No such file or directory
+      #include "cry.h"
+    ..\..\..\components\ethermind\external\crypto\aes\aes.c: 0 warnings, 1 error
+    compiling aes-ccm.c...
+    compiling EM_timer.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\osal\src\phyos\EM_timer.c: 0 warnings, 1 error
+    compiling blebrr_pl.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\blebrr_pl.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\blebrr_pl.c: 0 warnings, 1 error
+    compiling cry.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\interfaces\crypto\cry.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\interfaces\crypto\cry.c: 0 warnings, 1 error
+    compiling blebrr.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\bearer\blebrr.c: 0 warnings, 1 error
+    compiling blebrr_gatt.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\bearer\blebrr_gatt.c: 0 warnings, 1 error
+    compiling mesh_services.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_services.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_services.c: 0 warnings, 1 error
+    compiling model_state_handler_pl.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\model_state_handler_pl.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\model_state_handler_pl.c: 0 warnings, 1 error
+    compiling prov_pl.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\platforms\ext\prov_pl.c: 0 warnings, 1 error
+    compiling MS_common_pl.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\platforms\ext\MS_common_pl.c: 0 warnings, 1 error
+    compiling appl_prov.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\appl\appl_prov.c: 0 warnings, 1 error
+    compiling mesh_clients.c...
+    "no source": Error:  #5: cannot open source input file "..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_clients.c": No such file or directory
+    ..\..\..\components\ethermind\platforms\meshlibs\mesh\mesh_clients.c: 0 warnings, 1 error
+    compiling EXT_cbtimer.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\cbtimer\EXT_cbtimer.c: 0 warnings, 1 error
+    compiling appl_sample_example_aliGenie_multi.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    source\bleMesh\appl_sample_example_aliGenie_multi.c: 0 warnings, 1 error
+    compiling vendormodel_server.c...
+    ..\..\..\components\ethermind\osal\src\phyos\EM_os.h(26): error:  #5: cannot open source input file "EM_platform.h": No such file or directory
+      #include "EM_platform.h"
+    ..\..\..\components\ethermind\mesh\export\vendormodel\server\vendormodel_server.c: 0 warnings, 1 error
+    assembling startup_ARMCM0.s...
+    compiling system_ARMCM0.c...
+    ".\Objects\aliGenie_mesh_multi.axf" - 22 Error(s), 0 Warning(s).
+Time Cost------          Build Check --------  1010.335 ms
+Time Cost------              Restore --------     0.147 ms
+
+
+*****prj build fail check _bld.txt****
+
+----------------------------------------------------------------------------------------
+ProjName: mesh_switch
+
+Building...
+..\example\ble_mesh\mesh_switch\mesh_switch.uvprojx
+Time Cost------                   T0 --------    31.193 ms
+Time Cost------          Config Proj --------     0.046 ms
+Time Cost------            CMD Build -------- 14890.603 ms
+Time Cost------          Build Check --------  1015.442 ms
+Time Cost------              Restore --------     0.195 ms
+----------------------------------------------------------------------------------------
+ProjName: mesh_light
+
+Building...
+..\example\ble_mesh\mesh_light\mesh_light.uvprojx
+Time Cost------                   T0 --------    31.518 ms
+Time Cost------          Config Proj --------     0.041 ms
+Time Cost------            CMD Build -------- 14663.513 ms
+Time Cost------          Build Check --------  1000.837 ms
+Time Cost------              Restore --------     0.184 ms
+----------------------------------------------------------------------------------------
+ProjName: mesh_gateway
+
+Building...
+..\example\ble_mesh\mesh_gateway\mesh_gateway.uvprojx
+Time Cost------                   T0 --------    30.622 ms
+Time Cost------          Config Proj --------     0.050 ms
+Time Cost------            CMD Build -------- 14516.953 ms
+Time Cost------          Build Check --------  1005.223 ms
+Time Cost------              Restore --------     0.212 ms
+----------------------------------------------------------------------------------------
+ProjName: mesh_lpn
+
+*****prj build fail check _bld.txt****
+
+----------------------------------------------------------------------------------------
+ProjName: mesh_sensor
+
+*****prj build fail check _bld.txt****
+
+----------------------------------------------------------------------------------------
+ProjName: sbm
+
+Building...
+..\example\ble_multi\simpleBleMultiConnection\simpleBleMulti.uvprojx
+Time Cost------                   T0 --------    28.410 ms
+Time Cost------          Config Proj --------     0.433 ms
+Time Cost------            CMD Build --------  9345.344 ms
+Time Cost------          Build Check --------  1010.718 ms
+Time Cost------              Restore --------     0.128 ms
+
+
+----------------------------------------------------------------------------------------
+Total Err 87 Warning 12 Fail 4
+Time Cost------   All Build Finished -------- 368157.173 ms
