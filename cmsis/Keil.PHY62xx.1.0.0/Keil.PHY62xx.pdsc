@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.6.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>PHY62xx</name>
+  <description> PHY62xx Series Device Support</description>
+  <url>http://www.keil.com/pack/</url>
+
+  <releases>
+    <release version="0.0.1">
+      Initial version of PHY62xx Device Family Pack.
+    </release>
+  </releases>
+
+  <requirements>
+    <languages>
+      <language name="C" version="99"/>
+    </languages>
+    <packages>
+      <package vendor="ARM"  name="CMSIS"  version="5.7.0"/>
+    </packages>
+  </requirements>
+
+  <keywords>
+    <keyword>PHY</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Phyplusinc</keyword>
+    <keyword>PHY62xx</keyword>
+  </keywords>
+  
+  <devices>
+    <family Dfamily="PHY62xx Series" Dvendor="Generic:5">
+      <processor Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+
+      <book name="Documentation/dui0497a_cortex_m0_r0p0_generic_ug.pdf" title="Cortex-M0 Generic User Guide"/>
+      <description>
+The PHY62XX family 
+
+  - 132-Kbyte of RAM
+  - SPI Flash
+  - RTC
+  - Bluetooth
+      </description>
+	  
+	  <!-- ************************  Subfamily 'PHY62xx'  **************************** -->
+      <subFamily DsubFamily="PHY62xx">
+		<processor Dclock="10000000"/>
+	  
+      <!-- *************************  Device 'PHY6222'  ***************************** -->
+      <device Dname="PHY6222">
+		<!--compile define="PHY6222"/-->
+		<memory id="IROM1"                                      start="0x00000000" size="0x00040000" startup="1" default="1"/>
+		<memory id="IRAM1"                                      start="0x1FFFC000" size="0x00001000" init   ="0" default="1"/>
+		
+        <compile header="/Device/PHYPLUSINC/PHY62xx/Include/PHY6222.h"  define="PHY6222"/>
+		
+		<algorithm name="CMSIS/Flash/PHY6222_Flash.FLM" start="0x11000000" size="0x0F000000"             default="1"/>
+		
+      </device>	
+	  </subFamily>
+		
+    </family>
+  </devices>
+  
+  <conditions>
+    <condition id="PHY62xx">
+      <description>PHY62xx Device Family</description>
+      <require Dvendor="Generic:5" Dname="PHY6222"/>
+
+    </condition>
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="PHY62xx">  <!-- Cversion is necessary -->
+      <description>System Startup for Phyplus inc PHY62xx Series</description>
+      <RTE_Components_h>
+        <!-- the following content goes into file 'RTE_Components.h' -->
+        #define RTE_DEVICE_STARTUP_PHY62xx    /* Device Startup for PHY62xx */
+      </RTE_Components_h>
+
+      <files>
+        <!--  include folder -->
+		<file category="include" name="Device/PHYPLUSINC/PHY62xx/Include/"/>
+
+		<file category="header" name="Device/PHYPLUSINC/PHY62xx/Include/PHY6222.h"/>
+
+        <!-- startup files -->
+        <!-- ARM Compiler Toolchain -->
+        <file category="source" name="Device/PHYPLUSINC/PHY62xx/Source/arm/startup_PHY6222.s" attr="config" version="1.0.0" condition="PHY62xx"/>
+
+        <!-- system file -->
+        <file category="source" name="Device/PHYPLUSINC/PHY62xx/Source/system_PHY6222.c" attr="config" version="1.0.0"/>
+      </files>
+    </component>
+
+  </components>
+
+</package>

@@ -1,0 +1,15 @@
+---
+sec_boot: 
+- 'lib\generate_sec_lib\sec_boot.uvprojx'
+- [Objects\sec_boot.lib, ..\sec_boot.lib]
+
+ble_host:
+- lib\generate_ble_host_lib\ble_host.uvprojx
+- {'MAX_NUM_LL_CONN':'1'}
+- [Objects\ble_host.lib, ..\ble_host.lib]
+
+gpio:
+- example\peripheral\gpio\gpio.uvprojx
+
+mesh_ali_light:
+- example\ble_mesh\aliGenie_bleMesh\aliGenie_bleMesh_light\aliGenie_mesh_light.uvprojx
