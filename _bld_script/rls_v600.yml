@@ -1,0 +1,17 @@
+---
+#release tag name @ current repo
+ReleaseTagName: 
+- tag_v600
+
+ReleaseBranchName:
+- PHY62XX_SDK_6.0.0
+
+#build config
+# - yaml file
+BuildConfig: 
+- bld_v600
+
+#Protect file config
+ProtectFile:
+- rls_example:
+  - bld_v600
