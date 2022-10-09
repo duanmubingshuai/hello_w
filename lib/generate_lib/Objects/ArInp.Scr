@@ -1,4 +1,0 @@
---create .\Objects\rf.lib
-.\objects\patch.o
-.\objects\rf_phy_driver.o
-..\sec_boot.lib

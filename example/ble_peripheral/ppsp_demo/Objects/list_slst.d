@@ -1,9 +1,0 @@
-.\objects\list_slst.o: ..\..\..\components\profiles\ppsp\list_slst.c
-.\objects\list_slst.o: ..\..\..\components\osal\include\OSAL.h
-.\objects\list_slst.o: ..\..\..\components\osal\include\comdef.h
-.\objects\list_slst.o: ..\..\..\components\inc\types.h
-.\objects\list_slst.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\list_slst.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\list_slst.o: ..\..\..\components\osal\include\OSAL_Memory.h
-.\objects\list_slst.o: ..\..\..\components\osal\include\OSAL_Timers.h
-.\objects\list_slst.o: ..\..\..\components\profiles\ppsp\list_slst.h

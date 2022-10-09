@@ -1,0 +1,123 @@
+----------------------------------------------------------------------------------------
+ProjName: sec_boot
+
+Building...
+..\lib\generate_sec_lib\sec_boot.uvprojx
+Time Cost------                   T0 --------   199.064 ms
+Time Cost------          Config Proj --------     0.079 ms
+Time Cost------            CMD Build -------- 26441.056 ms
+Time Cost------          Build Check --------  1015.410 ms
+Time Cost------              Restore --------     0.118 ms
+Time Cost------             Copy Hex --------   185.267 ms
+----------------------------------------------------------------------------------------
+ProjName: rfslave
+
+*****prj build fail check _bld.txt****
+
+----------------------------------------------------------------------------------------
+ProjName: ble_host
+
+Building...
+..\lib\generate_ble_host_lib\ble_host.uvprojx
+Time Cost------                   T0 --------   191.052 ms
+Time Cost------          Config Proj --------     0.040 ms
+Time Cost------            CMD Build -------- 27190.155 ms
+Time Cost------          Build Check --------  1006.901 ms
+Time Cost------              Restore --------     0.091 ms
+Time Cost------             Copy Hex --------   183.138 ms
+----------------------------------------------------------------------------------------
+ProjName: sbp
+
+Building...
+..\example\ble_peripheral\simpleBlePeripheral\simpleBlePeripheral.uvprojx
+Time Cost------                   T0 --------   187.269 ms
+Time Cost------          Config Proj --------    10.314 ms
+Time Cost------            CMD Build -------- 34080.467 ms
+Time Cost------          Build Check --------  1014.669 ms
+Time Cost------              Restore --------     0.542 ms
+Time Cost------             Copy Hex --------   227.298 ms
+----------------------------------------------------------------------------------------
+ProjName: hidkb
+
+Building...
+..\example\ble_peripheral\HIDKeyboard\HIDKeyBoard.uvprojx
+Time Cost------                   T0 --------   199.424 ms
+Time Cost------          Config Proj --------     0.093 ms
+Time Cost------            CMD Build -------- 37524.389 ms
+Time Cost------          Build Check --------  1010.714 ms
+Time Cost------              Restore --------     0.097 ms
+----------------------------------------------------------------------------------------
+ProjName: spiflash
+
+Building...
+..\example\peripheral\spiflash\spiflash.uvprojx
+Time Cost------                   T0 --------   205.292 ms
+Time Cost------          Config Proj --------     0.064 ms
+Time Cost------            CMD Build -------- 28285.833 ms
+Time Cost------          Build Check --------  1014.301 ms
+Time Cost------              Restore --------     0.127 ms
+----------------------------------------------------------------------------------------
+ProjName: adc
+
+Building...
+..\example\peripheral\adc\adc.uvprojx
+Time Cost------                   T0 --------   196.502 ms
+Time Cost------          Config Proj --------     0.127 ms
+Time Cost------            CMD Build -------- 36302.568 ms
+Time Cost------          Build Check --------  1014.183 ms
+Time Cost------              Restore --------     0.094 ms
+----------------------------------------------------------------------------------------
+ProjName: dmac
+
+Building...
+..\example\peripheral\dmac\dmac.uvprojx
+Time Cost------                   T0 --------   230.415 ms
+Time Cost------          Config Proj --------     0.065 ms
+Time Cost------            CMD Build -------- 24037.716 ms
+Time Cost------          Build Check --------  1004.952 ms
+Time Cost------              Restore --------     0.104 ms
+----------------------------------------------------------------------------------------
+ProjName: fs
+
+Building...
+..\example\peripheral\fs\fs.uvprojx
+Time Cost------                   T0 --------   191.716 ms
+Time Cost------          Config Proj --------     0.076 ms
+Time Cost------            CMD Build -------- 24126.469 ms
+Time Cost------          Build Check --------  1003.592 ms
+Time Cost------              Restore --------     0.103 ms
+----------------------------------------------------------------------------------------
+ProjName: gpio
+
+Building...
+..\example\peripheral\gpio\gpio.uvprojx
+Time Cost------                   T0 --------   190.336 ms
+Time Cost------          Config Proj --------     0.144 ms
+Time Cost------            CMD Build -------- 30949.089 ms
+Time Cost------          Build Check --------  1013.272 ms
+Time Cost------              Restore --------     0.149 ms
+----------------------------------------------------------------------------------------
+ProjName: timer
+
+Building...
+..\example\peripheral\timer\timer.uvprojx
+Time Cost------                   T0 --------   200.750 ms
+Time Cost------          Config Proj --------     0.101 ms
+Time Cost------            CMD Build -------- 27939.655 ms
+Time Cost------          Build Check --------  1003.000 ms
+Time Cost------              Restore --------     0.128 ms
+----------------------------------------------------------------------------------------
+ProjName: watchdog
+
+Building...
+..\example\peripheral\watchdog\watchdog.uvprojx
+Time Cost------                   T0 --------   209.072 ms
+Time Cost------          Config Proj --------     0.078 ms
+Time Cost------            CMD Build -------- 22891.259 ms
+Time Cost------          Build Check --------  1008.345 ms
+Time Cost------              Restore --------     0.099 ms
+
+
+----------------------------------------------------------------------------------------
+Total Err 0 Warning 0 Fail 1
+Time Cost------   All Build Finished -------- 333700.444 ms

@@ -202,11 +202,13 @@ def sdk_rls(args):
     #branch_name = args[3]+'_'+ args[0]+ '_'+ datetime.strftime(datetime.now(), '%Y%m%d%H%M%S')
     branch_name = cfg['ReleaseBranchName'][0]
     new_repo.git.checkout('-b', branch_name) # create local branch.will be pushed to release roposity#branch name with time
+    # new_repo.git.checkout('--orphan', branch_name) # create local branch.will be pushed to release roposity#branch name with time
     #new_repo.git.pull('origin', 'master')
     # new_repo.git.fetch(new_origin)
     os.system('git branch --set-upstream-to='+ new_origin+'/'+branch_name)
     #new_repo.git('branch', '--set-upstream-to', new_origin +'/master')
     new_repo.git.add('.')
+    # new_repo.git.add('-A')
     #new_repo.git.add('-f', 'buildlog_*.txt')
     new_repo.git.commit('-m', 'sdk release repo push')
     new_repo.git.push(new_origin, branch_name)
@@ -411,19 +413,20 @@ def protectfile(cfg):
     print(cfg)
     bld = get_bld_path(rls_config(cfg[0]['rls_example'][0]))
     print(bld)
-    cur=get_dir_path(os.path.join(locallocation,'example'),2)
-    remove_example=find_del_fold(bld,cur)
-    
+    #cur=get_dir_path(os.path.join(locallocation,'example'),3)
+    #remove_example=find_del_fold(bld,cur)
+    '''
     for del_path in remove_example:
         # print(del_path)
-        f_path = 'aliGenie_bleMesh'
+        #f_path = 'aliGenie_bleMesh'
+        f_path = '_test'
         if f_path in del_path :
-            print(del_path)
-        else:
+            #print(del_path)
+        #else:
             cmd = 'rd /s /q ' + del_path
             print(cmd)
             validcmd(cmd)
-
+    '''
     for del_path in cfg[2]['remove_folder']:
         #libsrcpath = 'clonefile'+ '\\' + del_path[1]  #clone file cannot have a space inside
         libsrcpath = locallocation.split('/')[-1] + '\\' + del_path  # clone file cannot have a space inside
@@ -532,7 +535,8 @@ def main(argv):
         print(helpstr)
         return
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'h?', ['branch', 'merge', 'release=', '2releaseR', 'rls','mkbranch=', 'mktag=', 'tag=','trunk', 'help', 'dummy'])
+        #opts, args = getopt.getopt(sys.argv[1:], 'h?', ['branch', 'merge', 'release=', '2releaseR', 'rls','mkbranch=', 'mktag=', 'tag=','trunk', 'help', 'dummy'])
+        opts, args = getopt.getopt(sys.argv[1:], 'h?', ['branch', 'merge', 'release=', 'rls','mkbranch=', 'mktag=', 'tag=','trunk', 'help', 'dummy'])
         #if (len(opts) + len(args) != len(argv) - 1):
             #print('args after =')
             #print(helpstr)

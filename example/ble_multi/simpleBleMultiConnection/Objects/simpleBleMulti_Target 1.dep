@@ -1,768 +1,0 @@
-Dependencies for Project 'simpleBleMulti', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\rf_phy_driver.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_hw_drv.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\components\libraries\fs\fs.h)(0x6143F976)
-F (..\..\..\components\driver\clock\clock.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\clock.o --omf_browse .\objects\clock.crf --depend .\objects\clock.d)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\inc\global_config.h)(0x6143F976)
-I (..\..\..\components\ble\controller\rf_phy_driver.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_hw_drv.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-F (..\..\..\components\driver\uart\uart.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-F (..\..\..\components\driver\gpio\gpio.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-F (..\..\..\components\driver\timer\timer.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-F (..\..\..\components\driver\pwrmgr\pwrmgr.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\pwrmgr.o --omf_browse .\objects\pwrmgr.crf --depend .\objects\pwrmgr.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-F (..\..\..\components\driver\log\my_printf.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\my_printf.o --omf_browse .\objects\my_printf.crf --depend .\objects\my_printf.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-F (..\..\..\components\driver\pwm\pwm.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\driver\pwm\pwm.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-F (..\..\..\components\driver\flash\flash.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\flash.o --omf_browse .\objects\flash.crf --depend .\objects\flash.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-F (..\..\..\components\libraries\fs\fs.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\fs.o --omf_browse .\objects\fs.crf --depend .\objects\fs.d)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\libraries\fs\fs.h)(0x6143F976)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-F (..\..\..\components\osal\snv\osal_snv.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\osal_snv.o --omf_browse .\objects\osal_snv.crf --depend .\objects\osal_snv.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\..\..\components\osal\include\osal.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal_snv.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\libraries\fs\fs.h)(0x6143F976)
-F (..\..\..\components\profiles\multiRole\multi.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multi.o --omf_browse .\objects\multi.crf --depend .\objects\multi.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_tl.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_data.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_event.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\host\linkdb.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal_snv.h)(0x6143F976)
-I (..\..\..\components\profiles\Roles\gapbondmgr.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multi.h)(0x6143F976)
-I (.\source\multi_role\multi_role.h)(0x6143F976)
-I (..\..\..\components\driver\flash\flash.h)(0x614582C4)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (.\source\multi_role\multi_timer.h)(0x6143F976)
-I (.\source\multi_role\multi_schedule.h)(0x6143F976)
-F (..\..\..\components\profiles\Roles\gap.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\gap.o --omf_browse .\objects\gap.crf --depend .\objects\gap.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-F (..\..\..\components\profiles\Roles\gapbondmgr.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\gapbondmgr.o --omf_browse .\objects\gapbondmgr.crf --depend .\objects\gapbondmgr.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal_snv.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\host\linkdb.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-I (..\..\..\components\ble\host\gapgattserver.h)(0x6143F976)
-I (..\..\..\components\profiles\Roles\gapbondmgr.h)(0x6143F976)
-F (..\..\..\components\profiles\Roles\gapgattserver.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\gapgattserver.o --omf_browse .\objects\gapgattserver.crf --depend .\objects\gapgattserver.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\host\gapgattserver.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-F (..\..\..\components\profiles\DevInfo\devinfoservice.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\devinfoservice.o --omf_browse .\objects\devinfoservice.crf --depend .\objects\devinfoservice.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\host\linkdb.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\host\gatt_profile_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-I (..\..\..\components\profiles\DevInfo\devinfoservice.h)(0x6143F976)
-F (..\..\..\components\profiles\GATT\gattservapp.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\gattservapp.o --omf_browse .\objects\gattservapp.crf --depend .\objects\gattservapp.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\ble\host\linkdb.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-F (..\..\..\components\profiles\multiRole\multiRoleProfile.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multiroleprofile.o --omf_browse .\objects\multiroleprofile.crf --depend .\objects\multiroleprofile.d)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\host\linkdb.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt_uuid.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-I (..\..\..\components\profiles\Roles\gapbondmgr.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multiRoleProfile.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multi.h)(0x6143F976)
-F (..\..\..\misc\jump_table.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\jump_table.o --omf_browse .\objects\jump_table.crf --depend .\objects\jump_table.d)
-I (..\..\..\misc\jump_function.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_sleep.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\inc\global_config.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Tasks.h)(0x6143F976)
-I (..\..\..\components\ble\controller\rf_phy_driver.h)(0x6143F976)
-I (..\..\..\components\driver\clock\clock.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_hw_drv.h)(0x6143F976)
-I (..\..\..\components\inc\version.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-F (.\source\multi_role\multi_role.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multi_role.o --omf_browse .\objects\multi_role.crf --depend .\objects\multi_role.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_bufmgr.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\host\gapgattserver.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multi.h)(0x6143F976)
-I (..\..\..\components\profiles\Roles\gapbondmgr.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_common.h)(0x6143F976)
-I (..\..\..\components\driver\pwrmgr\pwrmgr.h)(0x6143F976)
-I (..\..\..\components\profiles\DevInfo\devinfoservice.h)(0x6143F976)
-I (..\..\..\components\ble\host\gatt_profile_uuid.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multiRoleProfile.h)(0x6143F976)
-I (source\multi_role\multi_role.h)(0x6143F976)
-I (source\multi_role\multi_schedule.h)(0x6143F976)
-F (.\source\multi_role\multi_role_Main.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multi_role_main.o --omf_browse .\objects\multi_role_main.crf --depend .\objects\multi_role_main.d)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Tasks.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_PwrMgr.h)(0x6143F976)
-F (.\source\multi_role\OSAL_multi_role.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\osal_multi_role.o --omf_browse .\objects\osal_multi_role.crf --depend .\objects\osal_multi_role.d)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Tasks.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_tl.h)(0x6143F976)
-I (..\..\..\components\ble\include\hci.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_data.h)(0x6143F976)
-I (..\..\..\components\ble\hci\hci_event.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal_cbTimer.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\host\gapgattserver.h)(0x6143F976)
-I (..\..\..\components\profiles\Roles\gapbondmgr.h)(0x6143F976)
-I (..\..\..\components\ble\include\gatt.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\host\gattservapp.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multi.h)(0x6143F976)
-I (source\multi_role\multi_role.h)(0x6143F976)
-F (.\source\multi_role\multi_timer.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multi_timer.o --omf_browse .\objects\multi_timer.crf --depend .\objects\multi_timer.d)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (source\multi_role\multi_timer.h)(0x6143F976)
-I (..\..\..\components\osal\include\osal.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-F (.\source\multi_role\multi_schedule.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\multi_schedule.o --omf_browse .\objects\multi_schedule.crf --depend .\objects\multi_schedule.d)
-I (..\..\..\components\inc\types.h)(0x6143F976)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\..\..\components\ble\controller\ll.h)(0x6143F976)
-I (..\..\..\components\ble\include\bcomdef.h)(0x6143F976)
-I (..\..\..\misc\rom_sym_def.h)(0x6143F976)
-I (..\..\..\components\osal\include\comdef.h)(0x6143F976)
-I (..\..\..\components\driver\log\log.h)(0x6143F976)
-I (..\..\..\components\driver\uart\uart.h)(0x6143F976)
-I (..\..\..\components\driver\gpio\gpio.h)(0x6143F976)
-I (..\..\..\components\inc\bus_dev.h)(0x6143F976)
-I (..\..\..\components\inc\mcu.h)(0x6143F976)
-I (..\..\..\components\arch\cm0\core_bumbee_m0.h)(0x614BE549)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)
-I (..\..\..\components\inc\mcu_phy_bumbee.h)(0x61516153)
-I (..\..\..\components\inc\error.h)(0x6143F976)
-I (..\..\..\components\driver\timer\timer.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_def.h)(0x6143F976)
-I (..\..\..\components\ble\controller\ll_buf.h)(0x6143F976)
-I (..\..\..\components\profiles\multiRole\multi.h)(0x6143F976)
-I (..\..\..\components\ble\include\gap.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Memory.h)(0x6143F976)
-I (..\..\..\components\osal\include\OSAL_Timers.h)(0x6143F976)
-I (..\..\..\components\ble\include\sm.h)(0x6143F976)
-I (..\..\..\components\ble\include\att.h)(0x6143F976)
-I (..\..\..\components\ble\include\l2cap.h)(0x6143F976)
-I (source\multi_role\multi_schedule.h)(0x6143F976)
-F (..\..\..\lib\rf.lib)(0x61C05CAA)()
-F (..\..\..\lib\ble_host_multi5.lib)(0x61C05CBB)()
-F (RTE\Device\ARMCM0\startup_ARMCM0.s)(0x6143F976)(--cpu Cortex-M0 --li -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include--pd "__UVISION_VERSION SETA 525" --pd "_RTE_ SETA 1" --pd "ARMCM0 SETA 1"--list .\listings\startup_armcm0.lst --xref -o .\objects\startup_armcm0.o --depend .\objects\startup_armcm0.d)
-F (RTE\Device\ARMCM0\system_ARMCM0.c)(0x6143F976)(--c99 -c --cpu Cortex-M0 -D__MICROLIB --li -g -O2 --apcs=interwork --split_sections -I ..\..\..\components\inc -I ..\..\..\components\ble\host -I ..\..\..\components\ble\hci -I ..\..\..\components\ble\controller -I ..\..\..\components\ble\include -I ..\..\..\components\osal\include -I ..\..\..\components\profiles\Roles -I ..\..\..\components\driver\uart -I ..\..\..\components\profiles\DevInfo -I ..\..\..\components\profiles\ota -I ..\..\..\components\profiles\ota_app -I ..\..\..\components\profiles\SimpleProfile -I ..\..\..\components\driver\log -I ..\..\..\components\driver\pwrmgr -I ..\..\..\components\driver\uart -I ..\..\..\components\driver\clock -I ..\..\..\components\driver\gpio -I ..\..\..\components\driver\adc -I ..\..\..\components\driver\kscan -I ..\..\..\components\driver\flash -I ..\..\..\components\driver\spi -I ..\..\..\components\driver\i2c -I ..\..\..\components\driver\i2s -I ..\..\..\components\driver\timer -I ..\..\..\components\driver\watchdog -I ..\..\..\components\driver\kscan -I ..\..\..\components\libraries\crc16 -I ..\..\..\components\arch\cm0 -I ..\..\..\lib -I ..\..\..\misc -I .\source\multi_role -I ..\..\..\components\profiles\multiRole -I ..\..\..\components\libraries\fs -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 -DHOST_CONFIG=0xc-I.\RTE\_Target_1-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-D__UVISION_VERSION="525" -D_RTE_ -DARMCM0 -DOSALMEM_METRICS="0" -DDBG_ROM_MAIN="0" -DMTU_SIZE="247" -DDEBUG_INFO="1" -D_BUILD_FOR_DTM_="0" -DENABLE_LOG_ROM_="0" -DHOST_CONFIG="0xC" -DHCI_TL_NONE="1" -DOSAL_CBTIMER_NUM_TASKS="1" -DCFG_CP -DPHY_MCU_TYPE="MCU_BUMBEE_M0" -DCFG_SLEEP_MODE="PWR_MODE_NO_SLEEP" -DMULTI_DEBUG -DMAX_NUM_LL_CONN="5"-o .\objects\system_armcm0.o --omf_browse .\objects\system_armcm0.crf --depend .\objects\system_armcm0.d)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\ARMCM0.h)(0x5E8306CE)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8ED122)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E8306C2)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8ED122)
-I (C:\Users\bingshuai.duanmu\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8ED12A)

@@ -1,7 +1,0 @@
---cpu Cortex-M0
-".\objects\startup_phy62xx.o"
-".\objects\system_phy62xx.o"
---strict --scatter ".\Objects\test01.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\Listings\test01.map" -o .\Objects\test01.axf
