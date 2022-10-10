@@ -48,8 +48,8 @@ rf:
 adc:
 - example\peripheral\adc\adc.uvprojx
 
-dmac:
-- example\peripheral\dmac\dmac.uvprojx
+# dmac:
+# - example\peripheral\dmac\dmac.uvprojx
 
 # fs:
 # - example\peripheral\fs\fs.uvprojx
