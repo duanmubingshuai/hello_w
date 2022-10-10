@@ -198,9 +198,8 @@ void __attribute__((used)) hal_ADC_IRQHandler(void)
     uint16_t adc_data[MAX_ADC_SAMPLE_SIZE];
     status = GET_IRQ_STATUS;
     MASK_ADC_INT;
-//		*(volatile uint32*)0x4005005C |= 0x3F<<24; 
-	
-	LOG("INT[%x]\n", status);
+//      *(volatile uint32*)0x4005005C |= 0x3F<<24;
+    LOG("INT[%x]\n", status);
 
     if(status == mAdc_Ctx.all_channel)
     {
@@ -234,10 +233,12 @@ void __attribute__((used)) hal_ADC_IRQHandler(void)
                 }
 
                 AP_ADCC->intr_mask |= BIT(ch);
-								LOG("ch %x ch2 %x\n",ch,ch2);
+                LOG("ch %x ch2 %x\n",ch,ch2);
             }
         }
-				LOG("> %x\n",mAdc_Ctx.all_channel);
+
+        LOG("> %x\n",mAdc_Ctx.all_channel);
+
         if(mAdc_Ctx.continue_mode == FALSE)
         {
             hal_adc_stop();
@@ -275,7 +276,6 @@ void hal_adc_init(void)
 {
     mAdc_init_flg = TRUE;
     hal_pwrmgr_register(MOD_ADCC,NULL,adc_wakeup_hdl);
-	
     clear_adcc_cfg();
 }
 
@@ -297,8 +297,7 @@ int hal_adc_start(void)
         return PPlus_ERR_NOT_REGISTED;
     }
 
-//		*(volatile uint32*)0x4005005C |= 0x3F<<24; 
-		
+//      *(volatile uint32*)0x4005005C |= 0x3F<<24;
     mAdc_Ctx.enable = TRUE;
     hal_pwrmgr_lock(MOD_ADCC);
     JUMP_FUNCTION(ADCC_IRQ_HANDLER)                  =   (uint32_t)&hal_ADC_IRQHandler;
@@ -373,9 +372,7 @@ int hal_adc_config_channel(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
     if((AP_PCR->SW_CLK & BIT(MOD_ADCC)) == 0)
     {
         hal_clk_gate_enable(MOD_ADCC);
-			
-				
-				hal_clk_reset(MOD_ADCC);
+        hal_clk_reset(MOD_ADCC);
     }
 
     //CLK_1P28M_ENABLE;
@@ -387,21 +384,22 @@ int hal_adc_config_channel(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
     //ADC_DBLE_CLOCK_DISABLE;      //disable double 32M clock,we are now use 32M clock,should enable bit<13>, diable bit<21>
 //    AP_PCRM->CLKHF_CTL1 &= ~BIT(21);//check
 //    subWriteReg(0x4000F044,21,20,0);
-		
-		if(cfg.clk == ADC_DBL_32M)
-		{
-				AP_PCRM->CLKHF_CTL1 |= BIT(21);//ENABLE DBL_32M clock
-				AP_PCRM->CLKHF_CTL1 &= ~BIT(20);
-		}
-		else if(cfg.clk == ADC_RC_32M)
-		{
-				AP_PCRM->CLKHF_CTL1 &= ~BIT(21);//ENABLE RC_32M clock
-				AP_PCRM->CLKHF_CTL1 &= ~BIT(20);
-		}
-		else{
-			return PPlus_ERR_NOT_SUPPORTED;
-		}
-		
+
+    if(cfg.clk == ADC_DBL_32M)
+    {
+        AP_PCRM->CLKHF_CTL1 |= BIT(21);//ENABLE DBL_32M clock
+        AP_PCRM->CLKHF_CTL1 &= ~BIT(20);
+    }
+    else if(cfg.clk == ADC_RC_32M)
+    {
+        AP_PCRM->CLKHF_CTL1 &= ~BIT(21);//ENABLE RC_32M clock
+        AP_PCRM->CLKHF_CTL1 &= ~BIT(20);
+    }
+    else
+    {
+        return PPlus_ERR_NOT_SUPPORTED;
+    }
+
     //ADC_CLOCK_ENABLE;            //adc clock enbale,always use clk_32M
     AP_PCRM->CLKHF_CTL1 |= BIT(13);
     //subWriteReg(0x4000f07c,4,4,1);    //set adc mode,1:mannual,0:auto mode
@@ -440,7 +438,7 @@ int hal_adc_config_channel(adc_Cfg_t cfg, adc_Hdl_t evt_handler)
                 case 1:
                     AP_PCRM->ADC_CTL0 |= BIT(4);
                     break;
- 
+
                 case 2:
                     AP_PCRM->ADC_CTL1 |= BIT(20);
                     break;
@@ -564,16 +562,13 @@ int hal_adc_stop(void)
     AP_PCRM->ANA_CTL &= ~BIT(0);//Power down analog LDO
     hal_clk_gate_disable(MOD_ADCC);
     clear_adcc_cfg();
-		
-	AP_ADCC->intr_mask = 0x1ff;
+    AP_ADCC->intr_mask = 0x1ff;
     NVIC_DisableIRQ((IRQn_Type)ADCC_IRQn);
     JUMP_FUNCTION(ADCC_IRQ_HANDLER)                  =   0;
-	NVIC_ClearPendingIRQ((IRQn_Type)ADCC_IRQn);
-		
+    NVIC_ClearPendingIRQ((IRQn_Type)ADCC_IRQn);
     //enableSleep();
     hal_pwrmgr_unlock(MOD_ADCC);
-		
-		LOG("\n\n\n");
+    LOG("\n\n\n");
     return PPlus_SUCCESS;
 }
 
@@ -649,16 +644,14 @@ float hal_adc_value_cal(adc_CH_t ch,uint16_t* buf, uint32_t size, uint8_t high_r
     for (i = 0; i < size; i++)
     {
         adc_sum += (buf[i]&0xfff);
-				
-				//LOG("addr[%d] = 0x%x\n", i, buf[i]);
-				
+        //LOG("addr[%d] = 0x%x\n", i, buf[i]);
     }
 
     hal_adc_load_calibration_value();
     result = ((float)adc_sum)/size;
-
     //LOG("adc_sum:%10d %10d ",adc_sum,adc_sum/(MAX_ADC_SAMPLE_SIZE-3));
-		LOG("ch:%d value:%d %dmV\n",ch,adc_sum/size, ((adc_sum/size)*800/4096));
+    LOG("ch:%d value:%d %dmV\n",ch,adc_sum/size, ((adc_sum/size)*800/4096));
+
     if((adc_cal_postive!=0xfff)&&(adc_cal_negtive!=0xfff))
     {
         float delta = ((int)(adc_cal_postive-adc_cal_negtive))/2.0;

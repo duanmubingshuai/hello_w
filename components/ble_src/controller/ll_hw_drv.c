@@ -398,9 +398,8 @@ void ll_hw_trigger0(void)
 */
 void ll_hw_clr_irq(void)
 {
-	//#define LL_HW_BASE  		0x40031000
-	//#define LL_HW_IRQ_MASK  	0x3FFF
-	
+    //#define LL_HW_BASE        0x40031000
+    //#define LL_HW_IRQ_MASK    0x3FFF
     *(volatile uint32_t*)(LL_HW_BASE+ 0x14) = LL_HW_IRQ_MASK;
 }
 

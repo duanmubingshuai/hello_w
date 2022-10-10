@@ -242,7 +242,7 @@ int  main(void)
     rf_phy_direct_test();
     #endif
     LOG("SDK Version ID %08x \n",SDK_VER_RELEASE_ID);
-	  LOG("sysclk=%d\n",g_system_clk);
+    LOG("sysclk=%d\n",g_system_clk);
     LOG("rfClk %d rcClk %d sysClk %d tpCap[%02x %02x]\n",g_rfPhyClkSel,g_clk32K_config,g_system_clk,g_rfPhyTpCal0,g_rfPhyTpCal1);
     LOG("sizeof(struct ll_pkt_desc) = %d, buf size = %d\n", sizeof(struct ll_pkt_desc), BLE_CONN_BUF_SIZE);
     LOG("sizeof(g_pConnectionBuffer) = %d, sizeof(pConnContext) = %d, sizeof(largeHeap)=%d \n",\

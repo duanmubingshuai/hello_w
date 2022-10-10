@@ -167,7 +167,7 @@ typedef enum
 
 typedef struct _adc_Cfg_t
 {
-		uint8_t clk;
+    uint8_t clk;
     uint8_t channel;
     bool  is_continue_mode;
     uint8_t  is_differential_mode;
