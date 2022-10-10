@@ -9,12 +9,15 @@ import git
 import yaml
 from datetime import datetime
 
-giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
-gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
+# giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
+# gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
 #for test
 #giturl = 'git@git.phyplusinc.com:yu.zheng/bbb_sdk.git'
 #gitreleaseurl = 'git@git.phyplusinc.com:yu.zheng/hello_w.git'
 #locallocation = '../git_python/clone3'
+
+giturl = 'git@github.com:duanmubingshuai/pico_test.git'
+gitreleaseurl = 'git@github.com:duanmubingshuai/hello_w.git'
 
 locallocation = os.path.dirname(os.path.realpath(__file__))
 locallocation = os.path.dirname(locallocation)
