@@ -1,0 +1,50 @@
+---
+# release tag name @ current repo
+# ReleaseTagName：该源仓库地址设置的标签名称
+ReleaseTagName: 
+- tag4 
+
+# ReleaseBranchName：推送到目标仓库的分支名称
+ReleaseBranchName:
+- PHY4
+
+#build config
+# - yaml file
+# BuildConfig：推送的SDK版本需要编译的工程列表
+BuildConfig: 
+- bld_v314
+
+#Protect file config
+
+ProtectFile:
+# ProtectFile.rls_example: 推送的SDK版本需要 编译的工程列表，可参考bld_example.yml文件
+- rls_example:
+  - bld_example.yml
+  
+# ProtectFile.remove_file：推送的SDK版本需要去掉的部分文件
+- remove_file:
+  - misc\*.asm 
+  - misc\*.map 
+  - misc\*.axf 
+  - lib\aoxEst.lib 
+  - lib\sec_boot.lib
+  - lib\rf_dtm_HopeRF_*.lib
+  - lib\lib_efuse3.lib
+  - '*.py'
+  - '*.txt'
+  
+# ProtectFile.remove_folder：推送的SDK版本需要去掉的部分文件夹
+- remove_folder:
+  - lib\generate_lib\
+  - lib\generate_ble_host_lib\
+  - lib\generate_sec_lib\
+  - lib\generate_aoxEst_lib\
+  - lib\generate_multiConn_lib\
+  - lib\generate_mesh_lib\
+  - lib\generate_efuse_lib\
+  - lib\include\
+  - components\libraries\dfl\
+  - components\libraries\dwc\
+  - components\libraries\libc\
+  - components\aoxEst\
+  - components\ble_src\
